@@ -7,7 +7,7 @@ var searchData=
   ['path_4',['path',['../dc/d2c/classfloppy_1_1configuration__file.html#a8a9d6c204de1b0e268bca4dcf2f74488',1,'floppy::configuration_file']]],
   ['path_5fseparator_5',['path_separator',['../d6/d7f/classfloppy_1_1platform.html#a59111e456e3bfba78f27d52c59121b2a',1,'floppy::platform']]],
   ['pathscale_6',['pathscale',['../d6/d7f/classfloppy_1_1platform.html#a866af73ee3000fd42ac2778c7d15678ca6d187e1e0278e55df4973764d97a18fd',1,'floppy::platform']]],
-  ['pi_7',['pi',['../d7/d57/structfloppy_1_1numbers_1_1pi.html',1,'pi&lt; T &gt;'],['../d7/d57/structfloppy_1_1numbers_1_1pi.html',1,'pi&lt; T &gt;']]],
+  ['pi_7',['pi',['../d2/d47/structfloppy_1_1math_1_1numbers_1_1pi.html',1,'pi&lt; T &gt;'],['../d2/d47/structfloppy_1_1math_1_1numbers_1_1pi.html',1,'pi&lt; T &gt;']]],
   ['pimpl_8',['pimpl',['../d7/db2/namespacefloppy_1_1traits.html#ae8263662bb2da92276fbe82282582f5e',1,'floppy::traits']]],
   ['pin_9',['pin',['../d7/dac/structfloppy_1_1traits_1_1pin.html',1,'floppy::traits']]],
   ['plain_5ftype_10',['plain_type',['../d3/d05/namespacefloppy.html#d8/d14/structfloppy_1_1plain__type',1,'floppy']]],

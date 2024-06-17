@@ -25,10 +25,10 @@ var hierarchy =
     [ "non_movable< T >", "d2/df5/structfloppy_1_1traits_1_1non__movable.html", [
       [ "pin< T >", "d7/dac/structfloppy_1_1traits_1_1pin.html", null ]
     ] ],
-    [ "number_base< T, V >", "d6/d0f/structfloppy_1_1numbers_1_1detail_1_1number__base.html", [
-      [ "pi< T >", "d7/d57/structfloppy_1_1numbers_1_1pi.html", null ]
+    [ "number_base< T, V >", "d9/d04/structfloppy_1_1math_1_1numbers_1_1detail_1_1number__base.html", [
+      [ "pi< T >", "d2/d47/structfloppy_1_1math_1_1numbers_1_1pi.html", null ]
     ] ],
-    [ "number_base< f64, std::numbers::pi >", "d6/d0f/structfloppy_1_1numbers_1_1detail_1_1number__base.html", null ],
+    [ "number_base< f64, std::numbers::pi >", "d9/d04/structfloppy_1_1math_1_1numbers_1_1detail_1_1number__base.html", null ],
     [ "one_of< U, T >", "d8/dca/structfloppy_1_1one__of.html", null ],
     [ "plain_type< T >", "d3/d05/namespacefloppy.html#d8/d14/structfloppy_1_1plain__type", null ],
     [ "platform", "d6/d7f/classfloppy_1_1platform.html", null ],
