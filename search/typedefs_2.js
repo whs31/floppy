@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['option_0',['option',['../dd/d72/namespacefloppy_1_1types.html#aa202473f296b2492d9239773369181af',1,'floppy::option'],['../dd/d72/namespacefloppy_1_1types.html#aa202473f296b2492d9239773369181af',1,'floppy::types::option']]]
+  ['destination_5ftype_0',['destination_type',['../structfloppy_1_1math_1_1scale.html#ade7958c1143337a2576cd6ef72ffe368',1,'floppy::math::scale']]]
 ];

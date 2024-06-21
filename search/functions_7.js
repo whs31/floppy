@@ -1,7 +1,17 @@
 var searchData=
 [
-  ['line_0',['line',['../d5/d44/structfloppy_1_1source__location.html#a045aa753ae450e5f2a63358a7778c7e2',1,'floppy::source_location']]],
-  ['load_1',['load',['../dc/d2c/classfloppy_1_1configuration__file.html#a99cee9c7e5c0dd9718420e2f43695490',1,'floppy::configuration_file']]],
-  ['log_2',['log',['../d5/ddf/namespacefloppy_1_1math.html#a42b9d9a7dff8b3db60c6e956976745c3',1,'floppy::math::log(T base, T num) -&gt; T'],['../d5/ddf/namespacefloppy_1_1math.html#a1de30a44dfef08af9546a545e064b4bb',1,'floppy::math::log(T num) -&gt; T'],['../d1/d93/namespacefloppy_1_1log.html#a9eaa5f9efa4ba3467f22464b2a28ce91',1,'floppy::log::log(level::level_enum level, fmt::format_string&lt; Args... &gt; const &amp;fmt, Args &amp;&amp;... args) -&gt; void']]],
-  ['log_5fto_3',['log_to',['../d1/d93/namespacefloppy_1_1log.html#ae11a5862435d90c485efc280eb240a35',1,'floppy::log']]]
+  ['half_5fpi_0',['half_pi',['../structfloppy_1_1math_1_1angle.html#a8b67ad1f8ab287735ddf7ad085f6f52a',1,'floppy::math::angle']]],
+  ['height_1',['height',['../classfloppy_1_1math_1_1size2d.html#a7e5cfac001ae565a585378d14ad8106f',1,'floppy::math::size2d']]],
+  ['height_5fmut_2',['height_mut',['../classfloppy_1_1math_1_1size2d.html#a33e1ed57ad8df2e94d1006a09b8c6809',1,'floppy::math::size2d']]],
+  ['height_5ftyped_3',['height_typed',['../classfloppy_1_1math_1_1size2d.html#affd11fefebe7d6d6b55818e0ab38627e',1,'floppy::math::size2d']]],
+  ['hsl_4',['hsl',['../classfloppy_1_1gfx_1_1color.html#af0ce8a2d5fa72bc1accc545ea246a0b3',1,'floppy::gfx::color']]],
+  ['hsl_5ft_5',['hsl_t',['../structfloppy_1_1gfx_1_1color_1_1hsl__t.html#a76c21e15d483ee67873a04b0cbceeebd',1,'floppy::gfx::color::hsl_t']]],
+  ['hsla_6',['hsla',['../classfloppy_1_1gfx_1_1color.html#afaf72956701e3a867b9ce319896bdb0d',1,'floppy::gfx::color']]],
+  ['hsla_5ft_7',['hsla_t',['../structfloppy_1_1gfx_1_1color_1_1hsla__t.html#acd023abb23e2d292dd93e7fe23e531d3',1,'floppy::gfx::color::hsla_t']]],
+  ['hsv_8',['hsv',['../classfloppy_1_1gfx_1_1color.html#af6d5729507905f4ce221e18c2d36f3a9',1,'floppy::gfx::color']]],
+  ['hsv_5ft_9',['hsv_t',['../structfloppy_1_1gfx_1_1color_1_1hsv__t.html#a3d2de22a87266e1a438983755a2592e1',1,'floppy::gfx::color::hsv_t']]],
+  ['hsva_10',['hsva',['../classfloppy_1_1gfx_1_1color.html#a99eaea7fdfe9d8493594eefc83264d29',1,'floppy::gfx::color']]],
+  ['hsva_5ft_11',['hsva_t',['../structfloppy_1_1gfx_1_1color_1_1hsva__t.html#a2a82335045fae37c09e1dee1c9389e1a',1,'floppy::gfx::color::hsva_t']]],
+  ['hue_12',['hue',['../classfloppy_1_1gfx_1_1color.html#acbb5da22fda7d5fc33c7327bbd9c19e8',1,'floppy::gfx::color']]],
+  ['huef_13',['huef',['../classfloppy_1_1gfx_1_1color.html#a21461e0b7c7939fe088d26d4cd3fe32b',1,'floppy::gfx::color']]]
 ];
