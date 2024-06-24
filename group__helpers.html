@@ -59,7 +59,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo-tmp.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Floppy
-   &#160;<span id="projectnumber">1.2.0</span>
+   &#160;<span id="projectnumber">1.2.2</span>
    </div>
    <div id="projectbrief">Extensions for C++ stdlib</div>
   </td>
@@ -499,15 +499,28 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= project_meta(</div>
-<div class="line">      version(CMAKE_PROJECT_VERSION_MAJOR, CMAKE_PROJECT_VERSION_MINOR, CMAKE_PROJECT_VERSION_PATCH),</div>
-<div class="line">      std::string_view(stringify$(CMAKE_TARGET_NAME)),</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">      version(0, 0, 0),</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">      std::string_view(<span class="stringliteral">&quot;floppy&quot;</span>),</div>
+<div class="line"> </div>
 <div class="line">      <span class="stringliteral">&quot;io.github.whs31&quot;</span>,</div>
 <div class="line">      <span class="stringliteral">&quot;whs31&quot;</span></div>
 <div class="line">    )</div>
 </div><!-- fragment -->
 <p>Project metadata object, available at compile-time. </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug</a></b></dt><dd>When building via Conan, this variable can be defined with default values instead of actual version and target name. This will be fixed in the future releases. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="export_8h_source.html#l00148">148</a> of file <a class="el" href="export_8h_source.html">export.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="export_8h_source.html#l00150">150</a> of file <a class="el" href="export_8h_source.html">export.h</a>.</p>
 
 </div>
 </div>
@@ -554,7 +567,7 @@ template&lt;typename U , typename... T&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jun 21 2024 for Floppy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Mon Jun 24 2024 for Floppy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>

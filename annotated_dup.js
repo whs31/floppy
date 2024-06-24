@@ -49,6 +49,7 @@ var annotated_dup =
         [ "pin", "structfloppy_1_1traits_1_1pin.html", null ],
         [ "singleton", "structfloppy_1_1traits_1_1singleton.html", "structfloppy_1_1traits_1_1singleton" ]
       ] ],
+      [ "box", "classfloppy_1_1box.html", "classfloppy_1_1box" ],
       [ "configuration_file", "classfloppy_1_1configuration__file.html", "classfloppy_1_1configuration__file" ],
       [ "one_of", "structfloppy_1_1one__of.html", "structfloppy_1_1one__of" ],
       [ "ostream_formatter", "structfloppy_1_1ostream__formatter.html", "structfloppy_1_1ostream__formatter" ],
@@ -57,9 +58,18 @@ var annotated_dup =
       [ "source_location", "structfloppy_1_1source__location.html", "structfloppy_1_1source__location" ]
     ] ],
     [ "fmt", null, [
+      [ "formatter< enum floppy::platform::compiler >", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1compiler_01_4.html", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1compiler_01_4" ],
+      [ "formatter< enum floppy::platform::endianness >", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1endianness_01_4.html", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1endianness_01_4" ],
+      [ "formatter< enum floppy::platform::operating_system >", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1operating__system_01_4.html", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1operating__system_01_4" ],
       [ "formatter< floppy::meta::project_meta >", "structfmt_1_1formatter_3_01floppy_1_1meta_1_1project__meta_01_4.html", "structfmt_1_1formatter_3_01floppy_1_1meta_1_1project__meta_01_4" ],
       [ "formatter< floppy::meta::version >", "structfmt_1_1formatter_3_01floppy_1_1meta_1_1version_01_4.html", "structfmt_1_1formatter_3_01floppy_1_1meta_1_1version_01_4" ],
+      [ "formatter< floppy::platform >", "structfmt_1_1formatter_3_01floppy_1_1platform_01_4.html", "structfmt_1_1formatter_3_01floppy_1_1platform_01_4" ],
+      [ "formatter< floppy::platform::arch >", "structfmt_1_1formatter_3_01floppy_1_1platform_1_1arch_01_4.html", "structfmt_1_1formatter_3_01floppy_1_1platform_1_1arch_01_4" ],
+      [ "formatter< floppy::platform::vendor >", "structfmt_1_1formatter_3_01floppy_1_1platform_1_1vendor_01_4.html", "structfmt_1_1formatter_3_01floppy_1_1platform_1_1vendor_01_4" ],
       [ "formatter< floppy::source_location >", "structfmt_1_1formatter_3_01floppy_1_1source__location_01_4.html", "structfmt_1_1formatter_3_01floppy_1_1source__location_01_4" ],
       [ "formatter< T >", "structfmt_1_1formatter_3_01T_01_4.html", "structfmt_1_1formatter_3_01T_01_4" ]
+    ] ],
+    [ "std", "namespacestd.html", [
+      [ "hash< floppy::box< T > >", "structstd_1_1hash_3_01floppy_1_1box_3_01T_01_4_01_4.html", null ]
     ] ]
 ];
