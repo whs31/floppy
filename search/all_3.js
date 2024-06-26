@@ -28,5 +28,6 @@ var searchData=
   ['div_5feuclid_25',['div_euclid',['../classfloppy_1_1math_1_1point2d.html#a2e36f43b15dd31047fab42d0f48009ec',1,'floppy::math::point2d::div_euclid()'],['../group__calc.html#ga751139c04bc5de9f5873901e61a031ed',1,'floppy::math::div_euclid()']]],
   ['domain_26',['domain',['../classfloppy_1_1meta_1_1project__meta.html#adeb5281b7ff8433975b337a1f47562a5',1,'floppy::meta::project_meta']]],
   ['dot_27',['dot',['../structfloppy_1_1math_1_1detail_1_1basic__two__dimensional__type.html#a490d4db84a5929cbf01a0f774e2690fb',1,'floppy::math::detail::basic_two_dimensional_type']]],
-  ['dragonfly_28',['dragonfly',['../classfloppy_1_1platform.html#a25a1e653be2d434f69095f1dcd357985a7fc8baba8e7696d6c3b286f738245592',1,'floppy::platform']]]
+  ['downcast_28',['downcast',['../classfloppy_1_1box.html#abe368dfa6539495b3e7dfbb4b52ee711',1,'floppy::box']]],
+  ['dragonfly_29',['dragonfly',['../classfloppy_1_1platform.html#a25a1e653be2d434f69095f1dcd357985a7fc8baba8e7696d6c3b286f738245592',1,'floppy::platform']]]
 ];
