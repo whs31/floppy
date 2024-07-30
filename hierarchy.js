@@ -2,8 +2,6 @@ var hierarchy =
 [
     [ "application_dirs", "classfloppy_1_1filesystem_1_1application__dirs.html", null ],
     [ "box< T >", "classfloppy_1_1box.html", null ],
-    [ "cmyk_t", "structfloppy_1_1gfx_1_1color_1_1cmyk__t.html", null ],
-    [ "cmyka_t", "structfloppy_1_1gfx_1_1color_1_1cmyka__t.html", null ],
     [ "configuration_file< F, T >", "classfloppy_1_1configuration__file.html", null ],
     [ "default_comparable< T >", "structfloppy_1_1math_1_1detail_1_1default__comparable.html", [
       [ "basic_numeric_newtype< angle< f32 >, U >", "structfloppy_1_1math_1_1detail_1_1basic__numeric__newtype.html", null ],
@@ -34,14 +32,16 @@ var hierarchy =
       [ "formattable< color, char >", "structfloppy_1_1traits_1_1formattable.html", [
         [ "color", "classfloppy_1_1gfx_1_1color.html", null ]
       ] ],
+      [ "formattable< color::hsv_t, char >", "structfloppy_1_1traits_1_1formattable.html", [
+        [ "cmyk_t", "structfloppy_1_1gfx_1_1color_1_1cmyk__t.html", null ],
+        [ "cmyka_t", "structfloppy_1_1gfx_1_1color_1_1cmyka__t.html", null ],
+        [ "hsv_t", "structfloppy_1_1gfx_1_1color_1_1hsv__t.html", null ]
+      ] ],
       [ "formattable< color::hsl_t, char >", "structfloppy_1_1traits_1_1formattable.html", [
         [ "hsl_t", "structfloppy_1_1gfx_1_1color_1_1hsl__t.html", null ]
       ] ],
       [ "formattable< color::hsla_t, char >", "structfloppy_1_1traits_1_1formattable.html", [
         [ "hsla_t", "structfloppy_1_1gfx_1_1color_1_1hsla__t.html", null ]
-      ] ],
-      [ "formattable< color::hsv_t, char >", "structfloppy_1_1traits_1_1formattable.html", [
-        [ "hsv_t", "structfloppy_1_1gfx_1_1color_1_1hsv__t.html", null ]
       ] ],
       [ "formattable< color::hsva_t, char >", "structfloppy_1_1traits_1_1formattable.html", [
         [ "hsva_t", "structfloppy_1_1gfx_1_1color_1_1hsva__t.html", null ]
@@ -69,7 +69,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "formattable_base< char >", "structfloppy_1_1traits_1_1detail_1_1formattable__base.html", null ],
-    [ "formatter", null, [
+    [ "formatter", "structfmt_1_1formatter.html", [
       [ "ostream_formatter< char >", "structfloppy_1_1ostream__formatter.html", [
         [ "formatter< enum floppy::platform::compiler >", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1compiler_01_4.html", null ],
         [ "formatter< enum floppy::platform::endianness >", "structfmt_1_1formatter_3_01enum_01floppy_1_1platform_1_1endianness_01_4.html", null ],
@@ -83,6 +83,8 @@ var hierarchy =
       ] ],
       [ "ostream_formatter< C >", "structfloppy_1_1ostream__formatter.html", null ]
     ] ],
+    [ "formatter< std::basic_string_view< C >, C >", "structfmt_1_1formatter.html", null ],
+    [ "formatter< std::basic_string_view< char >, char >", "structfmt_1_1formatter.html", null ],
     [ "formatter< T >", "structfmt_1_1formatter_3_01T_01_4.html", null ],
     [ "hash< floppy::box< T > >", "structstd_1_1hash_3_01floppy_1_1box_3_01T_01_4_01_4.html", null ],
     [ "non_copyable< T >", "structfloppy_1_1traits_1_1non__copyable.html", [

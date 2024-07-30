@@ -14,7 +14,7 @@
 <!-- BEGIN twitter metadata -->
 <meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
 <meta name="twitter:title" content="Documentation for the Floppy library" />
-<meta name="twitter:description" content=""https://whs31.github.io/floppy" />
+<meta name="twitter:description" content="https://whs31.github.io/floppy" />
 <!-- END twitter metadata -->
 <title>Floppy: Aliases</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -59,7 +59,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo-tmp.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Floppy
-   &#160;<span id="projectnumber">1.2.2</span>
+   &#160;<span id="projectnumber">1.2.5</span>
    </div>
    <div id="projectbrief">Extensions for C++ stdlib</div>
   </td>
@@ -144,6 +144,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:gaa476e7c28990de9d1f5807d18d97d2ea" id="r_gaa476e7c28990de9d1f5807d18d97d2ea"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa476e7c28990de9d1f5807d18d97d2ea">bytearray</a> = std::vector&lt;std::byte&gt;</td></tr>
+<tr class="separator:gaa476e7c28990de9d1f5807d18d97d2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9910a22d4c37a8bbb94c1c8d9aedb6de" id="r_ga9910a22d4c37a8bbb94c1c8d9aedb6de"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9910a22d4c37a8bbb94c1c8d9aedb6de">bytearray_view</a> = std::span&lt;std::byte const&gt;</td></tr>
+<tr class="separator:ga9910a22d4c37a8bbb94c1c8d9aedb6de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga648837c945db0be1ada62a296cbe6624" id="r_ga648837c945db0be1ada62a296cbe6624"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga648837c945db0be1ada62a296cbe6624">bytearray_view_mut</a> = std::span&lt;std::byte&gt;</td></tr>
+<tr class="separator:ga648837c945db0be1ada62a296cbe6624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa202473f296b2492d9239773369181af" id="r_gaa202473f296b2492d9239773369181af"><td class="memTemplParams" colspan="2">template&lt;std::destructible T&gt; </td></tr>
 <tr class="memitem:gaa202473f296b2492d9239773369181af"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaa202473f296b2492d9239773369181af">option</a> = std::optional&lt;T&gt;</td></tr>
 <tr class="separator:gaa202473f296b2492d9239773369181af"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,6 +159,14 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga36694535c2e0b46d1e65a74f12130077" id="r_ga36694535c2e0b46d1e65a74f12130077"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ga36694535c2e0b46d1e65a74f12130077"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga36694535c2e0b46d1e65a74f12130077">error</a> (std::string_view format, Args &amp;&amp;... args) -&gt; detail::unexpected&lt; std::decay_t&lt; std::string &gt; &gt;</td></tr>
+<tr class="separator:ga36694535c2e0b46d1e65a74f12130077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6cd767346c4db58bd1b50716043dbe41" id="r_ga6cd767346c4db58bd1b50716043dbe41"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ga6cd767346c4db58bd1b50716043dbe41"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga6cd767346c4db58bd1b50716043dbe41">ok</a> (T &amp;&amp;t) -&gt; detail::expected&lt; std::decay_t&lt; T &gt;, std::string &gt;</td></tr>
+<tr class="separator:ga6cd767346c4db58bd1b50716043dbe41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3601c452e64e71f68f515fa7e56a47f1" id="r_ga3601c452e64e71f68f515fa7e56a47f1"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3601c452e64e71f68f515fa7e56a47f1">ok</a> () -&gt; <a class="el" href="namespacefloppy_1_1types.html#a3a100aaa5a4c5f9fe1f4b8175e360db8">result</a>&lt;&gt;</td></tr>
+<tr class="separator:ga3601c452e64e71f68f515fa7e56a47f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5b788689cac7bc0f3b593775123aaaee" id="r_ga5b788689cac7bc0f3b593775123aaaee"><td class="memTemplParams" colspan="2">template&lt;std::destructible T&gt; </td></tr>
 <tr class="memitem:ga5b788689cac7bc0f3b593775123aaaee"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga5b788689cac7bc0f3b593775123aaaee">some</a> (T &amp;&amp;t) -&gt; <a class="el" href="#gaa202473f296b2492d9239773369181af">option</a>&lt; std::decay_t&lt; T &gt; &gt;</td></tr>
 <tr class="separator:ga5b788689cac7bc0f3b593775123aaaee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +179,66 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Aliases for types. </p>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="gaa476e7c28990de9d1f5807d18d97d2ea" name="gaa476e7c28990de9d1f5807d18d97d2ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa476e7c28990de9d1f5807d18d97d2ea">&#9670;&#160;</a></span>bytearray</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#gaa476e7c28990de9d1f5807d18d97d2ea">bytearray</a> = std::vector&lt;std::byte&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for <code>std::vector&lt;std::byte&gt;</code>. </p>
+<p>Provides owning byte array.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#ga9910a22d4c37a8bbb94c1c8d9aedb6de" title="Alias for std::span&lt;std::byte const&gt;.">bytearray_view</a>, <a class="el" href="#ga648837c945db0be1ada62a296cbe6624" title="Alias for std::span&lt;std::byte&gt;.">bytearray_view_mut</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="bytearray_8h_source.html#l00013">13</a> of file <a class="el" href="bytearray_8h_source.html">bytearray.h</a>.</p>
+
+</div>
+</div>
+<a id="ga9910a22d4c37a8bbb94c1c8d9aedb6de" name="ga9910a22d4c37a8bbb94c1c8d9aedb6de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9910a22d4c37a8bbb94c1c8d9aedb6de">&#9670;&#160;</a></span>bytearray_view</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga9910a22d4c37a8bbb94c1c8d9aedb6de">bytearray_view</a> = std::span&lt;std::byte const&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for <code>std::span&lt;std::byte const&gt;</code>. </p>
+<p>Provides non-owning view over a byte array.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#gaa476e7c28990de9d1f5807d18d97d2ea" title="Alias for std::vector&lt;std::byte&gt;.">bytearray</a>, <a class="el" href="#ga648837c945db0be1ada62a296cbe6624" title="Alias for std::span&lt;std::byte&gt;.">bytearray_view_mut</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="bytearray_8h_source.html#l00020">20</a> of file <a class="el" href="bytearray_8h_source.html">bytearray.h</a>.</p>
+
+</div>
+</div>
+<a id="ga648837c945db0be1ada62a296cbe6624" name="ga648837c945db0be1ada62a296cbe6624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga648837c945db0be1ada62a296cbe6624">&#9670;&#160;</a></span>bytearray_view_mut</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga648837c945db0be1ada62a296cbe6624">bytearray_view_mut</a> = std::span&lt;std::byte&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for <code>std::span&lt;std::byte&gt;</code>. </p>
+<p>Provides mutable non-owning view over a byte array.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#gaa476e7c28990de9d1f5807d18d97d2ea" title="Alias for std::vector&lt;std::byte&gt;.">bytearray</a>, <a class="el" href="#ga9910a22d4c37a8bbb94c1c8d9aedb6de" title="Alias for std::span&lt;std::byte const&gt;.">bytearray_view</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="bytearray_8h_source.html#l00027">27</a> of file <a class="el" href="bytearray_8h_source.html">bytearray.h</a>.</p>
+
+</div>
+</div>
 <a id="gaa202473f296b2492d9239773369181af" name="gaa202473f296b2492d9239773369181af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaa202473f296b2492d9239773369181af">&#9670;&#160;</a></span>option</h2>
 
@@ -187,16 +261,16 @@ template&lt;std::destructible T&gt; </div>
 <div class="line">   <span class="keywordflow">return</span> <a class="code hl_variable" href="#ga9365b793fe547271e48fa719a7f4854d">none</a>;</div>
 <div class="line">  <span class="keywordflow">return</span> <a class="code hl_function" href="#ga5b788689cac7bc0f3b593775123aaaee">some</a>(vec.front());</div>
 <div class="line">}</div>
-<div class="ttc" id="agroup__aliases_html_ga5b788689cac7bc0f3b593775123aaaee"><div class="ttname"><a href="#ga5b788689cac7bc0f3b593775123aaaee">floppy::types::some</a></div><div class="ttdeci">auto some(T &amp;&amp;t) -&gt; option&lt; std::decay_t&lt; T &gt; &gt;</div><div class="ttdoc">Helper function for option.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00057">types.h:57</a></div></div>
-<div class="ttc" id="agroup__aliases_html_ga9365b793fe547271e48fa719a7f4854d"><div class="ttname"><a href="#ga9365b793fe547271e48fa719a7f4854d">floppy::types::none</a></div><div class="ttdeci">constexpr auto none</div><div class="ttdoc">Helper function for option.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00065">types.h:65</a></div></div>
-<div class="ttc" id="agroup__aliases_html_gaa202473f296b2492d9239773369181af"><div class="ttname"><a href="#gaa202473f296b2492d9239773369181af">floppy::types::option</a></div><div class="ttdeci">std::optional&lt; T &gt; option</div><div class="ttdoc">&lt; Alias for unsigned long long.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00050">types.h:50</a></div></div>
+<div class="ttc" id="agroup__aliases_html_ga5b788689cac7bc0f3b593775123aaaee"><div class="ttname"><a href="#ga5b788689cac7bc0f3b593775123aaaee">floppy::types::some</a></div><div class="ttdeci">auto some(T &amp;&amp;t) -&gt; option&lt; std::decay_t&lt; T &gt; &gt;</div><div class="ttdoc">Helper function for option.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00115">types.h:115</a></div></div>
+<div class="ttc" id="agroup__aliases_html_ga9365b793fe547271e48fa719a7f4854d"><div class="ttname"><a href="#ga9365b793fe547271e48fa719a7f4854d">floppy::types::none</a></div><div class="ttdeci">constexpr auto none</div><div class="ttdoc">Helper function for option.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00123">types.h:123</a></div></div>
+<div class="ttc" id="agroup__aliases_html_gaa202473f296b2492d9239773369181af"><div class="ttname"><a href="#gaa202473f296b2492d9239773369181af">floppy::types::option</a></div><div class="ttdeci">std::optional&lt; T &gt; option</div><div class="ttdoc">&lt; Alias for unsigned long long.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00051">types.h:51</a></div></div>
 </div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ga5b788689cac7bc0f3b593775123aaaee" title="Helper function for option.">some</a> </dd>
 <dd>
 <a class="el" href="#ga9365b793fe547271e48fa719a7f4854d" title="Helper function for option.">none</a> </dd>
 <dd>
 <a href="https://en.cppreference.com/w/cpp/utility/optional">https://en.cppreference.com/w/cpp/utility/optional</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00050">50</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00051">51</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -216,11 +290,90 @@ template&lt;typename T &gt; </div>
 
 <p>Shortcut for <code>std::reference_wrapper</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00071">71</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00129">129</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga36694535c2e0b46d1e65a74f12130077" name="ga36694535c2e0b46d1e65a74f12130077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga36694535c2e0b46d1e65a74f12130077">&#9670;&#160;</a></span>error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto error </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>format</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;) -&gt; detail::unexpected&lt;std::decay_t&lt;std::string&gt;&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function for <code>result</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00093">93</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+
+</div>
+</div>
+<a id="ga6cd767346c4db58bd1b50716043dbe41" name="ga6cd767346c4db58bd1b50716043dbe41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6cd767346c4db58bd1b50716043dbe41">&#9670;&#160;</a></span>ok() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto ok </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td> -&gt; detail::expected&lt;std::decay_t&lt;T&gt;, std::string&gt; </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper function for <code>result</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00101">101</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+
+</div>
+</div>
+<a id="ga3601c452e64e71f68f515fa7e56a47f1" name="ga3601c452e64e71f68f515fa7e56a47f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3601c452e64e71f68f515fa7e56a47f1">&#9670;&#160;</a></span>ok() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto ok </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> -&gt; <a class="el" href="namespacefloppy_1_1types.html#a3a100aaa5a4c5f9fe1f4b8175e360db8">result</a>&lt;&gt; </td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper function for <code>result</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00108">108</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+
+</div>
+</div>
 <a id="ga5b788689cac7bc0f3b593775123aaaee" name="ga5b788689cac7bc0f3b593775123aaaee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5b788689cac7bc0f3b593775123aaaee">&#9670;&#160;</a></span>some()</h2>
 
@@ -241,7 +394,7 @@ template&lt;std::destructible T&gt; </div>
 <p>Helper function for <a class="el" href="#gaa202473f296b2492d9239773369181af">option</a>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ga9365b793fe547271e48fa719a7f4854d" title="Helper function for option.">none</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00057">57</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00115">115</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -269,7 +422,7 @@ template&lt;std::destructible T&gt; </div>
 <p>Helper function for <a class="el" href="#gaa202473f296b2492d9239773369181af">option</a>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ga5b788689cac7bc0f3b593775123aaaee" title="Helper function for option.">some</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00065">65</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00123">123</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -278,7 +431,7 @@ template&lt;std::destructible T&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Jun 26 2024 for Floppy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generated on Tue Jul 30 2024 for Floppy by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
 </body>
