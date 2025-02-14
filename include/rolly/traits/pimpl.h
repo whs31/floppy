@@ -60,3 +60,15 @@ namespace rolly {
   std::unique_ptr<alias> m_d;                                                                 \
   [[nodiscard]] inline alias const& d() const noexcept { return *this->m_d; }                 \
   [[nodiscard]] inline alias& d() noexcept { return *this->m_d; }
+
+#define DECLARE_PRIVATE_SHARED_PTR(classname)                                                 \
+struct classname## Private;                                                                 \
+std::shared_ptr<classname## Private> m_d;                                                   \
+[[nodiscard]] inline classname## Private const& d() const noexcept { return *this->m_d; }   \
+[[nodiscard]] inline classname## Private& d() noexcept { return *this->m_d; }
+
+#define DECLARE_PRIVATE_SHARED_PTR_AS(alias)                                                  \
+struct alias;                                                                               \
+std::shared_ptr<alias> m_d;                                                                 \
+[[nodiscard]] inline alias const& d() const noexcept { return *this->m_d; }                 \
+[[nodiscard]] inline alias& d() noexcept { return *this->m_d; }
