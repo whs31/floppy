@@ -28,7 +28,7 @@ build:alse-c++17:
   extends: .build_extend
   script:
     - rm -rf build
-    - conan build . -b "missing" -o "$CONAN_PACKAGE_NAME/*:compat=True" --profile gcc
+    - conan build . -b "missing" --profile gcc
 
 test:alse:
   stage: test
@@ -43,7 +43,7 @@ test:alse-c++17:
     - job: build:alse-c++17
   script:
     - rm -rf ./build
-    - conan build . -b "missing" -o "rolly/*:test=True" -o "rolly/*:compat=True" --profile gcc
+    - conan build . -b "missing" -o "rolly/*:test=True" --profile gcc
     - ./build/Release/tests/rolly-test --reporter JUnit::out=test_detail.xml --reporter console::out=-::colour-mode=ansi
   artifacts:
     reports:
