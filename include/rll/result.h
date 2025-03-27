@@ -2108,36 +2108,36 @@ namespace rll {
     }
 
     constexpr T const* operator->() const {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return valptr();
     }
 
     TL_EXPECTED_11_CONSTEXPR T* operator->() {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return valptr();
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     constexpr U const& operator*() const& {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return val();
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     TL_EXPECTED_11_CONSTEXPR U& operator*() & {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return val();
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     constexpr U const&& operator*() const&& {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return std::move(val());
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     TL_EXPECTED_11_CONSTEXPR U&& operator*() && {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return std::move(val());
     }
 
@@ -2174,22 +2174,22 @@ namespace rll {
     }
 
     constexpr E const& error() const& {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return err().value();
     }
 
     TL_EXPECTED_11_CONSTEXPR E& error() & {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return err().value();
     }
 
     constexpr E const&& error() const&& {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return std::move(err().value());
     }
 
     TL_EXPECTED_11_CONSTEXPR E&& error() && {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return std::move(err().value());
     }
 

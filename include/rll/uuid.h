@@ -51,27 +51,27 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
     ~uuid() = default;
 
     /**
-     * @brief Creates a guid from an array of bytes.
+     * @brief Creates a uuid from an array of bytes.
      * @param bytes Array of bytes.
      */
     constexpr explicit uuid(std::array<u8, 16> const& bytes)
       : bytes_ {bytes} {}
 
     /**
-     * @brief Creates a <tt>guid</tt> from an array of <tt>std::byte</tt>.
+     * @brief Creates a <tt>uuid</tt> from an array of <tt>std::byte</tt>.
      * @param bytes Array of <tt>std::byte</tt>.
      */
     explicit uuid(std::array<std::byte, 16> const& bytes);
 
     /**
-     * @brief Creates a guid from a string.
+     * @brief Creates a uuid from a string.
      * @details String must satisfy the following requirements:
      * - Length of string must be exactly 36 or 38 characters (see @ref short_guid_string_length
      * and @ref long_guid_string_length).
      * - String must be in the form of `{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}` or
      * `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (with or without braces).
      * - Bytes must be separated by hyphens.
-     * @param str String representation of the guid.
+     * @param str String representation of the uuid.
      */
     constexpr explicit uuid(std::string_view const str)
       : bytes_ {} {
@@ -108,22 +108,22 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
     uuid& operator=(uuid&&) = default;
 
     /**
-     * @brief Checks whether the guid is valid or not.
-     * @return `true` if the guid is valid, `false` otherwise.
+     * @brief Checks whether the uuid is valid or not.
+     * @return `true` if the uuid is valid, `false` otherwise.
      */
     [[nodiscard]] bool valid() const noexcept { return *this != uuid::empty(); }
 
     /**
-     * @brief Converts the guid to a string.
+     * @brief Converts the uuid to a string.
      * @details String representation is in the form of
      * `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. All hex digits are lowercase. Bytes are
      * separated by hyphens.
-     * @return String representation of the <tt>guid</tt>.
+     * @return String representation of the <tt>uuid</tt>.
      */
     [[nodiscard]] std::string to_string() const;
 
     /**
-     * @brief Gets the bytes of the guid.
+     * @brief Gets the bytes of the uuid.
      * @return Constant reference to the array of bytes.
      */
     [[nodiscard]] constexpr std::array<u8, 16> const& bytes() const noexcept {
@@ -131,20 +131,20 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
     }
 
     /**
-     * @brief Gets the mutable bytes of the guid.
+     * @brief Gets the mutable bytes of the uuid.
      * @return Mutable reference to the array of bytes.
      */
     [[nodiscard]] constexpr std::array<u8, 16>& bytes_mut() noexcept { return this->bytes_; }
 
     /**
-     * @brief Hashes the guid to an unsigned 64-bit integer.
+     * @brief Hashes the uuid to an unsigned 64-bit integer.
      * @return Hash value.
      */
     [[nodiscard]] u64 to_u64() const noexcept;
 
     /**
-     * @brief Checks whether the guid is valid or not.
-     * @return `true` if the guid is valid, `false` otherwise.
+     * @brief Checks whether the uuid is valid or not.
+     * @return `true` if the uuid is valid, `false` otherwise.
      * @see valid
      */
     [[nodiscard]] operator bool() const noexcept {  // NOLINT(*-explicit-constructor)
@@ -152,25 +152,25 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
     }
 
     /**
-     * @brief Checks whether two guids are equal or not.
-     * @param other Other guid.
-     * @return `true` if the guids are equal, `false` otherwise.
+     * @brief Checks whether two uuids are equal or not.
+     * @param other Other uuid.
+     * @return `true` if the uuids are equal, `false` otherwise.
      */
     [[nodiscard]] bool operator==(uuid const& other) const noexcept {
       return this->bytes() == other.bytes();
     }
 
     /**
-     * @brief Checks whether two guids are not equal.
-     * @param other Other guid.
-     * @return `true` if the guids are __not__ equal, `false` otherwise.
+     * @brief Checks whether two uuids are not equal.
+     * @param other Other uuid.
+     * @return `true` if the uuids are __not__ equal, `false` otherwise.
      */
     [[nodiscard]] bool operator!=(uuid const& other) const noexcept { return not (*this == other); }
 
     /**
-     * @brief Array-like less comparator for guid.
-     * @param lhs First guid.
-     * @param rhs Second guid.
+     * @brief Array-like less comparator for uuid.
+     * @param lhs First uuid.
+     * @param rhs Second uuid.
      * @return `true` if lhs is less than rhs, `false` otherwise.
      */
     friend bool operator<(uuid const& lhs, uuid const& rhs) noexcept {
@@ -178,9 +178,9 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
     }
 
     /**
-     * @brief Prints the guid to an output stream.
+     * @brief Prints the uuid to an output stream.
      * @param os Output stream
-     * @param guid GUID
+     * @param guid UUID
      * @return Output stream
      * @see to_string
      */
