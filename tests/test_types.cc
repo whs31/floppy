@@ -1996,6 +1996,18 @@ TEST_CASE("Types", "[types]") {
         }
       }
     }
+
+    SECTION("Format") {
+      auto o1 = ok(32);
+      auto o2 = result<int>(error("qweqwe"));
+      auto o3 = ok(14.88f);
+      auto o4 = ok();
+
+      REQUIRE(fmt::format("{}", o1) == "Ok(32)");
+      REQUIRE(fmt::format("{}", o2) == "Error(qweqwe)");
+      REQUIRE(fmt::format("{}", o3) == "Ok(14.88)");
+      // REQUIRE(fmt::format("{}", o4) == "Ok()");
+    }  // Format
   }  // Result
 
   SECTION("Optional", "[types.optional]") {

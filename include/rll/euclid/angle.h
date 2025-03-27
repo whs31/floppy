@@ -598,3 +598,26 @@ struct fmt::formatter<rll::angle<T>> {
     return ctx.out();
   }
 };
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <typename T>
+struct [[maybe_unused]] adl_serializer<rll::angle<T>> {
+  static auto to_json(json& j, rll::angle<T> const& angle) -> void {
+    j = {
+      {"angle", angle.degrees()},
+      {"units", "degrees"      }
+    };
+  }
+
+  static auto from_json(json const& j, rll::angle<T>& angle) -> void {
+    angle = rll::angle<T>::from_degrees(j["angle"].template get<T>());
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif

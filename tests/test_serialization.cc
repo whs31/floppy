@@ -1,7 +1,6 @@
 #include <catch2/catch_all.hpp>
 #include <toml++/toml.h>
-#include <rll/config.h>
-#include <rll/savefile.h>
+#include <rll/all.h>
 
 using std::string;
 using std::string_view;
@@ -175,3 +174,55 @@ TEST_CASE("Serialization & filesystem") {
     }
   }
 }
+
+TEST_CASE("Serialization/deserialization", "[serde]") {
+  SECTION("Known types") {
+    SECTION("UUID") {
+      auto const val = "beb4e77b-406c-4db2-a9bb-97970cf39297"_uuid;
+      auto j = nlohmann::json(val);
+
+      REQUIRE(j.get<rll::uuid>() == val);
+    }  // UUID
+
+    SECTION("Version") {
+      auto const val = "1.2.3"_version;
+      auto j = nlohmann::json(val);
+
+      REQUIRE(j.get<rll::version>() == val);
+    }  // Version
+
+    SECTION("Optional") {
+      SECTION("Some") {
+        auto const val = some("beb4e77b-406c-4db2-a9bb-97970cf39297"_uuid);
+        auto j = nlohmann::json(val);
+
+        REQUIRE(j.get<optional<rll::uuid>>() == val);
+      }  // Some
+
+      SECTION("None") {
+        auto const val = optional<rll::uuid>();
+        auto j = nlohmann::json(val);
+
+        REQUIRE(j.is_null());
+      }  // None
+    }  // Optional
+
+    SECTION("Result") {
+      SECTION("Ok") {
+        auto const val = result<rll::uuid>("beb4e77b-406c-4db2-a9bb-97970cf39297"_uuid);
+        auto j = nlohmann::json(val);
+
+        REQUIRE(j.dump() == R"({"ok":true,"value":"beb4e77b-406c-4db2-a9bb-97970cf39297"})");
+        REQUIRE(j.get<result<rll::uuid>>() == val);
+      }  // Ok
+
+      SECTION("Error") {
+        auto const val = result<rll::uuid>(error("Failed to parse UUID"));
+        auto j = nlohmann::json(val);
+
+        REQUIRE(j.dump() == R"({"error":"Failed to parse UUID","ok":false})");
+        REQUIRE(j.get<result<rll::uuid>>() == val);
+      }  // Error
+    }  // Result
+  }  // Known types
+}  // Serialization/deserialization

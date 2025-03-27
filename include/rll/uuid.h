@@ -277,3 +277,21 @@ namespace std {
  */
 template <>
 struct [[maybe_unused]] fmt::formatter<rll::uuid> : ostream_formatter {};
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <>
+struct [[maybe_unused]] adl_serializer<rll::uuid> {
+  static auto to_json(json& j, rll::uuid const& uuid) -> void { j = uuid.to_string(); }
+
+  static auto from_json(json const& j, rll::uuid& uuid) -> void {
+    uuid = rll::uuid::try_parse(j.get<std::string>()).value_or(rll::uuid::empty());
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif

@@ -97,3 +97,25 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
 
 static_assert(alignof(rll::prerelease) == 1);
 static_assert(sizeof(rll::prerelease) == 1);
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <>
+struct [[maybe_unused]] adl_serializer<rll::version> {
+  static auto to_json(json& j, rll::version const& version) -> void { j = version.to_string(); }
+
+  static auto from_json(json const& j, rll::version& version) -> void {
+    try {
+      version = rll::version(j.get<std::string>());
+    } catch(...) {
+      version = rll::version(0, 0, 0);
+    }
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif

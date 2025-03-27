@@ -495,3 +495,26 @@ struct fmt::formatter<rll::velocity<T>> {
     return ctx.out();
   }
 };
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <typename T>
+struct [[maybe_unused]] adl_serializer<rll::velocity<T>> {
+  static auto to_json(json& j, rll::velocity<T> const& v) -> void {
+    j = {
+      {"velocity", v.mps()},
+      {"units",    "mps"  }
+    };
+  }
+
+  static auto from_json(json const& j, rll::velocity<T>& v) -> void {
+    v = rll::velocity<T>::from_mps(j["velocity"].template get<T>());
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif

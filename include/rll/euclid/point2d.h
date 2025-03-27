@@ -693,3 +693,26 @@ namespace std {
     }
   };
 }  // namespace std
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <typename T>
+struct [[maybe_unused]] adl_serializer<rll::point2d<T>> {
+  static auto to_json(json& j, rll::point2d<T> const& v) -> void {
+    j = {
+      {"x", v.x()},
+      {"y", v.y()}
+    };
+  }
+
+  static auto from_json(json const& j, rll::point2d<T>& v) -> void {
+    v = rll::point2d<T>(j["x"].template get<T>(), j["y"].template get<T>());
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif

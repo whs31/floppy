@@ -2171,3 +2171,29 @@ struct fmt::
     return detail::write(out, ')');
   }
 };
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <typename T>
+struct [[maybe_unused]] adl_serializer<rll::optional<T>> {
+  static auto to_json(json& j, rll::optional<T> const& opt) -> void {
+    if(not opt)
+      j = nullptr;
+    else
+      j = *opt;
+  }
+
+  static auto from_json(json const& j, rll::optional<T>& opt) -> void {
+    if(j.is_null())
+      opt = rll::none;
+    else
+      opt = j.template get<T>();
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif

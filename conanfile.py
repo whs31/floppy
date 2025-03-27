@@ -16,12 +16,14 @@ class RollyRecipe(ConanFile):
     options = {
         "shared": [True, False],
         "test": [True, False],
+        "serde": [True, False],
         "export": [True, False],
         "export_folder_name": ["ANY"],
     }
     default_options = {
         "shared": True,
         "test": False,
+        "serde": True,
         "export": False,
         "export_folder_name": "export",
     }
@@ -36,6 +38,7 @@ class RollyRecipe(ConanFile):
         self.requires("fmt/10.2.1", transitive_headers=True, transitive_libs=True)
         self.requires("spdlog/1.13.0", transitive_headers=True, transitive_libs=True)
         self.requires("ipaddress/1.1.0", transitive_headers=True, transitive_libs=True)
+        self.requires("nlohmann_json/3.11.3", transitive_headers=True, transitive_libs=True)
         if self.settings.os != "Windows":
             self.requires("libuuid/1.0.3")
         if self.options.test:
@@ -61,6 +64,7 @@ class RollyRecipe(ConanFile):
         tc = CMakeToolchain(self)
         tc.cache_variables["BUILD_SHARED_LIBS"] = self.options.shared
         tc.cache_variables["ROLLY_TESTS"] = self.options.test
+        tc.cache_variables["ROLLY_SERDE"] = self.options.serde
         tc.generate()
 
         if self.options.export:
@@ -132,3 +136,8 @@ class RollyRecipe(ConanFile):
         if self.options.test:
             self.cpp_info.requires.append("catch2::catch2")
             self.cpp_info.requires.append("tomlplusplus::tomlplusplus")
+        if not self.options.shared:
+            self.cpp_info.defines = ["ROLLY_STATIC_LIBRARY"]
+        if self.options.serde:
+            self.cpp_info.requires.append("nlohmann_json::nlohmann_json")
+            self.cpp_info.defines = ["ROLLY_SERDE"]
