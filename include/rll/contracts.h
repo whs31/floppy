@@ -59,7 +59,7 @@
  * In third example, we the standard stream is open for writing using `invariant`:
  * @code {.cpp}
  * auto println(std::string_view message) -> void {
- *   assert_invariant(std::cout);
+ *   assert_invariant_(std::cout);
  *   std::cout << message << std::endl;
  * }
  * @endcode
@@ -302,14 +302,14 @@ namespace rll {
 }  // namespace rll
 
 #ifdef RLL_DEBUG
-#  define assert_invariant(...) rll::invariant(__VA_ARGS__)
+#  define assert_invariant_(...) rll::invariant(__VA_ARGS__)
 #  define assert_precondition(...) rll::precondition(__VA_ARGS__)
 #  define assert_postcondition(...) rll::postcondition(__VA_ARGS__)
 #  define assert_broken_invariant(...) rll::broken_invariant(__VA_ARGS__)
 #  define assert_broken_precondition(...) rll::broken_precondition(__VA_ARGS__)
 #  define assert_not_implemented(...) rll::not_implemented(__VA_ARGS__)
 #else
-#  define assert_invariant(...)
+#  define assert_invariant_(...)
 #  define assert_precondition(...)
 #  define assert_postcondition(...)
 #  define assert_broken_invariant(...)

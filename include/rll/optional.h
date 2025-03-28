@@ -6,6 +6,11 @@
 #include <type_traits>
 #include <utility>
 #include <variant>
+#include <fmt/format.h>
+
+#ifdef _MSC_VER
+#  include <ciso646>
+#endif
 
 #if (defined(_MSC_VER) && _MSC_VER == 1'900)
 #  define TL_OPTIONAL_MSVC2015
@@ -2119,14 +2124,76 @@ namespace rll {
   inline constexpr auto none = rll::nullopt;
 }  // namespace rll
 
-namespace std {
-  // TODO SFINAE
-  template <class T>
-  struct hash<rll::optional<T>> {
-    ::std::size_t operator()(rll::optional<T> const& o) const {
-      if(not o.has_value())
-        return 0;
-      return std::hash<rll::detail::remove_const_t<T>>()(*o);
-    }
+template <class T>
+struct std::hash<rll::optional<T>> {
+  ::std::size_t operator()(rll::optional<T> const& o) const {
+    if(not o.has_value())
+      return 0;
+    return std::hash<rll::detail::remove_const_t<T>>()(*o);
+  }
+};  // namespace std
+
+template <typename T, typename Char>
+struct fmt::
+  formatter<rll::optional<T>, Char, std::enable_if_t<fmt::is_formattable<T, Char>::value>> {
+ private:
+  formatter<T, Char> underlying_;
+  static constexpr basic_string_view<Char> optional =
+    detail::string_literal<Char, 'S', 'o', 'm', 'e', '('> {};
+  static constexpr basic_string_view<Char> none = detail::string_literal<Char, 'N', 'o', 'n', 'e'> {
   };
-}  // namespace std
+
+  template <class U>
+  FMT_CONSTEXPR static auto maybe_set_debug_format(U& u, bool set)
+    -> decltype(u.set_debug_format(set)) {
+    u.set_debug_format(set);
+  }
+
+  template <class U>
+  FMT_CONSTEXPR static void maybe_set_debug_format(U&, ...) {}
+
+ public:
+  template <typename ParseContext>
+  FMT_CONSTEXPR auto parse(ParseContext& ctx) {
+    maybe_set_debug_format(underlying_, true);
+    return underlying_.parse(ctx);
+  }
+
+  template <typename FormatContext>
+  auto format(rll::optional<T> const& opt, FormatContext& ctx) const -> decltype(ctx.out()) {
+    if(not opt)
+      return detail::write<Char>(ctx.out(), none);
+
+    auto out = ctx.out();
+    out = detail::write<Char>(out, optional);
+    ctx.advance_to(out);
+    out = underlying_.format(*opt, ctx);
+    return detail::write(out, ')');
+  }
+};
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <typename T>
+struct [[maybe_unused]] adl_serializer<rll::optional<T>> {
+  static auto to_json(json& j, rll::optional<T> const& opt) -> void {
+    if(not opt)
+      j = nullptr;
+    else
+      j = *opt;
+  }
+
+  static auto from_json(json const& j, rll::optional<T>& opt) -> void {
+    if(j.is_null())
+      opt = rll::none;
+    else
+      opt = j.template get<T>();
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 include_guard(GLOBAL)
 
 project(rolly
-  VERSION 2.4.6
+  VERSION 2.4.7
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -14,6 +14,7 @@ set(PROJECT_FULL_NAME ${PROJECT_NAMESPACE}${PROJECT_NAME})
 option(ROLLY_TESTS "Enable integration tests" OFF)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(ROLLY_QT "Link with Qt" OFF)
+option(ROLLY_SERDE "Generate serialization code" ON)
 
 if ("${CMAKE_GENERATOR}" MATCHES "^Visual Studio")
   set(CMAKE_GENERATOR_PLATFORM "x64" CACHE STRING "" FORCE)
@@ -41,6 +42,11 @@ if (ROLLY_QT)
 endif ()
 if (NOT WIN32)
   find_package(libuuid REQUIRED)
+endif ()
+
+if (ROLLY_SERDE)
+  message(STATUS "[${PROJECT_FULL_NAME}] adding serialization/deserialization support")
+  find_package(nlohmann_json REQUIRED)
 endif ()
 
 add_library(${PROJECT_NAME})
@@ -100,6 +106,14 @@ if (ROLLY_QT)
   )
 endif ()
 
+if (ROLLY_SERDE)
+  target_link_libraries(${PROJECT_NAME}
+    PUBLIC
+    nlohmann_json::nlohmann_json
+  )
+  target_compile_definitions(${PROJECT_NAME} PUBLIC -DROLLY_SERDE=1)
+endif ()
+
 # <-- msvc-specific options -->
 if (MSVC)
   target_include_directories(${PROJECT_NAME} PUBLIC ${FMT_INCLUDE_DIR} ${SPDLOG_INCLUDE_DIR})
@@ -109,10 +123,10 @@ target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURR
 
 if (BUILD_SHARED_LIBS)
   message(STATUS "[${PROJECT_FULL_NAME}] adding shared export symbols: ROLLY_LIBRARY")
-  target_compile_definitions(${PROJECT_NAME} PUBLIC -DROLLY_LIBRARY=1)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DROLLY_LIBRARY=1)
 else ()
   message(STATUS "[${PROJECT_FULL_NAME}] adding static export symbols: ROLLY_STATIC_LIBRARY")
-  target_compile_definitions(${PROJECT_NAME} PUBLIC -DROLLY_STATIC_LIBRARY=1)
+  target_compile_definitions(${PROJECT_NAME} PRIVATE -DROLLY_STATIC_LIBRARY=1)
 endif ()
 
 target_compile_options(${PROJECT_NAME} PRIVATE

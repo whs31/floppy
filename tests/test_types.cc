@@ -1996,6 +1996,18 @@ TEST_CASE("Types", "[types]") {
         }
       }
     }
+
+    SECTION("Format") {
+      auto o1 = ok(32);
+      auto o2 = result<int>(error("qweqwe"));
+      auto o3 = ok(14.88f);
+      auto o4 = ok();
+
+      REQUIRE(fmt::format("{}", o1) == "Ok(32)");
+      REQUIRE(fmt::format("{}", o2) == "Error(qweqwe)");
+      REQUIRE(fmt::format("{}", o3) == "Ok(14.88)");
+      // REQUIRE(fmt::format("{}", o4) == "Ok()");
+    }  // Format
   }  // Result
 
   SECTION("Optional", "[types.optional]") {
@@ -2030,7 +2042,17 @@ TEST_CASE("Types", "[types]") {
       REQUIRE((std::is_same<decltype(o6), optional<int&>>::value));
       REQUIRE(o6);
       REQUIRE(*o6 == 42);
-    }
+    }  // Make optional
+
+    SECTION("Format") {
+      auto o1 = some(32);
+      auto o2 = optional<int>(none);
+      auto o3 = some(14.88f);
+
+      REQUIRE(fmt::format("{}", o1) == "Some(32)");
+      REQUIRE(fmt::format("{}", o2) == "None");
+      REQUIRE(fmt::format("{:.1f}", o3) == "Some(14.9)");
+    }  // Format
   }  // Optional
 
   SECTION("Angle", "[types.angle]") {

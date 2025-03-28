@@ -2108,36 +2108,36 @@ namespace rll {
     }
 
     constexpr T const* operator->() const {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return valptr();
     }
 
     TL_EXPECTED_11_CONSTEXPR T* operator->() {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return valptr();
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     constexpr U const& operator*() const& {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return val();
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     TL_EXPECTED_11_CONSTEXPR U& operator*() & {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return val();
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     constexpr U const&& operator*() const&& {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return std::move(val());
     }
 
     template <class U = T, detail::enable_if_t<! std::is_void<U>::value>* = nullptr>
     TL_EXPECTED_11_CONSTEXPR U&& operator*() && {
-      assert_invariant(has_value());
+      assert_invariant_(has_value());
       return std::move(val());
     }
 
@@ -2174,22 +2174,22 @@ namespace rll {
     }
 
     constexpr E const& error() const& {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return err().value();
     }
 
     TL_EXPECTED_11_CONSTEXPR E& error() & {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return err().value();
     }
 
     constexpr E const&& error() const&& {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return std::move(err().value());
     }
 
     TL_EXPECTED_11_CONSTEXPR E&& error() && {
-      assert_invariant(! has_value());
+      assert_invariant_(! has_value());
       return std::move(err().value());
     }
 
@@ -2694,3 +2694,68 @@ namespace rll {
 }  // namespace rll
 
 // NOLINTEND(*-avoid-c-arrays, *-pro-type-union-access)
+
+template <typename T, typename E, typename Char>
+struct fmt::formatter<
+  rll::expected<T, E>,
+  Char,
+  std::enable_if_t<
+    (fmt::is_formattable<T, Char>::value or std::is_void<T>::value)
+    and fmt::is_formattable<E, Char>::value>> {
+  template <typename ParseContext>
+  FMT_CONSTEXPR auto parse(ParseContext& ctx) -> Char const* {
+    return ctx.begin();
+  }
+
+  template <typename FormatContext>
+  auto format(rll::expected<T, E> const& value, FormatContext& ctx) const -> decltype(ctx.out()) {
+    auto out = ctx.out();
+
+    if(value.has_value()) {
+      out = detail::write<Char>(out, "Ok(");
+      if constexpr(not std::is_void<T>::value) {
+        out = detail::write<Char>(out, *value);
+      }
+    } else {
+      out = detail::write<Char>(out, "Error(");
+      out = detail::write<Char>(out, value.error());
+    }
+    *out++ = ')';
+    return out;
+  }
+};
+
+#ifdef ROLLY_SERDE
+#  include <nlohmann/json.hpp>
+
+NLOHMANN_JSON_NAMESPACE_BEGIN
+
+template <typename T>
+struct [[maybe_unused]] adl_serializer<rll::result<T>> {
+  static auto to_json(json& j, rll::result<T> const& opt) -> void {
+    if(opt) {
+      j["ok"] = true;
+      if constexpr(std::is_same_v<T, void>)
+        j["value"] = nullptr;
+      else
+        j["value"] = opt.value();
+    } else {
+      j["ok"] = false;
+      j["error"] = opt.error();
+    }
+  }
+
+  static auto from_json(json const& j, rll::result<T>& opt) -> void {
+    if(j["ok"].get<bool>())
+      if constexpr(std::is_same_v<T, void>)
+        opt = rll::ok();
+      else
+        opt = j["value"].template get<T>();
+    else
+      opt = rll::error("{}", j["error"].template get<std::string>());
+  }
+};
+
+NLOHMANN_JSON_NAMESPACE_END
+
+#endif
