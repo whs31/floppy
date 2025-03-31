@@ -24,10 +24,12 @@
 #endif
 // NOLINTEND(*-reserved-identifier)
 
-#if(__cplusplus >= 202'002L) && defined(__has_include)
-#  if __has_include(<bit>)
-#    define RLL_HAS_STD_ENDIAN
-#    include <bit>
+#ifndef DOXYGEN
+#  if (__cplusplus >= 202'002L) && defined(__has_include)
+#    if __has_include(<bit>)
+#      define RLL_HAS_STD_ENDIAN
+#      include <bit>
+#    endif
 #  endif
 #endif
 
@@ -47,9 +49,9 @@
 // GLIBC
 #  elif defined(__GLIBC__)
 #    include <endian.h>
-#    if(__BYTE_ORDER == __LITTLE_ENDIAN)
+#    if (__BYTE_ORDER == __LITTLE_ENDIAN)
 #      define RLL_ENDIAN RLL_LITTLE_ENDIAN
-#    elif(__BYTE_ORDER == __BIG_ENDIAN)
+#    elif (__BYTE_ORDER == __BIG_ENDIAN)
 #      define RLL_ENDIAN RLL_BIG_ENDIAN
 #    else
 #      error Unknown endianness detected. Needs to define RLL_ENDIAN

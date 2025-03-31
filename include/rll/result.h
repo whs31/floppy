@@ -2695,6 +2695,7 @@ namespace rll {
 
 // NOLINTEND(*-avoid-c-arrays, *-pro-type-union-access)
 
+#ifndef DOXYGEN
 template <typename T, typename E, typename Char>
 struct fmt::formatter<
   rll::expected<T, E>,
@@ -2724,6 +2725,7 @@ struct fmt::formatter<
     return out;
   }
 };
+#endif
 
 #ifdef ROLLY_SERDE
 #  include <nlohmann/json.hpp>

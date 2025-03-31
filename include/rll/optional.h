@@ -12,8 +12,10 @@
 #  include <ciso646>
 #endif
 
-#if (defined(_MSC_VER) && _MSC_VER == 1'900)
-#  define TL_OPTIONAL_MSVC2015
+#ifndef DOXYGEN
+#  if (defined(_MSC_VER) && _MSC_VER == 1'900)
+#    define TL_OPTIONAL_MSVC2015
+#  endif
 #endif
 
 #if (defined(__GNUC__) && __GNUC__ == 4 && __GNUC_MINOR__ <= 9 && ! defined(__clang__))
@@ -79,10 +81,12 @@ namespace rll {
 #endif
 
 // constexpr implies const in C++11, not C++14
-#if (__cplusplus == 201'103L || defined(TL_OPTIONAL_MSVC2015) || defined(TL_OPTIONAL_GCC49))
-#  define TL_OPTIONAL_11_CONSTEXPR
-#else
-#  define TL_OPTIONAL_11_CONSTEXPR constexpr
+#ifndef DOXYGEN
+#  if (__cplusplus == 201'103L || defined(TL_OPTIONAL_MSVC2015) || defined(TL_OPTIONAL_GCC49))
+#    define TL_OPTIONAL_11_CONSTEXPR
+#  else
+#    define TL_OPTIONAL_11_CONSTEXPR constexpr
+#  endif
 #endif
 
 namespace rll {
@@ -2133,6 +2137,7 @@ struct std::hash<rll::optional<T>> {
   }
 };  // namespace std
 
+#ifndef DOXYGEN
 template <typename T, typename Char>
 struct fmt::
   formatter<rll::optional<T>, Char, std::enable_if_t<fmt::is_formattable<T, Char>::value>> {
@@ -2171,6 +2176,7 @@ struct fmt::
     return detail::write(out, ')');
   }
 };
+#endif
 
 #ifdef ROLLY_SERDE
 #  include <nlohmann/json.hpp>
