@@ -20,7 +20,6 @@
  * @par Third-party license info
  *  This library depends on the following libraries:
  *  - **[fmt](https://fmt.dev)** (<tt>MIT</tt>) - modern C++ formatting library;
- *  - **[spdlog](https://github.com/gabime/spdlog)** (<tt>MIT</tt>) - logging implementation based on **[fmt](https://fmt.dev)**;
  *  - **[Catch2](https://github.com/catchorg/Catch2)** (<tt>MIT</tt>) - testing framework. <br><br>
  * You must obtain a copy of these licenses and include them in your project.
  */

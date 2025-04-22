@@ -7,7 +7,7 @@ from conan.tools.files import rmdir, copy
 
 class RollyRecipe(ConanFile):
     name = "rolly"
-    version = "2.4.7"
+    version = "2.5.0"
     description = "Radar open-source library"
     author = "whs31 <whs31@github.io>"
     topics = ("coreutils", "utility")
@@ -36,7 +36,6 @@ class RollyRecipe(ConanFile):
 
     def requirements(self):
         self.requires("fmt/10.2.1", transitive_headers=True, transitive_libs=True)
-        self.requires("spdlog/1.13.0", transitive_headers=True, transitive_libs=True)
         self.requires("ipaddress/1.1.0", transitive_headers=True, transitive_libs=True)
         self.requires("nlohmann_json/3.11.3", transitive_headers=True, transitive_libs=True)
         if self.settings.os != "Windows":
@@ -56,7 +55,6 @@ class RollyRecipe(ConanFile):
 
     def configure(self):
         self.options["fmt/*"].shared = self.options.shared
-        self.options["spdlog/*"].shared = self.options.shared
 
     def generate(self):
         deps = CMakeDeps(self)
@@ -130,7 +128,7 @@ class RollyRecipe(ConanFile):
         self.cpp_info.set_property("cmake_file_name", "rolly")
         self.cpp_info.set_property("cmake_target_name", "rolly::rolly")
         self.cpp_info.libs = ["rolly"]
-        self.cpp_info.requires = ["fmt::fmt", "spdlog::spdlog", "ipaddress::ipaddress"]
+        self.cpp_info.requires = ["fmt::fmt", "ipaddress::ipaddress"]
         if self.settings.os != "Windows":
             self.cpp_info.requires.append("libuuid::libuuid")
         if self.options.test:

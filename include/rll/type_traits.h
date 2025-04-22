@@ -1,12 +1,13 @@
 #pragma once
 
 #include <type_traits>
+#include <string_view>
 
 namespace rll {
   /**
    * @brief Remove all cv qualifiers, references and pointers from a type.
    * @details If the type T is a reference type, provides the member typedef type which is the type
-   * referred to by T with its topmost cv-qualifiers removed. Otherwise type is T with its topmost
+   * referred to by T with its topmost cv-qualifiers removed. Otherwise, type is T with its topmost
    * cv-qualifiers removed.
    *
    * This is a backport of the C++20 <tt>std::remove_cvref</tt> type trait.
@@ -60,4 +61,38 @@ namespace rll {
    */
   template <typename T>
   using plain_type_t = typename plain_type<T>::type;
+
+  /**
+   * @brief A templated type that is always false.
+   * @details Useful in the `if constexpr` contexts to avoid compilation errors with
+   * `static_assert`:
+   * ```cpp
+   * if constexpr(std::is_same_v<T, int>) { do_something(); }
+   * else {
+   *   static_assert(rll::always_false<T>, "Expected T to be int");
+   * }
+   * ```
+   * @see always_true
+   */
+  template <typename...>
+  constexpr auto always_false = std::false_type();
+
+  /**
+   * @brief A templated type that is always true.
+   * @see always_false
+   */
+  template <typename...>
+  constexpr auto always_true = std::true_type();
 }  // namespace rll
+
+#define DECLARE_TAG_TYPE(tag)                                         \
+  struct tag {                                                        \
+    [[nodiscard]] static std::string_view name() { return #tag; }     \
+  };
+
+#define DECLARE_TAG_VALUE(tag, value)                                 \
+  inline static constexpr tag value {};
+
+#define DECLARE_TAG(tag, value)                                       \
+  MMS_DECLARE_TAG_TYPE(tag)                                           \
+  MMS_DECLARE_TAG_VALUE(tag, value)

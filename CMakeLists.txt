@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 include_guard(GLOBAL)
 
 project(rolly
-  VERSION 2.4.7
+  VERSION 2.5.0
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -28,7 +28,6 @@ message(STATUS "[${PROJECT_FULL_NAME}] c++ standard: ${ROLLY_CXX_STANDARD}")
 
 # <-- dependencies -->
 find_package(fmt REQUIRED)
-find_package(spdlog REQUIRED)
 find_package(ipaddress REQUIRED)
 if (ROLLY_QT)
   message(WARNING "-- [${PROJECT_FULL_NAME}] linking with qt enabled! remember to disable it before push")
@@ -91,7 +90,6 @@ endif ()
 target_link_libraries(${PROJECT_NAME}
   PUBLIC
   fmt::fmt
-  spdlog::spdlog
   ipaddress::ipaddress
   PRIVATE
   $<$<NOT:$<PLATFORM_ID:Windows>>:libuuid::libuuid>
@@ -116,7 +114,7 @@ endif ()
 
 # <-- msvc-specific options -->
 if (MSVC)
-  target_include_directories(${PROJECT_NAME} PUBLIC ${FMT_INCLUDE_DIR} ${SPDLOG_INCLUDE_DIR})
+  target_include_directories(${PROJECT_NAME} PUBLIC ${FMT_INCLUDE_DIR})
 endif ()
 
 target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>$<INSTALL_INTERFACE:include> PRIVATE src)

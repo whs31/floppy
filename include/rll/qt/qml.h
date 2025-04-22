@@ -30,7 +30,7 @@ namespace rll::qt::qml {
       hungarian_prefix
     };
 
-    [[nodiscard]] inline std::string strip(std::string_view str, strip_kind kind) {
+    [[nodiscard]] inline std::string strip(std::string_view str, strip_kind const kind) {
       if(kind == strip_kind::prefix_and_extension) {
         auto const last_slash = str.find_last_of('/');
         auto const last_dot = str.find_last_of('.');
@@ -59,14 +59,14 @@ namespace rll::qt::qml {
    public:
     using version_type = version;
 
-    explicit module(std::string name, version_type version = {1, 0, 0}) noexcept
+    explicit module(std::string name, version_type const version = {1, 0, 0}) noexcept
       : name_(std::move(name))
       , version_(version) {
       ::qmlRegisterModule(this->name_.c_str(), this->version_.major, this->version_.minor);
     }
 
     template <typename T, typename = std::enable_if_t<std::is_base_of_v<::QObject, T>>>
-    module& component(optional<std::string_view> name = nullopt) {
+    module& component(optional<std::string_view> const name = nullopt) {
       auto const component_name = module::demangle_class_name<T>(name);
       ::qmlRegisterType<T>(
         this->name_.c_str(),
@@ -78,7 +78,7 @@ namespace rll::qt::qml {
     }
 
     template <typename T, typename = std::enable_if_t<std::is_base_of_v<::QObject, T>>>
-    module& singleton(T* instance, optional<std::string_view> name = nullopt) {
+    module& singleton(T* instance, optional<std::string_view> const name = nullopt) {
       auto const component_name = module::demangle_class_name<T>(name);
       ::qmlRegisterSingletonInstance(
         this->name_.c_str(),
@@ -91,7 +91,7 @@ namespace rll::qt::qml {
     }
 
     template <typename T, typename = std::enable_if_t<std::is_base_of_v<::QObject, T>>>
-    module& singleton(optional<std::string_view> name = nullopt) {
+    module& singleton(optional<std::string_view> const name = nullopt) {
       auto const component_name = module::demangle_class_name<T>(name);
       ::qmlRegisterSingletonType<T>(
         this->name_.c_str(),
@@ -103,7 +103,7 @@ namespace rll::qt::qml {
       return *this;
     }
 
-    module& file(std::string_view url, optional<std::string_view> name = nullopt) {
+    module& file(std::string_view url, optional<std::string_view> const& name = nullopt) {
       auto const component_name = module::demangle_file_url(url, name);
       ::qmlRegisterType(
         ::QUrl(url.data()),  // NOLINT(*-suspicious-stringview-data-usage)
@@ -117,8 +117,8 @@ namespace rll::qt::qml {
 
     template <typename T, typename = std::enable_if_t<is_qgadget_v<T>>>
     module& uncreatable(
-      optional<std::string_view> name = nullopt,
-      optional<std::string_view> reason = nullopt
+      optional<std::string_view> const name = nullopt,
+      optional<std::string_view> const reason = nullopt
     ) {
       auto const component_name = module::demangle_class_name<T>(name);
       auto const reason_string = [&]() -> std::string {
@@ -133,6 +133,13 @@ namespace rll::qt::qml {
         component_name.c_str(),
         ::QString::fromStdString(reason_string)
       );
+      return *this;
+    }
+
+    template <typename T, typename = std::enable_if_t<is_qgadget_v<T>>>
+    module& anonymous(optional<std::string_view> const name = nullopt) {
+      auto const component_name = module::demangle_class_name<T>(name);
+      ::qmlRegisterAnonymousType<T>(this->name_.c_str(), this->version_.major);
       return *this;
     }
 
