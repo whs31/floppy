@@ -126,7 +126,7 @@ namespace rll {
 #ifndef RLL_DOC
     RLL_API
 #endif  // RLL_DOC
-    explicit application_dirs(meta::project_meta const& meta);
+    explicit application_dirs(metadata::project_meta const& meta);
 
         /**
          * @brief Creates the directories if they do not exist.

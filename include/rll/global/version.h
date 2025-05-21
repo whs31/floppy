@@ -9,7 +9,7 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
   /**
    * @brief Library meta information.
    */
-  namespace meta {
+  namespace metadata {
     /**
      * @brief Immutable constant expression structure, holding project meta-information.
      * @details See @ref library_metadata global variable for current <b>floppy</b> project

@@ -105,7 +105,7 @@ namespace rll {
 #endif                                          // OS
   }
 
-  application_dirs::application_dirs(meta::project_meta const& meta)
+  application_dirs::application_dirs(metadata::project_meta const& meta)
     : application_dirs(meta.domain(), meta.organization(), meta.name()) {}
 
   void application_dirs::create() const {
