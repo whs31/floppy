@@ -28,7 +28,9 @@ namespace rll {
     library_private& operator=(library_private const&) = delete;
     library_private& operator=(library_private&&) = delete;
 
-    ~library_private() { std::ignore = this->unload(); }
+    // [whs31 28.05.2025]
+    // This will lead to very bad and hard to debug crash in mms::Application::~Application
+    // ~library_private() { std::ignore = this->unload(); }
 
     [[nodiscard]] result<function_pointer_type> resolve(std::string_view const symbol) const {
       if(not this->handle.load(std::memory_order_relaxed))
