@@ -3,6 +3,7 @@
 #include <rll/global/definitions.h>
 
 // NOLINTBEGIN(*-macro-to-enum, *-macro-usage)
+
 #ifndef RLL_VERSION_STRING
 /**
  * @ingroup meta
@@ -18,7 +19,7 @@
  * @note Consider using <i>meta::library_metadata</i> variable to access this value.
  * @version 2.1.32
  */
-#define RLL_VERSION_MINOR 5
+#define RLL_VERSION_MINOR 6
 
 /**
  * @ingroup meta
@@ -26,7 +27,7 @@
  * @note Consider using <i>meta::library_metadata</i> variable to access this value.
  * @version 2.1.32
  */
-#define RLL_VERSION_PATCH 2
+#define RLL_VERSION_PATCH 0
 
 /**
  * @ingroup meta
@@ -36,4 +37,5 @@
  */
 #  define RLL_VERSION_STRING RLL_STRINGIFY(RLL_VERSION_MAJOR) "." RLL_STRINGIFY(RLL_VERSION_MINOR) "." RLL_STRINGIFY(RLL_VERSION_PATCH)
 #endif  // RLL_VERSION_STRING
-        // NOLINTEND(*-macro-to-enum, *-macro-usage)
+
+// NOLINTEND(*-macro-to-enum, *-macro-usage)

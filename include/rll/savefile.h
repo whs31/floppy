@@ -1,12 +1,13 @@
 #pragma once
 
 #include <sstream>
-#include <rll/serialization.h>
+#include <nlohmann/json.hpp>
 #include <rll/stdint.h>
 #include <rll/io/filedevice.h>
+#include <rll/concepts/nlohmann.h>
 
 namespace rll {
-  template <typename F, typename T, typename = std::enable_if_t<is_serializable<T, F>::value>>
+  template <typename T, typename = std::enable_if_t<is_nlohmann_serializable_v<T>>>
   class savefile : public io::filedevice {
    public:
     explicit savefile(std::filesystem::path path)
@@ -16,7 +17,7 @@ namespace rll {
       this->valid_ = res.has_value();
     }
 
-    explicit savefile(std::string_view filename, std::filesystem::path const& folder)
+    explicit savefile(std::string_view const filename, std::filesystem::path const& folder)
       : savefile(folder / filename) {}
 
     savefile(savefile const&) = default;
@@ -61,22 +62,21 @@ namespace rll {
         this->values_ = T();
         return this->save();
       }
-      auto str = this->read();
-      auto ss = std::stringstream(str);
-      auto const res = serializer<T, F, char>::deserialize(ss);
-      if(not res)
-        return error(res.error());
-      this->values_ = *res;
-      return ok();
+      try {
+        this->values_ = nlohmann::json::parse(this->read()).template get<T>();
+        return ok();
+      } catch(std::exception const& e) {
+        return error("failed to load savefile '{}': {}", this->path().string(), e.what());
+      }
     }
 
-    result<> save() const {
+    [[nodiscard]] result<> save() const {
       auto try_serialize = [this]() -> result<std::string> {
-        auto ss = std::stringstream();
-        auto const res = serializer<T, F, char>::serialize(this->values_, ss);
-        if(not res)
-          return error(res.error());
-        return ok(ss.str());
+        try {
+          return ok(nlohmann::json(this->values_).dump(2));
+        } catch(std::exception const& e) {
+          return error("failed to serialize savefile '{}': {}", this->path().string(), e.what());
+        }
       };
       try_serialize().and_then([this](auto const& str) { return this->try_write(str); }
       ).and_then([this]() { return this->try_commit(); });

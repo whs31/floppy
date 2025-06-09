@@ -1,5 +1,4 @@
 find_package(Catch2 REQUIRED)
-find_package(tomlplusplus REQUIRED)
 #find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Gui QUIET)
 #find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui QUIET)
 
@@ -18,7 +17,6 @@ target_link_libraries(${PROJECT_NAME}-test
   PRIVATE
   Catch2::Catch2WithMain
   ${PROJECT_NAME}
-  tomlplusplus::tomlplusplus
 )
 
 if (WIN32)

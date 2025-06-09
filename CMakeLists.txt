@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 include_guard(GLOBAL)
 
 project(rolly
-  VERSION 2.5.2
+  VERSION 2.6.0
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -29,6 +29,8 @@ message(STATUS "[${PROJECT_FULL_NAME}] c++ standard: ${ROLLY_CXX_STANDARD}")
 # <-- dependencies -->
 find_package(fmt REQUIRED)
 find_package(ipaddress REQUIRED)
+find_package(nlohmann_json REQUIRED)
+
 if (ROLLY_QT)
   message(WARNING "-- [${PROJECT_FULL_NAME}] linking with qt enabled! remember to disable it before push")
   find_package(Qt5
@@ -41,11 +43,6 @@ if (ROLLY_QT)
 endif ()
 if (NOT WIN32)
   find_package(libuuid REQUIRED)
-endif ()
-
-if (ROLLY_SERDE)
-  message(STATUS "[${PROJECT_FULL_NAME}] adding serialization/deserialization support")
-  find_package(nlohmann_json REQUIRED)
 endif ()
 
 add_library(${PROJECT_NAME})
@@ -91,6 +88,7 @@ target_link_libraries(${PROJECT_NAME}
   PUBLIC
   fmt::fmt
   ipaddress::ipaddress
+  nlohmann_json::nlohmann_json
   PRIVATE
   $<$<NOT:$<PLATFORM_ID:Windows>>:libuuid::libuuid>
   ${CMAKE_DL_LIBS}
@@ -105,10 +103,6 @@ if (ROLLY_QT)
 endif ()
 
 if (ROLLY_SERDE)
-  target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-    nlohmann_json::nlohmann_json
-  )
   target_compile_definitions(${PROJECT_NAME} PUBLIC -DROLLY_SERDE=1)
 endif ()
 

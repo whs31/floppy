@@ -7,7 +7,7 @@ from conan.tools.files import rmdir, copy
 
 class RollyRecipe(ConanFile):
     name = "rolly"
-    version = "2.5.2"
+    version = "2.6.0"
     description = "Radar open-source library"
     author = "whs31 <whs31@github.io>"
     topics = ("coreutils", "utility")
@@ -16,16 +16,12 @@ class RollyRecipe(ConanFile):
     options = {
         "shared": [True, False],
         "test": [True, False],
-        "serde": [True, False],
-        "export": [True, False],
-        "export_folder_name": ["ANY"],
+        "serde": [True, False]
     }
     default_options = {
         "shared": True,
         "test": False,
-        "serde": True,
-        "export": False,
-        "export_folder_name": "export",
+        "serde": True
     }
     exports = "CMakeLists.txt", "conanfile.py"
     exports_sources = "*", "!build/*"
@@ -37,14 +33,11 @@ class RollyRecipe(ConanFile):
     def requirements(self):
         self.requires("fmt/10.2.1", transitive_headers=True, transitive_libs=True)
         self.requires("ipaddress/1.1.0", transitive_headers=True, transitive_libs=True)
-        self.requires("nlohmann_json/3.11.3", transitive_headers=True, transitive_libs=True)
+        self.requires("nlohmann_json/[>=3.11.3]", transitive_headers=True, transitive_libs=True)
         if self.settings.os != "Windows":
             self.requires("libuuid/1.0.3")
         if self.options.test:
             self.requires("catch2/[=3.7.1]")
-            self.requires(
-                "tomlplusplus/[^3.0.0]", transitive_headers=True, transitive_libs=True
-            )
 
     def layout(self):
         cmake_layout(self)
@@ -65,52 +58,6 @@ class RollyRecipe(ConanFile):
         tc.cache_variables["ROLLY_SERDE"] = self.options.serde
         tc.generate()
 
-        if self.options.export:
-            for dep in self.dependencies.values():
-                self.output.info(
-                    f"copying {dep.ref.name} into export folder {str(self.options.export_folder_name)}"
-                )
-                bin_dest = os.path.join(
-                    self.build_folder, str(self.options.export_folder_name), "bin"
-                )
-                lib_dest = os.path.join(
-                    self.build_folder, str(self.options.export_folder_name), "lib"
-                )
-                inc_dest = os.path.join(
-                    self.build_folder,
-                    str(self.options.export_folder_name),
-                    self.cpp.source.includedirs[0],
-                )
-                self.output.info(f" - bin: {bin_dest}")
-                self.output.info(f" - lib: {lib_dest}")
-                self.output.info(f" - inc: {inc_dest}")
-                bin_extensions = [
-                    ".exe",
-                    ".dll",
-                    ".dylib",
-                    "*",
-                ]  # temporarily copying full folder contents because libfmt.so can
-                lib_extensions = [
-                    ".a",
-                    ".lib",
-                    ".so",
-                    "*",
-                ]  # be a symbolic link to libfmt.so.11.0.2
-                inc_extensions = [
-                    ".h",
-                    ".hh",
-                    ".hxx",
-                    ".h++",
-                    ".cuh",
-                    "*",
-                ]  # same as above, includes can have cursed extensions
-                for ext in bin_extensions:
-                    copy(self, f"*{ext}", src=dep.cpp_info.bindirs[0], dst=bin_dest)
-                for ext in lib_extensions:
-                    copy(self, f"*{ext}", src=dep.cpp_info.libdirs[0], dst=lib_dest)
-                for ext in inc_extensions:
-                    copy(self, f"*{ext}", src=dep.cpp_info.includedirs[0], dst=inc_dest)
-
     def build(self):
         cmake = CMake(self)
         cmake.configure()
@@ -128,14 +75,13 @@ class RollyRecipe(ConanFile):
         self.cpp_info.set_property("cmake_file_name", "rolly")
         self.cpp_info.set_property("cmake_target_name", "rolly::rolly")
         self.cpp_info.libs = ["rolly"]
-        self.cpp_info.requires = ["fmt::fmt", "ipaddress::ipaddress"]
+        self.cpp_info.requires = ["fmt::fmt", "ipaddress::ipaddress",
+                                  "nlohmann_json::nlohmann_json"]
         if self.settings.os != "Windows":
             self.cpp_info.requires.append("libuuid::libuuid")
         if self.options.test:
             self.cpp_info.requires.append("catch2::catch2")
-            self.cpp_info.requires.append("tomlplusplus::tomlplusplus")
         if not self.options.shared:
             self.cpp_info.defines = ["ROLLY_STATIC_LIBRARY"]
         if self.options.serde:
-            self.cpp_info.requires.append("nlohmann_json::nlohmann_json")
             self.cpp_info.defines = ["ROLLY_SERDE"]
