@@ -1,7 +1,7 @@
 #pragma once
 
-#include "qt/format.h"
-#include "qt/formatters.h"
-#include "qt/literals.h"
-#include "qt/memory.h"
-#include "qt/qml.h"
+#include <rll/qt/format.h>
+#include <rll/qt/formatters.h>
+#include <rll/qt/literals.h>
+#include <rll/qt/memory.h>
+#include <rll/qt/qml.h>

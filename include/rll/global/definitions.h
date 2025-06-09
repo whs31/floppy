@@ -1,5 +1,6 @@
 #pragma once
 
+#include <rll/preprocessor.h>
 #include <rll/global/export.h>
 #include <rll/global/platform_definitions.h>
 
@@ -106,8 +107,6 @@
 #    define ___noinline___ __attribute__((noinline))
 #    define ___inline___ __attribute__((always_inline)) inline
 #  endif
-#  define RLL_STRINGIFY_IMPL(x) #x
-#  define RLL_STRINGIFY(x) RLL_STRINGIFY_IMPL(x)
 // NOLINTEND(*-reserved-identifier, *-identifier-naming, *-macro-usage)
 #endif  // RLL_DOC
 
