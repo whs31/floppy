@@ -2,6 +2,7 @@
 
 #include <rll/bit.h>
 #include <rll/concepts.h>
+#include <rll/concurrency.h>
 #include <rll/contracts.h>
 #include <rll/crypto.h>
 #include <rll/directories.h>
