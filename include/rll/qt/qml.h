@@ -65,6 +65,10 @@ namespace rll::qt::qml {
       ::qmlRegisterModule(this->name_.c_str(), this->version_.major, this->version_.minor);
     }
 
+    [[nodiscard]] std::string const& name() const noexcept { return this->name_; }
+
+    [[nodiscard]] version_type const& version() const noexcept { return this->version_; }
+
     template <typename T, typename = std::enable_if_t<std::is_base_of_v<::QObject, T>>>
     module& component(optional<std::string_view> const name = nullopt) {
       auto const component_name = module::demangle_class_name<T>(name);
@@ -103,9 +107,53 @@ namespace rll::qt::qml {
       return *this;
     }
 
+    template <typename T, typename = std::enable_if_t<std::is_base_of_v<::QObject, T>>>
+    module& singleton(
+      QJSValue (*callback)(QQmlEngine*, QJSEngine*),
+      optional<std::string_view> const name = nullopt
+    ) {
+      auto const component_name = module::demangle_class_name<T>(name);
+      ::qmlRegisterSingletonType<T>(
+        this->name_.c_str(),
+        this->version_.major,
+        this->version_.minor,
+        component_name.c_str(),
+        callback
+      );
+      return *this;
+    }
+
+    template <typename T, typename = std::enable_if_t<std::is_base_of_v<::QObject, T>>>
+    module& singleton(
+      QObject* (*callback)(QQmlEngine*, QJSEngine*),
+      optional<std::string_view> const name = nullopt
+    ) {
+      auto const component_name = module::demangle_class_name<T>(name);
+      ::qmlRegisterSingletonType<T>(
+        this->name_.c_str(),
+        this->version_.major,
+        this->version_.minor,
+        component_name.c_str(),
+        callback
+      );
+      return *this;
+    }
+
     module& file(std::string_view url, optional<std::string_view> const& name = nullopt) {
       auto const component_name = module::demangle_file_url(url, name);
       ::qmlRegisterType(
+        ::QUrl(url.data()),  // NOLINT(*-suspicious-stringview-data-usage)
+        this->name_.c_str(),
+        this->version_.major,
+        this->version_.minor,
+        component_name.c_str()
+      );
+      return *this;
+    }
+
+    module& qml_singleton(std::string_view url, optional<std::string_view> const& name = nullopt) {
+      auto const component_name = module::demangle_file_url(url, name);
+      ::qmlRegisterSingletonType(
         ::QUrl(url.data()),  // NOLINT(*-suspicious-stringview-data-usage)
         this->name_.c_str(),
         this->version_.major,
@@ -131,6 +179,27 @@ namespace rll::qt::qml {
         this->version_.major,
         this->version_.minor,
         component_name.c_str(),
+        ::QString::fromStdString(reason_string)
+      );
+      return *this;
+    }
+
+    module& uncreatable(
+      QMetaObject const& meta_object,
+      std::string_view const name,
+      optional<std::string_view> const& reason = nullopt
+    ) {
+      auto const reason_string = [&]() -> std::string {
+        if(not reason.has_value())
+          return fmt::format("Class \'{}\' is uncreatable", meta_object.className());
+        return std::string(reason.value());
+      }();
+      ::qmlRegisterUncreatableMetaObject(
+        meta_object,
+        this->name_.c_str(),
+        this->version_.major,
+        this->version_.minor,
+        name.data(),
         ::QString::fromStdString(reason_string)
       );
       return *this;
