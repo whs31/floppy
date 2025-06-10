@@ -1,0 +1,6 @@
+---
+config:
+  version_header:
+    enabled: true
+    path: "include/rll/global/version_definitions.h"
+    macro_prefix: "RLL"
