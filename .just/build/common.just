@@ -35,7 +35,7 @@ run *ARGS:
     from termcolor import cprint, colored
     from just_utils import ConanFileMetadata, Conan, Manifest, default_cmake_parser, clean_build_directory
 
-    parser = default_cmake_parser()
+    parser = default_cmake_parser(["test"])
     args, conan_args = parser.parse_known_args()
 
     meta = ConanFileMetadata(Path('.').parent / "conanfile.py")
@@ -58,6 +58,8 @@ run *ARGS:
     conan = Conan(meta.name, args.build, args.verbose)
     if args.clean:
         conan.clean()
-    conan.run("install" if args.configure else "build", {}, conan_args)
+    conan.run("install" if args.configure else "build", {
+      "test": args.test
+    }, conan_args)
     conan.fix_presets()
     cprint("done", "green")
