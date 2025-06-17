@@ -234,12 +234,12 @@ namespace rll::qt::qml {
   };
 }  // namespace rll::qt::qml
 
-#  define DECLARE_QML_MODULE_REGISTER_FUNCTION                                    \
+#  define RLL_QML_MODULE_REGISTER_FUNCTION                                        \
   rll::qt::qml::module& register_qml_module(                                      \
-    rll::optional<std::reference_wrapper<rll::qt::qml::module>> mod = rll::none,  \
+    rll::optional<std::reference_wrapper<rll::qt::qml::module>> mod = rll::none   \
   );
 
-#  define DECLARE_QML_MODULE_REGISTER_FUNCTION_IMPL                               \
+#  define RLL_QML_MODULE_REGISTER_FUNCTION_IMPL                                   \
   rll::qt::qml::module& register_qml_module(                                      \
     rll::optional<std::reference_wrapper<rll::qt::qml::module>> mod               \
   )
