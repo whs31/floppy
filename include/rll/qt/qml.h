@@ -57,7 +57,7 @@ namespace rll::qt::qml {
 
   class module {
    public:
-    using version_type = version;
+    using version_type = rll::version;
 
     explicit module(std::string name, version_type const version = {1, 0, 0}) noexcept
       : name_(std::move(name))
@@ -67,7 +67,7 @@ namespace rll::qt::qml {
 
     [[nodiscard]] std::string const& name() const noexcept { return this->name_; }
 
-    [[nodiscard]] version_type const& version() const noexcept { return this->version_; }
+    [[nodiscard]] version_type const& uri_version() const noexcept { return this->version_; }
 
     template <typename T, typename = std::enable_if_t<std::is_base_of_v<::QObject, T>>>
     module& component(optional<std::string_view> const name = nullopt) {
@@ -233,4 +233,14 @@ namespace rll::qt::qml {
     version_type version_;
   };
 }  // namespace rll::qt::qml
+
+#  define DECLARE_QML_MODULE_REGISTER_FUNCTION                                    \
+  rll::qt::qml::module& register_qml_module(                                      \
+    rll::optional<std::reference_wrapper<rll::qt::qml::module>> mod = rll::none,  \
+  );
+
+#  define DECLARE_QML_MODULE_REGISTER_FUNCTION_IMPL                               \
+  rll::qt::qml::module& register_qml_module(                                      \
+    rll::optional<std::reference_wrapper<rll::qt::qml::module>> mod               \
+  )
 #endif  // defined(RLL_QT_GUI)
