@@ -7,8 +7,12 @@ namespace rll {
   template <typename T>
   class [[nodiscard]] rwlock_read_guard {
    public:
-    rwlock_read_guard(std::shared_mutex& mutex, T& ref)
+    rwlock_read_guard(std::shared_mutex& mutex, T const& ref)
       : lock_(mutex)
+      , ref_(ref) {}
+
+    rwlock_read_guard(std::shared_lock<std::shared_mutex>&& lock, T const& ref)
+      : lock_(std::move(lock))
       , ref_(ref) {}
 
     rwlock_read_guard(rwlock_read_guard const&) = delete;
@@ -17,13 +21,13 @@ namespace rll {
     rwlock_read_guard& operator=(rwlock_read_guard&&) = delete;
     ~rwlock_read_guard() = default;
 
-    [[nodiscard]] T* operator->() { return &this->ref_; }
+    [[nodiscard]] T const* operator->() { return &this->ref_; }
 
-    [[nodiscard]] T& operator*() { return this->ref_; }
+    [[nodiscard]] T const& operator*() { return this->ref_; }
 
    private:
     std::shared_lock<std::shared_mutex> lock_;
-    T& ref_;
+    T const& ref_;
   };
 
   template <typename T>
@@ -31,6 +35,10 @@ namespace rll {
    public:
     rwlock_write_guard(std::shared_mutex& mutex, T& ref)
       : lock_(mutex)
+      , ref_(ref) {}
+
+    rwlock_write_guard(std::unique_lock<std::shared_mutex>&& lock, T& ref)
+      : lock_(std::move(lock))
       , ref_(ref) {}
 
     rwlock_write_guard(rwlock_write_guard const&) = delete;

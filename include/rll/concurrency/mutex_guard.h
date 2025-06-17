@@ -10,6 +10,10 @@ namespace rll {
       : lock_(mutex)
       , ref_(ref) {}
 
+    mutex_guard(std::unique_lock<std::mutex>&& lock, T& ref)
+      : lock_(std::move(lock))
+      , ref_(ref) {}
+
     mutex_guard(mutex_guard const&) = delete;
     mutex_guard(mutex_guard&&) = delete;
     mutex_guard& operator=(mutex_guard const&) = delete;
@@ -21,7 +25,7 @@ namespace rll {
     [[nodiscard]] T& operator*() { return this->ref_; }
 
    private:
-    std::lock_guard<std::mutex> lock_;
+    std::unique_lock<std::mutex> lock_;
     T& ref_;
   };
 }  // namespace rll
