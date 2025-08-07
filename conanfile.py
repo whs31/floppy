@@ -7,7 +7,7 @@ from conan.tools.files import rmdir, copy
 
 class RollyRecipe(ConanFile):
     name = "rolly"
-    version = "2.6.5"
+    version = "2.6.6"
     description = "Radar open-source library"
     author = "whs31 <whs31@github.io>"
     topics = ("coreutils", "utility")
