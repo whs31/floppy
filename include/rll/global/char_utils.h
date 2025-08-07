@@ -3,6 +3,7 @@
 #include <string>
 #include <string_view>
 #include <stdexcept>
+#include <cassert>
 #include <fmt/format.h>
 
 #if defined(_MSC_VER)
@@ -47,6 +48,6 @@ namespace rll {
       return static_cast<unsigned char>(c - 'a' + 10);
     if(c >= 'A' and c <= 'F')
       return static_cast<unsigned char>(c - 'A' + 10);
-    throw std::domain_error("invalid hex character");
+    assert(false && "invalid hex character");
   }
 }  // namespace rll
