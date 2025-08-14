@@ -14,24 +14,21 @@
 namespace rll {
   class dirs {
    public:
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-    dirs();
+    RLL_API dirs();
     ~dirs() = default;
     dirs(dirs const&) = default;
     dirs(dirs&&) = default;
     dirs& operator=(dirs const&) = default;
     dirs& operator=(dirs&&) = default;
 
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& user_home() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& user_home() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& application_dir_path() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& application_file_path() const;
 
    private:
     std::filesystem::path user_home_;
+    std::filesystem::path application_dir_path_;
+    std::filesystem::path application_file_path_;
   };
 
   /**
@@ -59,6 +56,11 @@ namespace rll {
    */
   class application_dirs {
    public:
+    enum class preferred_location : u8 {
+      relative_to_executable,
+      user_home
+    };
+
     /**
      * @brief Supported application directory types.
      */
@@ -73,76 +75,73 @@ namespace rll {
       state          ///< State directory. Can be unavailable on some platforms
     };
 
-                     /**
-                      * @brief Creates an application_dirs class from values describing the project.
-                      * @note Constructor can fail if no valid home directory could be retrieved from the operating
-                      * system.
-                      * @note Directories will be created if they do not exist.
-                      * @param qualifier The reverse domain name notation of the application, excluding
-                      * the organization or application name itself.
-                      *
-                      * Example values of qualifier:
-                      * <ul>
-                      * <li><tt>"com.example"</tt></li>
-                      * <li><tt>"org"</tt></li>
-                      * <li><tt>"uk.co"</tt></li>
-                      * <li><tt>"io"</tt></li>
-                      * <li><tt>""</tt></li>
-                      * </ul>
-                      * @param vendor The name of the organization that develops this application, or for which the
-                      * application is                  developed.
-                      *
-                      * Example values of vendor:
-                      * <ul>
-                      * <li><tt>"Foo Corp"</tt></li>
-                      * <li><tt>"Bar Ltd"</tt></li>
-                      * <li><tt>"Example Inc"</tt></li>
-                      * </ul>
-                      * @param app The name of the application itself.
-                      *
-                      * Example values of app:
-                      * <ul>
-                      * <li><tt>"Bar App"</tt></li>
-                      * <li><tt>"Foo App"</tt></li>
-                      * </ul>
-                      * @throws std::runtime_error if no valid home directory could be retrieved from the operating
-                      * system.
-                      */
-#ifndef RLL_DOC
+    /**
+     * @brief Creates an application_dirs class from values describing the project.
+     * @note Constructor can fail if no valid home directory could be retrieved from the operating
+     * system.
+     * @note Directories will be created if they do not exist.
+     * @param qualifier The reverse domain name notation of the application, excluding
+     * the organization or application name itself.
+     *
+     * Example values of qualifier:
+     * <ul>
+     * <li><tt>"com.example"</tt></li>
+     * <li><tt>"org"</tt></li>
+     * <li><tt>"uk.co"</tt></li>
+     * <li><tt>"io"</tt></li>
+     * <li><tt>""</tt></li>
+     * </ul>
+     * @param vendor The name of the organization that develops this application, or for which the
+     * application is                  developed.
+     *
+     * Example values of vendor:
+     * <ul>
+     * <li><tt>"Foo Corp"</tt></li>
+     * <li><tt>"Bar Ltd"</tt></li>
+     * <li><tt>"Example Inc"</tt></li>
+     * </ul>
+     * @param app The name of the application itself.
+     *
+     * Example values of app:
+     * <ul>
+     * <li><tt>"Bar App"</tt></li>
+     * <li><tt>"Foo App"</tt></li>
+     * </ul>
+     * @throws std::runtime_error if no valid home directory could be retrieved from the operating
+     * system.
+     */
     RLL_API
-#endif  // RLL_DOC
-    application_dirs(std::string_view qualifier, std::string_view vendor, std::string_view app);
+    application_dirs(
+      std::string_view qualifier,
+      std::string_view vendor,
+      std::string_view app,
+      preferred_location location = preferred_location::user_home
+    );
 
-        /**
-         * @brief Creates an application_dirs class from values describing the project.
-         * @note Constuctor can fail if no valid home directory could be retrieved from the operating
-         * system.
-         * @note Directories will be created if they do not exist.
-         * @param meta The project meta data.
-         * @throws std::runtime_error if no valid home directory could be retrieved from the operating
-         * system.
-         * @see meta::project_meta
-         */
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-    explicit application_dirs(metadata::project_meta const& meta);
+    /**
+     * @brief Creates an application_dirs class from values describing the project.
+     * @note Constuctor can fail if no valid home directory could be retrieved from the operating
+     * system.
+     * @note Directories will be created if they do not exist.
+     * @param meta The project meta data.
+     * @throws std::runtime_error if no valid home directory could be retrieved from the operating
+     * system.
+     * @see meta::project_meta
+     */
+    RLL_API explicit application_dirs(
+      metadata::project_meta const& meta,
+      preferred_location location = preferred_location::user_home
+    );
 
-        /**
-         * @brief Creates the directories if they do not exist.
-         */
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-    void create() const;
+    /**
+     * @brief Creates the directories if they do not exist.
+     */
+    RLL_API void create() const;
 
-        /**
-         * @brief Removes the directories and their contents from the filesystem.
-         */
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-    void remove() const;
+    /**
+     * @brief Removes the directories and their contents from the filesystem.
+     */
+    RLL_API void remove() const;
 
     /**
      * @brief Returns the path to the directory.
@@ -153,11 +152,7 @@ namespace rll {
      * exception.
      * @see operator[]
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& get(dir d) const;
+    [[nodiscard]] RLL_API std::filesystem::path const& get(dir d) const;
 
     /**
      * @brief Returns the path to the directory.
@@ -177,11 +172,7 @@ namespace rll {
      * directories. \details The value is derived from the constructor call and is
      * platform-dependent. \return The project path.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& project_path() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& project_path() const;
 
     /**
      * @brief Returns the path to the project's cache directory.
@@ -197,11 +188,7 @@ namespace rll {
      * </ul>
      * @return The path to the project's cache directory.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& cache_dir() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& cache_dir() const;
 
     /**
      * @brief Returns the path to the project's config directory.
@@ -217,11 +204,7 @@ namespace rll {
      * </ul>
      * @return The path to the project's config directory.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& config_dir() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& config_dir() const;
 
     /**
      * @brief Returns the path to the project's config_local directory.
@@ -237,11 +220,7 @@ namespace rll {
      * </ul>
      * @return The path to the project's config_local directory.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& config_local_dir() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& config_local_dir() const;
 
     /**
      * @brief Returns the path to the project's data directory.
@@ -257,11 +236,7 @@ namespace rll {
      * </ul>
      * @return The path to the project's data directory.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& data_dir() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& data_dir() const;
 
     /**
      * @brief Returns the path to the project's data_local directory.
@@ -277,11 +252,7 @@ namespace rll {
      * </ul>
      * @return The path to the project's data_local directory.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& data_local_dir() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& data_local_dir() const;
 
     /**
      * \brief Returns the path to the project's preference directory.
@@ -297,11 +268,7 @@ namespace rll {
      * </ul>
      * \return
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      std::filesystem::path const& preference_dir() const;
+    [[nodiscard]] RLL_API std::filesystem::path const& preference_dir() const;
 
     /**
      * @brief Returns the path to the project's runtime directory.
@@ -315,11 +282,7 @@ namespace rll {
      * @note Only for Linux.
      * @return The path to the project's runtime directory or <tt>none</tt> if it is not available.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      optional<std::filesystem::path> const& runtime_dir() const;
+    [[nodiscard]] RLL_API optional<std::filesystem::path> const& runtime_dir() const;
 
     /**
      * \brief Returns the path to the project's state directory.
@@ -335,11 +298,7 @@ namespace rll {
      * \note Only for Linux.
      * \return The path to the project's state directory or <tt>none</tt> if it is not available.
      */
-    [[nodiscard]]
-#ifndef RLL_DOC
-    RLL_API
-#endif  // RLL_DOC
-      optional<std::filesystem::path> const& state_dir() const;
+    [[nodiscard]] RLL_API optional<std::filesystem::path> const& state_dir() const;
 
    private:
     std::filesystem::path project_path_;

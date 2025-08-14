@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 include_guard(GLOBAL)
 
 project(rolly
-  VERSION 2.6.7
+  VERSION 2.6.8
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -76,12 +76,13 @@ if (WIN32)
   target_sources(${PROJECT_NAME}
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/win/dlfcn_win32.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/win/app_path.cc
   )
 else ()
-  #  target_sources(${PROJECT_NAME}
-  #    PRIVATE
-  #
-  #  )
+  target_sources(${PROJECT_NAME}
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/linux/app_path.cc
+  )
 endif ()
 
 target_link_libraries(${PROJECT_NAME}
