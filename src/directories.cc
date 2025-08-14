@@ -3,12 +3,13 @@
 #include <stdexcept>
 #include <system_error>
 #include <rll/string_util.h>
-#include "oslayer/base.h"
+#include <oslayer/base.h>
+#include <oslayer/app_path.h>
 
 #ifdef RLL_OS_WINDOWS
-#  include "oslayer/win/known_folder.h"
+#  include <oslayer/win/known_folder.h>
 #else
-#  include "oslayer/linux/dirs.h"
+#  include <oslayer/linux/dirs.h>
 #endif  // RLL_OS_WINDOWS
 
 using std::string;
@@ -37,15 +38,35 @@ namespace {
 
 namespace rll {
   dirs::dirs()
-    : user_home_(oslayer::___os___::home_dir()) {}
+    : user_home_(oslayer::___os___::home_dir())
+    , application_dir_path_(oslayer::___os___::current_executable_dir())
+    , application_file_path_(oslayer::___os___::current_executable_path()) {}
 
   path const& dirs::user_home() const { return this->user_home_; }
+
+  path const& dirs::application_dir_path() const { return this->application_dir_path_; }
+
+  path const& dirs::application_file_path() const { return this->application_file_path_; }
 
   application_dirs::application_dirs(
     [[maybe_unused]] string_view const qualifier,
     [[maybe_unused]] string_view const vendor,
-    [[maybe_unused]] string_view const app
+    [[maybe_unused]] string_view const app,
+    preferred_location const location
   ) {
+    if(location == preferred_location::relative_to_executable) {
+      auto const root = dirs().application_dir_path() / "data" / vendor / app;
+      this->project_path_ = root;
+      this->cache_dir_ = root / "cache";
+      this->config_dir_ = root / "config";
+      this->config_local_dir_ = root / "config" / "local";
+      this->data_dir_ = root / "data";
+      this->data_local_dir_ = root / "data" / "local";
+      this->preference_dir_ = this->config_dir_;
+      this->runtime_dir_ = root / "runtime";
+      this->state_dir_ = root / "state";
+      return;
+    }
 #if defined(RLL_OS_WINDOWS)
     auto const p = path(vendor) / app;
     auto const appdata = oslayer::___os___::appdata_dir();
@@ -105,8 +126,11 @@ namespace rll {
 #endif                                          // OS
   }
 
-  application_dirs::application_dirs(metadata::project_meta const& meta)
-    : application_dirs(meta.domain(), meta.organization(), meta.name()) {}
+  application_dirs::application_dirs(
+    metadata::project_meta const& meta,
+    preferred_location const location
+  )
+    : application_dirs(meta.domain(), meta.organization(), meta.name(), location) {}
 
   void application_dirs::create() const {
     for(auto i = 0; i <= static_cast<int>(dir::preferences); ++i)
