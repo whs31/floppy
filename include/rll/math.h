@@ -188,4 +188,19 @@ namespace rll {
       return r < 0 ? r + std::abs(b) : r;
     }
   }
+
+  template <typename T, typename = std::enable_if_t<is_num_v<T>>>
+  [[nodiscard]] constexpr T clamp(T value, T min, T max) {
+    return value < min ? min : value > max ? max : value;
+  }
+
+  template <typename T, typename = std::enable_if_t<is_num_v<T>>>
+  [[nodiscard]] constexpr T lerp(T a, T b, T t) {
+    return a + (b - a) * t;
+  }
+
+  template <typename T, typename = std::enable_if_t<is_num_v<T>>>
+  [[nodiscard]] constexpr T normalize(T value, T min, T max) {
+    return (value - min) / (max - min);
+  }
 }  // namespace rll

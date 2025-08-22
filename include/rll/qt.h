@@ -5,3 +5,4 @@
 #include <rll/qt/literals.h>
 #include <rll/qt/memory.h>
 #include <rll/qt/qml.h>
+#include <rll/qt/version.h>
