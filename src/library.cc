@@ -6,7 +6,7 @@
 #include <mutex>
 #include <rll/global/platform_definitions.h>
 #include <rll/string_util.h>
-#include <oslayer/dlfcn.h>
+#include <rll/dlfcn.h>
 
 using namespace std::literals;
 

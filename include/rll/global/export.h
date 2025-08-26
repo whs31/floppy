@@ -18,7 +18,9 @@
 #endif
 // NOLINTEND(*-reserved-identifier, *-identifier-naming, *-macro-usage)
 
+#ifdef __cplusplus
 /**
  * @brief Main namespace for the **rolly** library.
  */
 namespace rll {}  // namespace rll
+#endif

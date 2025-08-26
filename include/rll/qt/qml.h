@@ -163,7 +163,7 @@ namespace rll::qt::qml {
       return *this;
     }
 
-    template <typename T, typename = std::enable_if_t<is_qgadget_v<T>>>
+    template <typename T>
     module& uncreatable(
       optional<std::string_view> const name = nullopt,
       optional<std::string_view> const reason = nullopt

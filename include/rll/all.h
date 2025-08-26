@@ -5,7 +5,7 @@
 #include <rll/concurrency.h>
 #include <rll/contracts.h>
 #include <rll/crypto.h>
-#include <rll/directories.h>
+#include <rll/dlfcn.h>
 #include <rll/fixed_string.h>
 #include <rll/functional.h>
 #include <rll/global.h>
@@ -15,6 +15,7 @@
 #include <rll/net.h>
 #include <rll/numbers.h>
 #include <rll/optional.h>
+#include <rll/paths.h>
 #include <rll/pimpl.h>
 #include <rll/preprocessor.h>
 #include <rll/result.h>

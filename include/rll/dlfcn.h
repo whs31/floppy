@@ -1,41 +1,45 @@
 #pragma once
 
-#ifdef __cplusplus
+#include <rll/global/export.h>
+#include <rll/global/platform_definitions.h>
+
+#ifdef RLL_OS_WINDOWS
+#  ifdef __cplusplus
 extern "C"
 {
-#endif
+#  endif
 
   /**
    * @brief Relocations are performed when the object is loaded.
    */
-#define RTLD_NOW    0
+#  define RTLD_NOW    0
 
   /**
    * @brief Relocations are performed at an implementation-defined time.
    * @remark Windows API does not support lazy symbol resolving (when first reference
    * to a given symbol occurs). So RTLD_LAZY implementation is same as RTLD_NOW.
    */
-#define RTLD_LAZY   RTLD_NOW
+#  define RTLD_LAZY   RTLD_NOW
 
   /**
    * @brief All symbols are available for relocation processing of other modules.
    */
-#define RTLD_GLOBAL (1 << 1)
+#  define RTLD_GLOBAL (1 << 1)
 
   /**
    * @brief All symbols are not made available for relocation processing by other modules.
    */
-#define RTLD_LOCAL  (1 << 2)
+#  define RTLD_LOCAL  (1 << 2)
 
   /**
    * @brief The symbol lookup happens in the normal global scope.
    */
-#define RTLD_DEFAULT    ((void *)0)
+#  define RTLD_DEFAULT    ((void *)0)
 
   /**
    * @brief Specifies the next object after this one that defines name.
    */
-#define RTLD_NEXT       ((void *)-1)
+#  define RTLD_NEXT       ((void *)-1)
 
   /**
    * @brief Structure filled in by dladdr()
@@ -65,28 +69,31 @@ extern "C"
   /**
    * @brief Open a symbol table handle.
    */
-  void* dlopen(char const* file, int mode);
+  RLL_API void* dlopen(char const* file, int mode);
 
   /**
    * @brief Close a symbol table handle.
    */
-  int dlclose(void* handle);
+  RLL_API int dlclose(void* handle);
 
   /**
    * @brief Get the address of a symbol from a symbol table handle.
    */
-  void* dlsym(void* handle, char const* name);
+  RLL_API void* dlsym(void* handle, char const* name);
 
   /**
    * @brief Get diagnostic information.
    */
-  char* dlerror(void);
+  RLL_API char* dlerror(void);
 
   /**
    * @brief Translate address to symbolic information (no POSIX standard)
    */
-  int dladdr(void const* addr, Dl_info* info);
+  RLL_API int dladdr(void const* addr, Dl_info* info);
 
-#ifdef __cplusplus
+#  ifdef __cplusplus
 }
+#  endif
+#else
+#  include <dlfcn.h>
 #endif

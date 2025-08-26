@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 include_guard(GLOBAL)
 
 project(rolly
-  VERSION 2.6.9
+  VERSION 2.6.10
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -58,17 +58,14 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 target_sources(${PROJECT_NAME}
   PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/contracts.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/directories.cc
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/library.cc
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/paths.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/src/rtti.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/src/string_util.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/library.cc
-
   ${CMAKE_CURRENT_SOURCE_DIR}/src/uuid.cc
 
   ${CMAKE_CURRENT_SOURCE_DIR}/src/crypto/md5.cc
 
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/linux/dirs.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/win/known_folder.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/android/guid.cc
 )
 
@@ -76,12 +73,6 @@ if (WIN32)
   target_sources(${PROJECT_NAME}
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/win/dlfcn_win32.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/win/app_path.cc
-  )
-else ()
-  target_sources(${PROJECT_NAME}
-    PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/linux/app_path.cc
   )
 endif ()
 
