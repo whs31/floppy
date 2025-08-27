@@ -21,7 +21,6 @@ version *ARGS:
     # just-utils = { git = "https://github.com/whs31/just-utils", branch = "main" }
     # ///
 
-    import os
     import sys
     import argparse
     import semver
@@ -35,22 +34,15 @@ version *ARGS:
     parser.add_argument("-M", "--bump-major", action="store_true")
     args = parser.parse_args()
 
-    if args.show:
-      ju.show_version()
-      sys.exit(0)
+    actions = {
+        args.show: ju.show_version,
+        args.assign: lambda: ju.patch_version(semver.Version.parse(args.assign)),
+        args.bump_patch: ju.bump_version_patch,
+        args.bump_minor: ju.bump_version_minor,
+        args.bump_major: ju.bump_version_major,
+    }
 
-    if args.assign:
-      ju.patch_version(semver.Version.parse(args.assign))
-      sys.exit(0)
-
-    if args.bump_patch:
-      ju.bump_version_patch()
-      sys.exit(0)
-
-    if args.bump_minor:
-      ju.bump_version_minor()
-      sys.exit(0)
-
-    if args.bump_major:
-      ju.bump_version_major()
-      sys.exit(0)
+    for key, fn in actions.items():
+        if key:
+            fn()
+            sys.exit(0)
