@@ -4,6 +4,7 @@
 #include <fmt/format.h>
 #include <rll/math.h>
 #include <rll/contracts.h>
+#include <rll/serialization.h>
 #include <rll/concepts/num.h>
 
 namespace rll {
@@ -599,9 +600,6 @@ struct fmt::formatter<rll::angle<T>> {
   }
 };
 
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
-
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 template <typename T>
@@ -619,5 +617,3 @@ struct [[maybe_unused]] adl_serializer<rll::angle<T>> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

@@ -5,6 +5,7 @@
 #include <rll/math.h>
 #include <rll/contracts.h>
 #include <rll/stdint.h>
+#include <rll/serialization.h>
 #include <rll/concepts/num.h>
 
 namespace rll {
@@ -496,9 +497,6 @@ struct fmt::formatter<rll::velocity<T>> {
   }
 };
 
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
-
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 template <typename T>
@@ -516,5 +514,3 @@ struct [[maybe_unused]] adl_serializer<rll::velocity<T>> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

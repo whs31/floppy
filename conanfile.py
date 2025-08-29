@@ -7,7 +7,7 @@ from conan.tools.files import rmdir, copy
 
 class RollyRecipe(ConanFile):
     name = "rolly"
-    version = "2.6.10"
+    version = "2.6.11"
     description = "Radar open-source library"
     author = "whs31 <whs31@github.io>"
     topics = ("coreutils", "utility")
@@ -15,13 +15,11 @@ class RollyRecipe(ConanFile):
     settings = "os", "arch", "compiler", "build_type"
     options = {
         "shared": [True, False],
-        "test": [True, False],
-        "serde": [True, False]
+        "test": [True, False]
     }
     default_options = {
         "shared": True,
-        "test": False,
-        "serde": True
+        "test": False
     }
     exports = "CMakeLists.txt", "conanfile.py"
     exports_sources = "*", "!build/*"
@@ -55,7 +53,6 @@ class RollyRecipe(ConanFile):
         tc = CMakeToolchain(self)
         tc.cache_variables["BUILD_SHARED_LIBS"] = self.options.shared
         tc.cache_variables["ROLLY_TESTS"] = self.options.test
-        tc.cache_variables["ROLLY_SERDE"] = self.options.serde
         tc.generate()
 
     def build(self):
@@ -83,5 +80,3 @@ class RollyRecipe(ConanFile):
             self.cpp_info.requires.append("catch2::catch2")
         if not self.options.shared:
             self.cpp_info.defines = ["ROLLY_STATIC_LIBRARY"]
-        if self.options.serde:
-            self.cpp_info.defines = ["ROLLY_SERDE"]

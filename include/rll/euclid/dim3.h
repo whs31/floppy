@@ -1,7 +1,7 @@
 #pragma once
 
-#include <type_traits>
 #include <fmt/format.h>
+#include <rll/serialization.h>
 
 #ifdef _MSC_VER
 #  include <ciso646>
@@ -201,9 +201,6 @@ struct fmt::formatter<rll::dim3<T>> {
   }
 };
 
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
-
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 template <typename T>
@@ -222,5 +219,3 @@ struct [[maybe_unused]] adl_serializer<rll::dim3<T>> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

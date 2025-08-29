@@ -1,6 +1,7 @@
 #pragma once
 
 #include <rll/euclid/angle.h>
+#include <rll/serialization.h>
 
 namespace rll {
   template <typename T, typename = std::enable_if_t<is_num_v<T>>>
@@ -26,9 +27,6 @@ struct fmt::formatter<rll::euler_angles<T>> {
   }
 };
 
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
-
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 template <typename T>
@@ -49,5 +47,3 @@ struct [[maybe_unused]] adl_serializer<rll::euler_angles<T>> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

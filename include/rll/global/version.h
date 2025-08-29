@@ -1,8 +1,9 @@
 #pragma once
 
 #include <fmt/format.h>
-#include "version_definitions.h"
-#include "semver.h"
+#include <rll/global/version_definitions.h>
+#include <rll/global/semver.h>
+#include <rll/serialization.h>
 
 namespace rll  // NOLINT(*-concat-nested-namespaces)
 {
@@ -92,14 +93,11 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
         "com",
         "Radar MMS"
       );
-  }  // namespace meta
+  }  // namespace metadata
 }  // namespace rll
 
 static_assert(alignof(rll::prerelease) == 1);
 static_assert(sizeof(rll::prerelease) == 1);
-
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
 
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
@@ -117,5 +115,3 @@ struct [[maybe_unused]] adl_serializer<rll::version> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

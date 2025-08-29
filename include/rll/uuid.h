@@ -11,6 +11,7 @@
 #include <rll/global.h>
 #include <rll/stdint.h>
 #include <rll/result.h>
+#include <rll/serialization.h>
 
 namespace rll  // NOLINT(*-concat-nested-namespaces)
 {
@@ -278,9 +279,6 @@ namespace std {
 template <>
 struct [[maybe_unused]] fmt::formatter<rll::uuid> : ostream_formatter {};
 
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
-
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 template <>
@@ -293,5 +291,3 @@ struct [[maybe_unused]] adl_serializer<rll::uuid> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

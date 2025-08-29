@@ -29,11 +29,70 @@ struct DummyConfiguration {
 struct TestStruct {
   int a = 1;
   int b = 2;
+};
+NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(TestStruct, a, b)
 
-  NLOHMANN_DEFINE_TYPE_INTRUSIVE(TestStruct, a, b)
+struct InterfaceStruct {
+  int a = 1;
+};
+
+struct DerivedStruct : InterfaceStruct {
+  DerivedStruct(int a, int b)
+    : InterfaceStruct {a}
+    , b {b} {}
+
+  int b = 2;
+};
+
+template <>
+struct rll::serialization_traits<std::unique_ptr<DerivedStruct>, std::string> {
+  [[nodiscard]] static std::string to(std::unique_ptr<DerivedStruct> const& t) {
+    return fmt::format("{}x{}", t->a, t->b);
+  }
+
+  [[nodiscard]] static std::unique_ptr<DerivedStruct> from(std::string const& j) {
+    return std::make_unique<DerivedStruct>(
+      std::stoi(j.substr(0, j.find('x'))),
+      std::stoi(j.substr(j.find('x') + 1))
+    );
+  }
+};
+
+template <>
+struct rll::serialization_traits<TestStruct, std::string> {
+  [[nodiscard]] static std::string to(TestStruct const& t) {
+    return fmt::format("{}x{}", t.a, t.b);
+  }
+
+  [[nodiscard]] static TestStruct from(std::string const& j) {
+    return {std::stoi(j.substr(0, j.find('x'))), std::stoi(j.substr(j.find('x') + 1))};
+  }
 };
 
 TEST_CASE("Serialization & filesystem") {
+  SECTION("Custom format") {
+    auto const test = TestStruct {1, 2};
+    auto const serialized = serializer<std::string>::serialize(test);
+    REQUIRE(serialized == "1x2");
+    auto const deserialized = serializer<std::string>::deserialize<TestStruct>(serialized);
+    REQUIRE(test.a == deserialized.a);
+    REQUIRE(test.b == deserialized.b);
+
+    auto const json = serializer<nlohmann::json>::serialize(test);
+    REQUIRE(json.dump() == R"({"a":1,"b":2})");
+    auto const deserialized_json = serializer<nlohmann::json>::deserialize<TestStruct>(json);
+    REQUIRE(test.a == deserialized_json.a);
+    REQUIRE(test.b == deserialized_json.b);
+
+    auto const derived = std::make_unique<DerivedStruct>(1, 2);
+    auto const serialized_derived = serializer<std::string>::serialize(derived);
+    REQUIRE(serialized_derived == "1x2");
+    auto const deserialized_derived =
+      serializer<std::string>::deserialize<std::unique_ptr<DerivedStruct>>(serialized_derived);
+    REQUIRE(derived->a == deserialized_derived->a);
+    REQUIRE(derived->b == deserialized_derived->b);
+  }
+
   SECTION("Savefile") {
     SECTION("Basic") {
       {
@@ -45,6 +104,12 @@ TEST_CASE("Serialization & filesystem") {
         REQUIRE(save().ip_address.port == 25'565);
         REQUIRE(save().ip_address.sock_mode.tcp == true);
         REQUIRE(save().ip_address.sock_mode.udp == false);
+
+        auto const serialized = serializer<nlohmann::json>::serialize(save());
+        REQUIRE(
+          serialized.dump()
+          == R"({"ip_address":{"ip":"127.0.0.1","port":25565,"sock_mode":{"tcp":true,"udp":false}},"test":0})"
+        );
 
         save().ip_address = {
           "127.0.0.1",

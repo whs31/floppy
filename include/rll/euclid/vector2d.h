@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <fmt/format.h>
 #include <rll/stdint.h>
+#include <rll/serialization.h>
 #include <rll/concepts/num.h>
 #include <rll/concepts/any_of.h>
 #include <rll/euclid/size2d.h>
@@ -715,9 +716,6 @@ namespace std {
   };
 }  // namespace std
 
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
-
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 template <typename T>
@@ -735,5 +733,3 @@ struct [[maybe_unused]] adl_serializer<rll::vector2d<T>> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

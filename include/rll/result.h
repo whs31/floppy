@@ -2,11 +2,11 @@
 
 #include <exception>
 #include <functional>
-#include <type_traits>
 #include <utility>
 #include <variant>
 #include <fmt/format.h>
 #include <rll/global/definitions.h>
+#include <rll/serialization.h>
 #include <rll/contracts.h>
 #include <rll/optional.h>
 
@@ -2727,9 +2727,6 @@ struct fmt::formatter<
 };
 #endif
 
-#ifdef ROLLY_SERDE
-#  include <nlohmann/json.hpp>
-
 NLOHMANN_JSON_NAMESPACE_BEGIN
 
 template <typename T>
@@ -2759,5 +2756,3 @@ struct [[maybe_unused]] adl_serializer<rll::result<T>> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
-
-#endif

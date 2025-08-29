@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 include_guard(GLOBAL)
 
 project(rolly
-  VERSION 2.6.10
+  VERSION 2.6.11
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -14,7 +14,6 @@ set(PROJECT_FULL_NAME ${PROJECT_NAMESPACE}${PROJECT_NAME})
 option(ROLLY_TESTS "Enable integration tests" OFF)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(ROLLY_QT "Link with Qt" OFF)
-option(ROLLY_SERDE "Generate serialization code" ON)
 
 if ("${CMAKE_GENERATOR}" MATCHES "^Visual Studio")
   set(CMAKE_GENERATOR_PLATFORM "x64" CACHE STRING "" FORCE)
@@ -92,10 +91,6 @@ if (ROLLY_QT)
     Qt::Quick
     Qt::Qml
   )
-endif ()
-
-if (ROLLY_SERDE)
-  target_compile_definitions(${PROJECT_NAME} PUBLIC -DROLLY_SERDE=1)
 endif ()
 
 # <-- msvc-specific options -->
