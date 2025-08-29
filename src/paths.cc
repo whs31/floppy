@@ -108,7 +108,7 @@ namespace rll {
 #endif
 
 #ifdef RLL_OS_LINUX
-  namespace unix {
+  namespace nix_ {
     RLL_PATHS_NOEXCEPT_IMPL(xdg_runtime_dir_path)
 
     std::filesystem::path xdg_runtime_dir_path() {
@@ -117,7 +117,7 @@ namespace rll {
         throw std::runtime_error("failed to get XDG_RUNTIME_DIR: $XDG_RUNTIME_DIR is not set");
       return {xdg_runtime_dir_c};
     }
-  }  // namespace unix
+  }  // namespace nix_
 #endif
 
   std::filesystem::path user_home_path() {

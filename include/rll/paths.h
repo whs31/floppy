@@ -51,9 +51,9 @@ namespace rll {
 #endif
 
 #ifdef RLL_OS_LINUX
-  namespace unix {
+  namespace nix_ {
     [[nodiscard]] RLL_API std::filesystem::path xdg_runtime_dir_path();
     [[nodiscard]] RLL_API std::filesystem::path xdg_runtime_dir_path(std::error_code& ec) noexcept;
-  }  // namespace unix
+  }  // namespace nix_
 #endif
 }  // namespace rll
