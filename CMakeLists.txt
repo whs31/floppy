@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 include_guard(GLOBAL)
 
 project(rolly
-  VERSION 2.7.0
+  VERSION 2.7.1
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -39,9 +39,6 @@ if (ROLLY_QT)
     REQUIRED
   )
   set(CMAKE_AUTOMOC ON)
-endif ()
-if (NOT WIN32)
-  find_package(libuuid REQUIRED)
 endif ()
 
 add_library(${PROJECT_NAME})
@@ -82,7 +79,6 @@ target_link_libraries(${PROJECT_NAME}
   ipaddress::ipaddress
   nlohmann_json::nlohmann_json
   PRIVATE
-  $<$<NOT:$<PLATFORM_ID:Windows>>:libuuid::libuuid>
   ${CMAKE_DL_LIBS}
 )
 if (ROLLY_QT)

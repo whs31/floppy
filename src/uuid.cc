@@ -4,16 +4,11 @@
 #include <iomanip>
 #include <iostream>
 
-#if defined(RLL_OS_LINUX)
-#  include <uuid/uuid.h>
-#elif defined(RLL_OS_ANDROID)
-#  include "oslayer/android/guid.h"
-#elif defined(RLL_OS_WINDOWS)
-#  include <objbase.h>
-#endif
+#include <limits>
+#include <random>
 
 namespace rll {
-  uuid::uuid(std::array<std::byte, 16> const& bytes) {
+  uuid::uuid(std::array<std::byte, 16> const& bytes) {  // NOLINT(*-pro-type-member-init)
     std::memcpy(this->bytes_.data(), bytes.data(), 16);
   }
 
@@ -59,48 +54,33 @@ namespace rll {
   }
 
   uuid uuid::random() noexcept {
-#if defined(RLL_OS_LINUX)
-    static_assert(
-      std::is_same_v<unsigned char[16], uuid_t>,
-      "rll::uuid: uuid_t is not unsigned char[16]"
-    );  // NOLINT(*-avoid-c-arrays)
-
-    auto data = std::array<u8, 16>();
-    ::uuid_generate(data.data());
+    thread_local auto engine = std::default_random_engine {std::random_device {}()};
+    auto distribution = std::uniform_int_distribution<u32>(
+      std::numeric_limits<u32>::min(),
+      std::numeric_limits<u32>::max()
+    );
+    auto i = 0;
+    auto random_value = distribution(engine);
+    auto data = std::array<u8, 16> {};
+    for(auto it = data.begin(); it != data.end(); ++it, ++i) {
+      if(i == sizeof(u32)) {
+        random_value = distribution(engine);
+        i = 0;
+      }
+      *it = static_cast<u8>((random_value >> (i * 8)) & 0xFF);
+    }
+    *(data.begin() + 8) &= 0xBF;
+    *(data.begin() + 8) |= 0x80;
+    *(data.begin() + 6) &= 0x4F;
+    *(data.begin() + 6) |= 0x40;
     return uuid(data);
-#elif defined(RLL_OS_ANDROID)
-#  warning "rll::uuid::random() is currently not implemented for Android"
-    return uuid({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
-#elif defined(RLL_OS_WINDOWS)
-    auto new_id = GUID();
-    ::CoCreateGuid(&new_id);
-    auto data = std::array<u8, 16> {
-      static_cast<u8>(new_id.Data1 >> 24 & 0xFF),
-      static_cast<u8>(new_id.Data1 >> 16 & 0xFF),
-      static_cast<u8>(new_id.Data1 >> 8 & 0xFF),
-      static_cast<u8>(new_id.Data1 & 0xFF),
-      static_cast<u8>(new_id.Data2 >> 8 & 0xFF),
-      static_cast<u8>(new_id.Data2 & 0xFF),
-      static_cast<u8>(new_id.Data3 >> 8 & 0xFF),
-      static_cast<u8>(new_id.Data3 & 0xFF),
-      static_cast<u8>(new_id.Data4[0]),
-      static_cast<u8>(new_id.Data4[1]),
-      static_cast<u8>(new_id.Data4[2]),
-      static_cast<u8>(new_id.Data4[3]),
-      static_cast<u8>(new_id.Data4[4]),
-      static_cast<u8>(new_id.Data4[5]),
-      static_cast<u8>(new_id.Data4[6]),
-      static_cast<u8>(new_id.Data4[7])
-    };
-    return uuid(data);
-#endif  // RLL_OS_LINUX
   }
 
-  result<uuid> uuid::try_parse(std::string_view str) noexcept {
+  result<uuid> uuid::try_parse(std::string_view const str) noexcept {
     try {
       return uuid(str);
-    } catch (std::exception const& e) {
-      return error("rll::uuid::try_parse: {}", e.what());
+    } catch(std::exception const& e) {
+      return error("{}", e.what());
     }
   }
 

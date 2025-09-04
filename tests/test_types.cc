@@ -924,6 +924,10 @@ TEST_CASE("Types", "[types]") {
       auto const r2 = uuid::random();
       auto const r3 = uuid::random();
 
+      fmt::print("r1: {}\n", r1.to_string());
+      fmt::print("r2: {}\n", r2.to_string());
+      fmt::print("r3: {}\n", r3.to_string());
+
       REQUIRE(r1 != r2);
       REQUIRE(r1 != r3);
       REQUIRE(r2 != r3);
