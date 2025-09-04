@@ -19,7 +19,7 @@
  * @note Consider using <i>meta::library_metadata</i> variable to access this value.
  * @version 2.1.32
  */
-#define RLL_VERSION_MINOR 6
+#define RLL_VERSION_MINOR 7
 
 /**
  * @ingroup meta
@@ -27,7 +27,7 @@
  * @note Consider using <i>meta::library_metadata</i> variable to access this value.
  * @version 2.1.32
  */
-#define RLL_VERSION_PATCH 12
+#define RLL_VERSION_PATCH 0
 
 /**
  * @ingroup meta

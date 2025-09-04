@@ -5,11 +5,14 @@
 #include <rll/concurrency.h>
 #include <rll/contracts.h>
 #include <rll/crypto.h>
+#include <rll/deadline_timer.h>
 #include <rll/dlfcn.h>
+#include <rll/elapsed_timer.h>
 #include <rll/fixed_string.h>
 #include <rll/functional.h>
 #include <rll/global.h>
 #include <rll/library.h>
+#include <rll/lockfile.h>
 #include <rll/math.h>
 #include <rll/memory.h>
 #include <rll/net.h>
