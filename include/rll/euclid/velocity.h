@@ -78,11 +78,11 @@ namespace rll {
      * @return String representation of the object.
      */
     [[nodiscard]] std::string to_string(velocity_unit u = velocity_unit::meters_per_second) const {
-      auto const unit_suffix = [](velocity_unit u) -> std::string_view {
+      auto const unit_suffix = [](velocity_unit const u) -> std::string_view {
         switch(u) {
           case velocity_unit::kmph: return "km/h";
           case velocity_unit::mps: return "m/s";
-          default: assert_broken_precondition("Unknown velocity unit");
+          default: assert_broken_precondition("Unknown velocity unit"); return "";
         }
       };
       if constexpr(std::is_floating_point_v<T>)
@@ -96,11 +96,11 @@ namespace rll {
      * @param u Unit to return the velocity in.
      * @return Velocity in the given unit.
      */
-    [[nodiscard]] constexpr number_type in(velocity_unit u) const {
+    [[nodiscard]] constexpr number_type in(velocity_unit const u) const {
       switch(u) {
         case velocity_unit::kmph: return this->kmph();
         case velocity_unit::mps: return this->mps();
-        default: assert_broken_precondition("Unknown velocity unit");
+        default: assert_broken_precondition("Unknown velocity unit"); return .0;
       }
     }
 
@@ -152,11 +152,11 @@ namespace rll {
      * @param u Unit.
      * @return Constructed velocity.
      */
-    [[nodiscard]] static constexpr velocity from(number_type value, velocity_unit u) {
+    [[nodiscard]] static constexpr velocity from(number_type value, velocity_unit const u) {
       switch(u) {
         case velocity_unit::kmph: return from_kmph(value);
         case velocity_unit::mps: return from_mps(value);
-        default: assert_broken_precondition("Unknown velocity unit");
+        default: assert_broken_precondition("Unknown velocity unit"); return .0;
       }
     }
 

@@ -10,6 +10,11 @@
 #  include <ciso646>
 #endif
 
+#define DECLARE_QRC(name) extern int QT_MANGLE_NAMESPACE(qInitResources_ ## name) ();
+#define UNDECLARE_QRC(name) extern int QT_MANGLE_NAMESPACE(qCleanupResources_ ## name) ();
+#define LOAD_QRC(name) QT_MANGLE_NAMESPACE(qInitResources_ ## name) ();
+#define UNLOAD_QRC(name) QT_MANGLE_NAMESPACE(qCleanupResources_ ## name) ();
+
 #if defined(RLL_QT_GUI) || defined(RLL_DOC)
 #  include <algorithm>
 #  include <stdexcept>
@@ -207,7 +212,6 @@ namespace rll::qt::qml {
 
     template <typename T, typename = std::enable_if_t<is_qgadget_v<T>>>
     module& anonymous(optional<std::string_view> const name = nullopt) {
-      auto const component_name = module::demangle_class_name<T>(name);
       ::qmlRegisterAnonymousType<T>(this->name_.c_str(), this->version_.major);
       return *this;
     }
@@ -233,14 +237,4 @@ namespace rll::qt::qml {
     version_type version_;
   };
 }  // namespace rll::qt::qml
-
-#  define RLL_QML_MODULE_REGISTER_FUNCTION                                        \
-  rll::qt::qml::module& register_qml_module(                                      \
-    rll::optional<std::reference_wrapper<rll::qt::qml::module>> mod = rll::none   \
-  );
-
-#  define RLL_QML_MODULE_REGISTER_FUNCTION_IMPL                                   \
-  rll::qt::qml::module& register_qml_module(                                      \
-    rll::optional<std::reference_wrapper<rll::qt::qml::module>> mod               \
-  )
 #endif  // defined(RLL_QT_GUI)

@@ -7,7 +7,7 @@ from conan.tools.files import rmdir, copy
 
 class RollyRecipe(ConanFile):
     name = "rolly"
-    version = "2.7.1"
+    version = "2.7.2"
     description = "Radar open-source library"
     author = "whs31 <whs31@github.io>"
     topics = ("coreutils", "utility")
@@ -29,7 +29,7 @@ class RollyRecipe(ConanFile):
         return "17"
 
     def requirements(self):
-        self.requires("fmt/10.2.1", transitive_headers=True, transitive_libs=True)
+        self.requires("fmt/[>=11.2.0]", transitive_headers=True, transitive_libs=True)
         self.requires("ipaddress/1.1.0", transitive_headers=True, transitive_libs=True)
         self.requires("nlohmann_json/[>=3.11.3]", transitive_headers=True, transitive_libs=True)
         if self.options.test:
