@@ -156,7 +156,7 @@ namespace rll {
       switch(u) {
         case velocity_unit::kmph: return from_kmph(value);
         case velocity_unit::mps: return from_mps(value);
-        default: assert_broken_precondition("Unknown velocity unit"); return .0;
+        default: assert_broken_precondition("Unknown velocity unit"); return velocity(.0);
       }
     }
 
