@@ -1,43 +1,57 @@
 ---
 stages:
+  - check
   - build
   - test
-  - deploy
+  - doc
+  - publish
+
+workflow:
+  name: 'Pipeline for branch: $CI_COMMIT_BRANCH'
+  auto_cancel:
+    on_new_commit: conservative
 
 include:
-  - project: "developers/v2/libs/essentials/ci"
+  - project: "developers/v2/ci"
     ref: main
     file:
-      - 'linux/conan.yml'
-      - 'utils/variables.yml'
+      - 'code_quality.yml'
+    inputs:
+      additional_args: "-vwarning"
+      package: "rolly"
+  - project: "developers/v2/ci"
+    ref: main
+    file:
+      - 'cpp.yml'
+    inputs:
+      base_profile: "gcc14"
+      package: "rolly"
 
-local_variables:
-  extends: .variables_core_job
-  script:
-    - !reference [ .svariables, conan_project_name ]
+format:
+  extends: .check_formatting_template
 
-build:alse:
-  stage: build
-  extends: .build_extend
-  artifacts:
-    paths:
-      - build/Release
+code_quality:
+  extends: .code_quality_template
 
-test:alse:
-  stage: test
-  allow_failure: true
-  extends: .tests_catch2_extend
+build_linux_qt5:
+  extends: .build_linux_template
 
-publish:alse:
-  stage: deploy
-  extends: .publish_extend
+build_linux_qt6:
+  extends: .build_linux_qt6_template
+
+test_linux:
+  extends: .test_linux_template
+
+test_linux_qt6:
+  extends: .test_linux_qt6_template
+
+publish_linux:
+  extends: .publish_linux_template
 
 documentation:
   tags: [ dev-utils ]
-  stage: deploy
+  stage: doc
   allow_failure: true
-  needs:
-    - job: build:alse
   script:
     - echo $CI_COMMIT_BRANCH
     - git fetch origin main:refs/remotes/origin/main --tags --force
@@ -51,7 +65,7 @@ documentation:
 
 pages:
   tags: [ alse ]
-  stage: deploy
+  stage: doc
   allow_failure: true
   needs:
     - job: documentation
