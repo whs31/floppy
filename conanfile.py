@@ -13,14 +13,8 @@ class RollyRecipe(ConanFile):
     topics = ("coreutils", "utility")
 
     settings = "os", "arch", "compiler", "build_type"
-    options = {
-        "shared": [True, False],
-        "test": [True, False]
-    }
-    default_options = {
-        "shared": True,
-        "test": False
-    }
+    options = {"shared": [True, False], "test": [True, False]}
+    default_options = {"shared": True, "test": False}
     exports = "CMakeLists.txt", "conanfile.py"
     exports_sources = "*", "!build/*"
 
@@ -29,9 +23,13 @@ class RollyRecipe(ConanFile):
         return "17"
 
     def requirements(self):
-        self.requires("fmt/[>=11.2.0]", transitive_headers=True, transitive_libs=True)
+        self.requires(
+            "fmt/12.0.0", transitive_headers=True, transitive_libs=True, force=True
+        )
         self.requires("ipaddress/1.1.0", transitive_headers=True, transitive_libs=True)
-        self.requires("nlohmann_json/[>=3.11.3]", transitive_headers=True, transitive_libs=True)
+        self.requires(
+            "nlohmann_json/[>=3.11.3]", transitive_headers=True, transitive_libs=True
+        )
         if self.options.test:
             self.requires("catch2/[=3.7.1]")
 
@@ -70,8 +68,11 @@ class RollyRecipe(ConanFile):
         self.cpp_info.set_property("cmake_file_name", "rolly")
         self.cpp_info.set_property("cmake_target_name", "rolly::rolly")
         self.cpp_info.libs = ["rolly"]
-        self.cpp_info.requires = ["fmt::fmt", "ipaddress::ipaddress",
-                                  "nlohmann_json::nlohmann_json"]
+        self.cpp_info.requires = [
+            "fmt::fmt",
+            "ipaddress::ipaddress",
+            "nlohmann_json::nlohmann_json",
+        ]
         if self.options.test:
             self.cpp_info.requires.append("catch2::catch2")
         if not self.options.shared:
