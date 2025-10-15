@@ -17,14 +17,16 @@ include:
     file:
       - 'code_quality.yml'
     inputs:
-      additional_args: "-vwarning"
+      
       package: "rolly"
   - project: "developers/v2/ci"
     ref: main
     file:
       - 'cpp.yml'
     inputs:
+      additional_args: "-vwarning"
       base_profile: "gcc14"
+      future_profile: "clang"
       package: "rolly"
 
 format:
@@ -58,7 +60,7 @@ documentation:
     - cd .doc
     - poxy # --verbose --git-tags --min-version 2.2.0
     - mkdir -p ../public
-    - cp -r html/* ../public
+    - cp -r html/* ../public 
   artifacts:
     paths:
       - public
