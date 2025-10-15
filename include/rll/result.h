@@ -10,7 +10,9 @@
 #include <rll/contracts.h>
 #include <rll/optional.h>
 
-// NOLINTBEGIN(*-avoid-c-arrays, *-pro-type-union-access)
+// clang-format off
+// NOLINTBEGIN(*-avoid-c-arrays, *-pro-type-union-access, *-explicit-constructor, *-rvalue-reference-param-not-moved)
+// clang-format on
 
 #ifndef DOXYGEN
 #  if defined(__EXCEPTIONS) || defined(_CPPUNWIND)
@@ -242,7 +244,7 @@ namespace rll {
     struct is_pointer_to_non_const_member_func<Ret (T::*)(Args...)> : std::true_type {};
 
     template <class T, class Ret, class... Args>
-    struct is_pointer_to_non_const_member_func<Ret (T::*)(Args...)&> : std::true_type {};
+    struct is_pointer_to_non_const_member_func<Ret (T::*)(Args...) &> : std::true_type {};
 
     template <class T, class Ret, class... Args>
     struct is_pointer_to_non_const_member_func<Ret (T::*)(Args...) &&> : std::true_type {};
@@ -1481,15 +1483,16 @@ namespace rll {
     }
 
     template <class F>
-    constexpr decltype(expected_map_impl(std::declval<expected const&>(), std::declval<F&&>())
-    ) map(F&& f) const& {
+    constexpr decltype(expected_map_impl(std::declval<expected const&>(), std::declval<F&&>())) map(
+      F&& f
+    ) const& {
       return expected_map_impl(*this, std::forward<F>(f));
     }
 
 #    ifndef TL_EXPECTED_NO_CONSTRR
     template <class F>
-    constexpr decltype(expected_map_impl(std::declval<expected const&&>(), std::declval<F&&>())
-    ) map(F&& f) const&& {
+    constexpr decltype(expected_map_impl(std::declval<expected const&&>(), std::declval<F&&>()))
+      map(F&& f) const&& {
       return expected_map_impl(std::move(*this), std::forward<F>(f));
     }
 #    endif
@@ -1534,15 +1537,15 @@ namespace rll {
     }
 
     template <class F>
-    constexpr decltype(expected_map_impl(std::declval<expected const&>(), std::declval<F&&>())
-    ) transform(F&& f) const& {
+    constexpr decltype(expected_map_impl(std::declval<expected const&>(), std::declval<F&&>()))
+      transform(F&& f) const& {
       return expected_map_impl(*this, std::forward<F>(f));
     }
 
 #    ifndef TL_EXPECTED_NO_CONSTRR
     template <class F>
-    constexpr decltype(expected_map_impl(std::declval<expected const&&>(), std::declval<F&&>())
-    ) transform(F&& f) const&& {
+    constexpr decltype(expected_map_impl(std::declval<expected const&&>(), std::declval<F&&>()))
+      transform(F&& f) const&& {
       return expected_map_impl(std::move(*this), std::forward<F>(f));
     }
 #    endif
@@ -1571,8 +1574,10 @@ namespace rll {
     }
 #  else
     template <class F>
-    TL_EXPECTED_11_CONSTEXPR decltype(map_error_impl(std::declval<expected&>(), std::declval<F&&>())
-    ) map_error(F&& f) & {
+    TL_EXPECTED_11_CONSTEXPR decltype(map_error_impl(
+      std::declval<expected&>(),
+      std::declval<F&&>()
+    )) map_error(F&& f) & {
       return map_error_impl(*this, std::forward<F>(f));
     }
 
@@ -1585,15 +1590,15 @@ namespace rll {
     }
 
     template <class F>
-    constexpr decltype(map_error_impl(std::declval<expected const&>(), std::declval<F&&>())
-    ) map_error(F&& f) const& {
+    constexpr decltype(map_error_impl(std::declval<expected const&>(), std::declval<F&&>()))
+      map_error(F&& f) const& {
       return map_error_impl(*this, std::forward<F>(f));
     }
 
 #    ifndef TL_EXPECTED_NO_CONSTRR
     template <class F>
-    constexpr decltype(map_error_impl(std::declval<expected const&&>(), std::declval<F&&>())
-    ) map_error(F&& f) const&& {
+    constexpr decltype(map_error_impl(std::declval<expected const&&>(), std::declval<F&&>()))
+      map_error(F&& f) const&& {
       return map_error_impl(std::move(*this), std::forward<F>(f));
     }
 #    endif
@@ -1621,8 +1626,10 @@ namespace rll {
     }
 #  else
     template <class F>
-    TL_EXPECTED_11_CONSTEXPR decltype(map_error_impl(std::declval<expected&>(), std::declval<F&&>())
-    ) transform_error(F&& f) & {
+    TL_EXPECTED_11_CONSTEXPR decltype(map_error_impl(
+      std::declval<expected&>(),
+      std::declval<F&&>()
+    )) transform_error(F&& f) & {
       return map_error_impl(*this, std::forward<F>(f));
     }
 
@@ -1635,15 +1642,15 @@ namespace rll {
     }
 
     template <class F>
-    constexpr decltype(map_error_impl(std::declval<expected const&>(), std::declval<F&&>())
-    ) transform_error(F&& f) const& {
+    constexpr decltype(map_error_impl(std::declval<expected const&>(), std::declval<F&&>()))
+      transform_error(F&& f) const& {
       return map_error_impl(*this, std::forward<F>(f));
     }
 
 #    ifndef TL_EXPECTED_NO_CONSTRR
     template <class F>
-    constexpr decltype(map_error_impl(std::declval<expected const&&>(), std::declval<F&&>())
-    ) transform_error(F&& f) const&& {
+    constexpr decltype(map_error_impl(std::declval<expected const&&>(), std::declval<F&&>()))
+      transform_error(F&& f) const&& {
       return map_error_impl(std::move(*this), std::forward<F>(f));
     }
 #    endif
@@ -2693,7 +2700,9 @@ namespace rll {
   [[nodiscard]] inline result<> ok() { return {}; }
 }  // namespace rll
 
-// NOLINTEND(*-avoid-c-arrays, *-pro-type-union-access)
+// clang-format off
+// NOLINTEND(*-avoid-c-arrays, *-pro-type-union-access, *-explicit-constructor, *-rvalue-reference-param-not-moved)
+// clang-format on
 
 #ifndef DOXYGEN
 template <typename T, typename E, typename Char>
