@@ -7,7 +7,7 @@ from conan.tools.files import rmdir, copy
 
 class RollyRecipe(ConanFile):
     name = "rolly"
-    version = "2.7.4"
+    version = "2.7.5"
     description = "Radar open-source library"
     author = "whs31 <whs31@github.io>"
     topics = ("coreutils", "utility")
@@ -17,6 +17,9 @@ class RollyRecipe(ConanFile):
     default_options = {"shared": True, "test": False}
     exports = "CMakeLists.txt", "conanfile.py"
     exports_sources = "*", "!build/*"
+
+    user = "radar"
+    channel = "dev"
 
     @property
     def _min_cppstd(self):
