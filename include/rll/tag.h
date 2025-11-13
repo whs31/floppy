@@ -14,5 +14,5 @@
   RLL_DECLARE_TAG_TYPE(tag)                                          \
   RLL_DECLARE_TAG_VALUE(tag, value)
 
-RLL_DECLARE_TAG(forever_t, forever)
+RLL_DECLARE_TAG(forever_t, forever_)
 RLL_DECLARE_TAG(deferred_t, deferred)
