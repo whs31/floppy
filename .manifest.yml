@@ -1,5 +1,0 @@
----
-version:
-  header:
-    path: "include/rll/global/version_definitions.h"
-    macro_prefix: "RLL"

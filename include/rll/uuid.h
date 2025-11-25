@@ -217,7 +217,7 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
      * @param size Size of the string.
      * @return uuid object.
      */
-    constexpr inline uuid
+    [[nodiscard]] constexpr uuid
       operator""_uuid(char const* str, [[maybe_unused]] std::size_t const size) {
       return uuid(std::string_view(str, size));
     }

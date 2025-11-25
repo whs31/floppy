@@ -24,6 +24,7 @@
 #include <rll/result.h>
 #include <rll/rtti.h>
 #include <rll/savefile.h>
+#include <rll/sid.h>
 #include <rll/source_location.h>
 #include <rll/stdint.h>
 #include <rll/string_util.h>
