@@ -36,7 +36,10 @@ test_linux_qt6:
 publish_linux:
   extends: .publish_linux_template
 
-documentation:
+publish_linux_qt6:
+  extends: .publish_linux_qt6_template
+
+pages:
   tags: [ dev-utils ]
   stage: doc
   allow_failure: true
@@ -44,22 +47,9 @@ documentation:
     - echo $CI_COMMIT_BRANCH
     - git fetch origin main:refs/remotes/origin/main --tags --force
     - cd .doc
-    - poxy # --verbose --git-tags --min-version 2.2.0
+    - poxy
     - mkdir -p ../public
     - cp -r html/* ../public
-  artifacts:
-    paths:
-      - public
-
-pages:
-  tags: [ alse ]
-  stage: doc
-  allow_failure: true
-  needs:
-    - job: documentation
-      artifacts: true
-  script:
-    - echo "Deploying to GitLab Pages"
   artifacts:
     paths:
       - public

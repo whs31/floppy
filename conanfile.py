@@ -7,7 +7,7 @@ from conan.tools.files import rmdir, copy
 
 class RollyRecipe(ConanFile):
     name = "rolly"
-    version = "2.8.0"
+    version = "2.9.0"
     description = "Radar open-source library"
     author = "whs31 <whs31@github.io>"
     topics = ("coreutils", "utility")
@@ -21,20 +21,22 @@ class RollyRecipe(ConanFile):
     user = "radar"
     channel = "dev"
 
+    python_requires = "conan_helpers/0.1@radar/dev"
+    python_requires_extend = "conan_helpers.Base"
+
     @property
     def _min_cppstd(self):
         return "17"
 
     def requirements(self):
-        self.requires(
-            "fmt/12.0.0", transitive_headers=True, transitive_libs=True, force=True
-        )
-        self.requires("ipaddress/1.1.0", transitive_headers=True, transitive_libs=True)
-        self.requires(
-            "nlohmann_json/[>=3.11.3]", transitive_headers=True, transitive_libs=True
-        )
+        self.req("fmt", transitive_headers=True, transitive_libs=True, force=True)
+        self.req("ipaddress", transitive_headers=True, transitive_libs=True)
+        self.req("nlohmann_json", transitive_headers=True, transitive_libs=True)
         if self.options.test:
-            self.requires("catch2/[=3.7.1]")
+            self.req("catch2")
+
+    def build_requirements(self):
+        self.req("cmake", tool=True)
 
     def layout(self):
         cmake_layout(self)

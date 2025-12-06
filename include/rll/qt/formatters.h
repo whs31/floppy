@@ -4,8 +4,6 @@
 
 #if defined(RLL_QT_CORE) || defined(RLL_DOC)
 #  include <qstring.h>
-#  include <qpoint.h>
-#  include <fmt/core.h>
 #  include <fmt/format.h>
 
 namespace rll {
@@ -22,15 +20,9 @@ namespace fmt {
    * @note Only available if Qt::Core is linked against the project.
    */
   template <>
-  struct formatter<QString> {
-    template <typename ParseContext>
-    constexpr static auto parse(ParseContext& ctx) {
-      return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    static auto format(QString const& s, FormatContext& ctx) {
-      return fmt::format_to(ctx.out(), "{}", s.toStdString());
+  struct formatter<QString> : formatter<char const*> {
+    auto format(QString const& s, format_context& ctx) const {
+      return formatter<char const*>::format(s.toUtf8().constData(), ctx);
     }
   };
 
@@ -39,33 +31,9 @@ namespace fmt {
    * @note Only available if Qt::Core is linked against the project.
    */
   template <>
-  struct formatter<QByteArray> {
-    template <typename ParseContext>
-    constexpr static auto parse(ParseContext& ctx) {
-      return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    static auto format(QByteArray const& s, FormatContext& ctx) {
-      return fmt::format_to(ctx.out(), "{}", s.toStdString());
-    }
-  };
-
-  /**
-   * @brief Specialization of the <code>fmt::formatter</code> for the <code>QLatin1String</code>
-   * class.
-   * @note Only available if Qt::Core is linked against the project.
-   */
-  template <>
-  struct formatter<QLatin1String> {
-    template <typename ParseContext>
-    constexpr static auto parse(ParseContext& ctx) {
-      return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    static auto format(QLatin1String const& s, FormatContext& ctx) {
-      return fmt::format_to(ctx.out(), "{}", std::string(s.data()));
+  struct formatter<QByteArray> : formatter<char const*> {
+    auto format(QByteArray const& s, format_context& ctx) const {
+      return formatter<char const*>::format(s.constData(), ctx);
     }
   };
 
@@ -75,15 +43,9 @@ namespace fmt {
    * @note Only available if Qt::Core is linked against the project.
    */
   template <>
-  struct formatter<QStringView> {
-    template <typename ParseContext>
-    constexpr static auto parse(ParseContext& ctx) {
-      return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    static auto format(QStringView const& s, FormatContext& ctx) {
-      return fmt::format_to(ctx.out(), "{}", s.toString().toStdString());
+  struct formatter<QStringView> : formatter<char const*> {
+    auto format(QStringView const& s, format_context& ctx) const {
+      return formatter<char const*>::format(s.toUtf8().constData(), ctx);
     }
   };
 
@@ -101,40 +63,6 @@ namespace fmt {
     template <typename FormatContext>
     static auto format(QChar const& s, FormatContext& ctx) {
       return fmt::format_to(ctx.out(), "{}", s.unicode());
-    }
-  };
-
-  /**
-   * @brief Specialization of the <code>fmt::formatter</code> for the <code>QPoint</code> class.
-   * @note Only available if Qt::Core is linked against the project.
-   */
-  template <>
-  struct formatter<QPoint> {
-    template <typename ParseContext>
-    constexpr static auto parse(ParseContext& ctx) {
-      return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    static auto format(QPoint const& s, FormatContext& ctx) {
-      return fmt::format_to(ctx.out(), "[{}, {}]", s.x(), s.y());
-    }
-  };
-
-  /**
-   * @brief Specialization of the <code>fmt::formatter</code> for the <code>QPointF</code> class.
-   * @note Only available if Qt::Core is linked against the project.
-   */
-  template <>
-  struct formatter<QPointF> {
-    template <typename ParseContext>
-    constexpr static auto parse(ParseContext& ctx) {
-      return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    static auto format(QPointF const& s, FormatContext& ctx) {
-      return fmt::format_to(ctx.out(), "[{}, {}]", s.x(), s.y());
     }
   };
 }  // namespace fmt

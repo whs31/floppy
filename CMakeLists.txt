@@ -2,8 +2,10 @@ cmake_minimum_required(VERSION 3.15)
 
 include_guard(GLOBAL)
 
+message(STATUS "Using toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
+
 project(rolly
-  VERSION 2.8.0
+  VERSION 2.9.0
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -32,7 +34,7 @@ find_package(nlohmann_json REQUIRED)
 
 if (ROLLY_QT)
   message(WARNING "-- [${PROJECT_FULL_NAME}] linking with qt enabled! remember to disable it before push")
-  find_package(Qt5
+  find_package(Qt6
     COMPONENTS
     Core
     Quick
