@@ -1,7 +1,9 @@
 #include <rll/concurrency.h>
 
-#include <ciso646>
 #include <catch2/catch_all.hpp>
+#ifdef _MSC_VER
+#  include <ciso646>
+#endif
 
 using namespace rll;
 

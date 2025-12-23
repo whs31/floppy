@@ -1,7 +1,9 @@
 #pragma once
 
-#include <ciso646>
 #include <rll/stdint.h>
+#ifdef _MSC_VER
+#  include <ciso646>
+#endif
 
 namespace rll::crypto {
   namespace detail {

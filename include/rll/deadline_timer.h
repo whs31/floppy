@@ -1,8 +1,10 @@
 #pragma once
 
-#include <ciso646>
 #include <chrono>
 #include <rll/tag.h>
+#ifdef _MSC_VER
+#  include <ciso646>
+#endif
 
 namespace rll {
   template <typename Clock = std::chrono::steady_clock>
