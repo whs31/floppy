@@ -5,7 +5,7 @@ include_guard(GLOBAL)
 message(STATUS "Using toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
 
 project(rolly
-  VERSION 2.9.1
+  VERSION 2.10.0
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX
@@ -56,7 +56,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 target_sources(${PROJECT_NAME}
   PRIVATE
   ${CMAKE_CURRENT_SOURCE_DIR}/src/contracts.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/library.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/src/lockfile.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/src/paths.cc
   ${CMAKE_CURRENT_SOURCE_DIR}/src/rtti.cc
@@ -64,24 +63,13 @@ target_sources(${PROJECT_NAME}
   ${CMAKE_CURRENT_SOURCE_DIR}/src/uuid.cc
 
   ${CMAKE_CURRENT_SOURCE_DIR}/src/crypto/md5.cc
-
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/android/guid.cc
 )
-
-if (WIN32)
-  target_sources(${PROJECT_NAME}
-    PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/oslayer/win/dlfcn_win32.c
-  )
-endif ()
 
 target_link_libraries(${PROJECT_NAME}
   PUBLIC
   fmt::fmt
   ipaddress::ipaddress
   nlohmann_json::nlohmann_json
-  PRIVATE
-  ${CMAKE_DL_LIBS}
 )
 if (ROLLY_QT)
   target_link_libraries(${PROJECT_NAME}
