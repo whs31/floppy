@@ -97,11 +97,11 @@ namespace rll {
     RLL_PATHS_NOEXCEPT_IMPL(appdata_dir_path)
     RLL_PATHS_NOEXCEPT_IMPL(local_appdata_dir_path)
 
-    std::filesystem::path win32::appdata_dir_path() {
+    std::filesystem::path appdata_dir_path() {
       return oslayer::win::known_folder_path(FOLDERID_RoamingAppData);
     }
 
-    std::filesystem::path win32::local_appdata_dir_path() {
+    std::filesystem::path local_appdata_dir_path() {
       return oslayer::win::known_folder_path(FOLDERID_LocalAppData);
     }
   }  // namespace win32
