@@ -39,17 +39,8 @@ publish_linux:
 publish_linux_qt6:
   extends: .publish_linux_qt6_template
 
+build_windows_mingw_qt5:
+  extends: .build_windows_qt5_template
+
 pages:
-  tags: [ dev-utils ]
-  stage: doc
-  allow_failure: true
-  script:
-    - echo $CI_COMMIT_BRANCH
-    - git fetch origin main:refs/remotes/origin/main --tags --force
-    - cd .doc
-    - poxy
-    - mkdir -p ../public
-    - cp -r html/* ../public
-  artifacts:
-    paths:
-      - public
+  extends: .poxy_template
