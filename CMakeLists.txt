@@ -5,7 +5,7 @@ include_guard(GLOBAL)
 message(STATUS "Using toolchain file: ${CMAKE_TOOLCHAIN_FILE}")
 
 project(rolly
-  VERSION 2.10.1
+  VERSION 2.10.2
   DESCRIPTION "Radar open-source library"
   HOMEPAGE_URL "whs31.github.io/rolly"
   LANGUAGES C CXX

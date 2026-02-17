@@ -148,7 +148,7 @@ namespace rll  // NOLINT(*-concat-nested-namespaces)
      * @return `true` if the uuid is valid, `false` otherwise.
      * @see valid
      */
-    [[nodiscard]] operator bool() const noexcept {  // NOLINT(*-explicit-constructor)
+    [[nodiscard]] explicit operator bool() const noexcept {
       return this->valid();
     }
 
@@ -291,3 +291,6 @@ struct [[maybe_unused]] adl_serializer<rll::uuid> {
 };
 
 NLOHMANN_JSON_NAMESPACE_END
+
+static_assert(!std::is_convertible_v<rll::uuid, int>);
+static_assert(!std::is_convertible_v<rll::uuid, bool>);
