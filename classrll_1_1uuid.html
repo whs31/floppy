@@ -18,7 +18,7 @@
   <meta content="Radar core library" property="og:description"/>
   <meta content="Radar core library" itemprop="description"/>
   <meta content="telephone=no" name="format-detection"/>
-  <meta content="Poxy v0.19.4" name="generator"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
 </head>
 <body class="poxy-has-toc">
@@ -110,9 +110,9 @@
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#a495e60cc00e8a336747cd04f4734bae4">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-flat m-success">noexcept</span></span>
+              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#a495e60cc00e8a336747cd04f4734bae4">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Checks whether the guid is valid or not.</dd>
+            <dd>Checks whether the uuid is valid or not.</dd>
             <dt>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="#aab8245b18ea6dcb1ea503198a5e55acc">uuid</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
@@ -120,15 +120,15 @@
             <dt>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="#a269a166d92692bb45626440a4c116deb">uuid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc" href="namespacerll.html#ad6735ac03f5b157541233eb3196ddd80">u8</a>, 16&gt; const&amp; bytes) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
-            <dd>Creates a guid from an array of bytes.</dd>
+            <dd>Creates a uuid from an array of bytes.</dd>
             <dt>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="#aba71ad4a3ae7cfa9e6b837222e9c4e4c">uuid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/byte.html" target="_blank">std::<wbr/>byte</a>, 16&gt; const&amp; bytes) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
-            <dd>Creates a <code>guid</code> from an array of <code><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/byte.html" target="_blank">std::<wbr/>byte</a></code>.</dd>
+            <dd>Creates a <code>uuid</code> from an array of <code><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/byte.html" target="_blank">std::<wbr/>byte</a></code>.</dd>
             <dt>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="#a4d45df0dc6c55c73d95e7150ca1f4b33">uuid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> const str) <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
-            <dd>Creates a guid from a string.</dd>
+            <dd>Creates a uuid from a string.</dd>
             <dt id="a78aa01f36b6c78db1a94256c4566d10a">
               <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a78aa01f36b6c78db1a94256c4566d10a">uuid</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
@@ -149,15 +149,15 @@
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#abb8babb728901a9b1bf81726435ec5aa">bytes</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc" href="namespacerll.html#ad6735ac03f5b157541233eb3196ddd80">u8</a>, 16&gt; const&amp; <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Gets the bytes of the guid.</dd>
+            <dd>Gets the bytes of the uuid.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#af51be70e0c57a636752d97d5a47ff09b">bytes_mut</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc" href="namespacerll.html#ad6735ac03f5b157541233eb3196ddd80">u8</a>, 16&gt;&amp; <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Gets the mutable bytes of the guid.</dd>
+            <dd>Gets the mutable bytes of the uuid.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a95b35a31470309de426f6b6662405509">operator!=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; other) const →  bool <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Checks whether two guids are not equal.</dd>
+            <dd>Checks whether two uuids are not equal.</dd>
             <dt id="acc0f13af7c07d577ee7bffe5f8cb63c4">
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#acc0f13af7c07d577ee7bffe5f8cb63c4">operator=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp;) →  <a class="m-doc" href="classrll_1_1uuid.html">uuid</a>&amp; <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
@@ -169,19 +169,19 @@
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a772f951248ec8b3820e8195d66c644bd">operator==</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; other) const →  bool <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Checks whether two guids are equal or not.</dd>
+            <dd>Checks whether two uuids are equal or not.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a03164f8beae7d09ffc525a4bca9914c3">to_string</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a></span>
             </dt>
-            <dd>Converts the guid to a string.</dd>
+            <dd>Converts the uuid to a string.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a8e311478617c05eee08c772cd7a24397">to_u64</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc" href="namespacerll.html#a0990f1edc722e4e33e6f52019fce4733">u64</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Hashes the guid to an unsigned 64-bit integer.</dd>
+            <dd>Hashes the uuid to an unsigned 64-bit integer.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#acd2036fc332c0e7f96dc68df451e9299">valid</a>(</span><span class="m-doc-wrap">) const →  bool <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Checks whether the guid is valid or not.</dd>
+            <dd>Checks whether the uuid is valid or not.</dd>
           </dl>
         </section>
         <section id="friends">
@@ -191,12 +191,12 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a62bf7da18ccc181669c26469a6761e10">operator&lt;</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; lhs,
               <a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; rhs) →  bool <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
-            <dd>Array-like less comparator for guid.</dd>
+            <dd>Array-like less comparator for uuid.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a324789da25a99d93c275bf1b32af0c1a">operator&lt;&lt;</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html" target="_blank">std::<wbr/>ostream</a>&amp; os,
               <a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; guid) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html" target="_blank">std::<wbr/>ostream</a>&amp;</span>
             </dt>
-            <dd>Prints the guid to an output stream.</dd>
+            <dd>Prints the uuid to an output stream.</dd>
           </dl>
         </section>
         <section>
@@ -254,14 +254,14 @@
           </div></section>
           <section class="m-doc-details" id="a495e60cc00e8a336747cd04f4734bae4"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a495e60cc00e8a336747cd04f4734bae4">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-success">noexcept</span></span></span>
+              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a495e60cc00e8a336747cd04f4734bae4">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-info">explicit</span>  <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Checks whether the guid is valid or not.</p>
+            <p>Checks whether the uuid is valid or not.</p>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
                 <tr>
                   <th style="width: 1%">Returns</th>
-                  <td><code>true</code> if the guid is valid, <code>false</code> otherwise.</td>
+                  <td><code>true</code> if the uuid is valid, <code>false</code> otherwise.</td>
                 </tr>
               </tfoot>
             </table>
@@ -278,7 +278,7 @@
             <h3>
               <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a269a166d92692bb45626440a4c116deb">uuid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc" href="namespacerll.html#ad6735ac03f5b157541233eb3196ddd80">u8</a>, 16&gt; const&amp; bytes) <span class="m-label m-info">explicit</span>  <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
-            <p>Creates a guid from an array of bytes.</p>
+            <p>Creates a uuid from an array of bytes.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -295,7 +295,7 @@
             <h3>
               <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aba71ad4a3ae7cfa9e6b837222e9c4e4c">uuid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/byte.html" target="_blank">std::<wbr/>byte</a>, 16&gt; const&amp; bytes) <span class="m-label m-info">explicit</span> </span></span>
             </h3>
-            <p>Creates a <code>guid</code> from an array of <code><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/byte.html" target="_blank">std::<wbr/>byte</a></code>.</p>
+            <p>Creates a <code>uuid</code> from an array of <code><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/byte.html" target="_blank">std::<wbr/>byte</a></code>.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -312,7 +312,7 @@
             <h3>
               <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a4d45df0dc6c55c73d95e7150ca1f4b33">uuid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> const str) <span class="m-label m-info">explicit</span>  <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
-            <p>Creates a guid from a string.</p>
+            <p>Creates a uuid from a string.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -320,7 +320,7 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">str</td>
-                  <td>String representation of the guid.</td>
+                  <td>String representation of the uuid.</td>
                 </tr>
               </tbody>
             </table>
@@ -330,7 +330,7 @@
             <h3>
               <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc" href="namespacerll.html#ad6735ac03f5b157541233eb3196ddd80">u8</a>, 16&gt; const&amp; <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#abb8babb728901a9b1bf81726435ec5aa">bytes</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-primary">constexpr</span> <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Gets the bytes of the guid.</p>
+            <p>Gets the bytes of the uuid.</p>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
                 <tr>
@@ -344,7 +344,7 @@
             <h3>
               <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/container/array.html" target="_blank">std::<wbr/>array</a>&lt;<a class="m-doc" href="namespacerll.html#ad6735ac03f5b157541233eb3196ddd80">u8</a>, 16&gt;&amp; <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#af51be70e0c57a636752d97d5a47ff09b">bytes_mut</a>(</span><span class="m-doc-wrap">) <span class="m-label m-primary">constexpr</span> <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Gets the mutable bytes of the guid.</p>
+            <p>Gets the mutable bytes of the uuid.</p>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
                 <tr>
@@ -358,7 +358,7 @@
             <h3>
               <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a95b35a31470309de426f6b6662405509">operator!=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; other) const <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Checks whether two guids are not equal.</p>
+            <p>Checks whether two uuids are not equal.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -366,13 +366,13 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">other</td>
-                  <td>Other guid.</td>
+                  <td>Other uuid.</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <th>Returns</th>
-                  <td><code>true</code> if the guids are <strong>not</strong> equal, <code>false</code> otherwise.</td>
+                  <td><code>true</code> if the uuids are <strong>not</strong> equal, <code>false</code> otherwise.</td>
                 </tr>
               </tfoot>
             </table>
@@ -381,7 +381,7 @@
             <h3>
               <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a772f951248ec8b3820e8195d66c644bd">operator==</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; other) const <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Checks whether two guids are equal or not.</p>
+            <p>Checks whether two uuids are equal or not.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -389,13 +389,13 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">other</td>
-                  <td>Other guid.</td>
+                  <td>Other uuid.</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <th>Returns</th>
-                  <td><code>true</code> if the guids are equal, <code>false</code> otherwise.</td>
+                  <td><code>true</code> if the uuids are equal, <code>false</code> otherwise.</td>
                 </tr>
               </tfoot>
             </table>
@@ -404,12 +404,12 @@
             <h3>
               <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a03164f8beae7d09ffc525a4bca9914c3">to_string</a>(</span><span class="m-doc-wrap">) const</span></span>
             </h3>
-            <p>Converts the guid to a string.</p>
+            <p>Converts the uuid to a string.</p>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
                 <tr>
                   <th style="width: 1%">Returns</th>
-                  <td>String representation of the <code>guid</code>.</td>
+                  <td>String representation of the <code>uuid</code>.</td>
                 </tr>
               </tfoot>
             </table>
@@ -419,7 +419,7 @@
             <h3>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="namespacerll.html#a0990f1edc722e4e33e6f52019fce4733">u64</a> <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a8e311478617c05eee08c772cd7a24397">to_u64</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Hashes the guid to an unsigned 64-bit integer.</p>
+            <p>Hashes the uuid to an unsigned 64-bit integer.</p>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
                 <tr>
@@ -433,12 +433,12 @@
             <h3>
               <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::<wbr/>uuid::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#acd2036fc332c0e7f96dc68df451e9299">valid</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Checks whether the guid is valid or not.</p>
+            <p>Checks whether the uuid is valid or not.</p>
             <table class="m-table m-fullwidth m-flat">
               <tfoot>
                 <tr>
                   <th style="width: 1%">Returns</th>
-                  <td><code>true</code> if the guid is valid, <code>false</code> otherwise.</td>
+                  <td><code>true</code> if the uuid is valid, <code>false</code> otherwise.</td>
                 </tr>
               </tfoot>
             </table>
@@ -448,7 +448,7 @@
               <span class="m-doc-wrap-bumper">bool </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a62bf7da18ccc181669c26469a6761e10">operator&lt;</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; lhs,
               <a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; rhs) <span class="m-label m-success">noexcept</span></span></span>
             </h3>
-            <p>Array-like less comparator for guid.</p>
+            <p>Array-like less comparator for uuid.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -456,11 +456,11 @@
               <tbody>
                 <tr>
                   <td style="width: 1%">lhs</td>
-                  <td>First guid.</td>
+                  <td>First uuid.</td>
                 </tr>
                 <tr>
                   <td>rhs</td>
-                  <td>Second guid.</td>
+                  <td>Second uuid.</td>
                 </tr>
               </tbody>
               <tfoot>
@@ -476,7 +476,7 @@
               <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html" target="_blank">std::<wbr/>ostream</a>&amp; </span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a324789da25a99d93c275bf1b32af0c1a">operator&lt;&lt;</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html" target="_blank">std::<wbr/>ostream</a>&amp; os,
               <a class="m-doc" href="classrll_1_1uuid.html">uuid</a> const&amp; guid)</span></span>
             </h3>
-            <p>Prints the guid to an output stream.</p>
+            <p>Prints the uuid to an output stream.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -488,7 +488,7 @@
                 </tr>
                 <tr>
                   <td>guid</td>
-                  <td>GUID</td>
+                  <td>UUID</td>
                 </tr>
               </tbody>
               <tfoot>

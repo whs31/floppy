@@ -18,7 +18,7 @@
   <meta content="Radar core library" property="og:description"/>
   <meta content="Radar core library" itemprop="description"/>
   <meta content="telephone=no" name="format-detection"/>
-  <meta content="Poxy v0.19.4" name="generator"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
 </head>
 <body class="poxy-has-toc">
@@ -87,7 +87,7 @@
   <span class="nf">assert_postcondition</span><span class="p">(</span><span class="n">sum</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="k">and</span> <span class="n">sum</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">,</span> <span class="s">"Overflow"</span><span class="p">);</span>
   <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span></pre><p>In third example, we the standard stream is open for writing using <code>invariant</code>:</p><pre class="m-code"><span class="k">auto</span> <span class="nf">println</span><span class="p">(</span><span class="nn">std</span><span class="o">::</span><span class="nc">string_view</span> <span class="n">message</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">void</span> <span class="p">{</span>
-  <span class="nf">assert_invariant</span><span class="p">(</span><span class="nn">std</span><span class="o">::</span><span class="nc">cout</span><span class="p">);</span>
+  <span class="nf">assert_invariant_</span><span class="p">(</span><span class="nn">std</span><span class="o">::</span><span class="nc">cout</span><span class="p">);</span>
   <span class="nn">std</span><span class="o">::</span><span class="nc">cout</span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="nn">std</span><span class="o">::</span><span class="nf">endl</span><span class="p">;</span>
 <span class="p">}</span></pre><aside class="m-note m-info"><h4>Note</h4><p>It is a good idea to document both preconditions, postconditions and invariants. Use Doxygen tags <code>\\pre</code>, <code>\\post</code> and <code>\\invariant</code> for this purpose (see <a class="poxy-external" href="http://www.stack.nl/~dimitri/doxygen/" target="_blank">http:/<wbr/>/<wbr/>www.stack.nl/<wbr/>~dimitri/<wbr/>doxygen/<wbr/></a>).</p></aside></section>
         <section id="namespaces">
@@ -103,41 +103,33 @@
             <dd>IO-related functions and classes.</dd>
             <dt>namespace <a class="m-doc" href="namespacerll_1_1literals.html">literals</a> <span class="m-label m-flat m-info">inline</span></dt>
             <dd>Inline namespace for literal operators.</dd>
-            <dt>namespace <a class="m-doc" href="namespacerll_1_1meta.html">meta</a></dt>
+            <dt>namespace <a class="m-doc" href="namespacerll_1_1metadata.html">metadata</a></dt>
             <dd>Library meta information.</dd>
             <dt>namespace <a class="m-doc" href="namespacerll_1_1net.html">net</a></dt>
             <dd></dd>
             <dt>namespace <a class="m-doc" href="namespacerll_1_1numbers.html">numbers</a></dt>
             <dd>Number numeric constants.</dd>
-            <dt>namespace <a class="m-doc" href="namespacerll_1_1oslayer.html">oslayer</a></dt>
-            <dd>Internal namespace for OS-agnostic wrapper functions and classes.</dd>
             <dt>namespace <a class="m-doc" href="namespacerll_1_1rtti.html">rtti</a></dt>
             <dd>Runtime type information-related functions and classes.</dd>
-            <dt>namespace <a class="m-doc" href="namespacerll_1_1serialization.html">serialization</a></dt>
-            <dd>Functions and types related to serialization and deserialization.</dd>
           </dl>
         </section>
         <section id="nested-classes">
           <h2><a href="#nested-classes">Classes</a></h2>
           <dl class="m-doc">
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1adapter.html">adapter</a>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
               struct <a class="m-doc" href="structrll_1_1angle.html">angle</a>
             </dt>
             <dd>Newtype describing an angle.</dd>
             <dt>
-              class <a class="m-doc" href="classrll_1_1application__dirs.html">application_dirs</a>
-            </dt>
-            <dd>Class for getting location of system directories for a specific application.</dd>
-            <dt>
               class <a class="m-doc" href="classrll_1_1bad__optional__access.html">bad_optional_access</a>
             </dt>
             <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc" href="structrll_1_1is__serializable.html">is_<wbr/>serializable</a>&lt;T, F&gt;::value&gt;</span></span>&gt;</div>
-              class <a class="m-doc" href="classrll_1_1configuration__file.html">configuration_file</a>
-            </dt>
-            <dd>Configuration file that can be loaded and saved.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename... Args</span></span>&gt;</div>
               struct <a class="m-doc" href="structrll_1_1const__overload__t.html">const_overload_t</a>
@@ -148,12 +140,38 @@
             </dt>
             <dd>Contract violation data holder.</dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename Clock = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/chrono/steady_clock.html" target="_blank">std::<wbr/>chrono::<wbr/>steady_clock</a></span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1deadline__timer.html">deadline_timer</a>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename R</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">R(*)(T) F</span></span>&gt;</div>
               struct <a class="m-doc" href="structrll_1_1deleter.html">deleter</a>
             </dt>
             <dd></dd>
             <dt>
-              class <a class="m-doc" href="classrll_1_1dirs.html">dirs</a>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt;&gt;</span></span>&gt;</div>
+              struct <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt;&gt;</span></span>&gt;</div>
+              struct <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt;&gt;</span></span>&gt;</div>
+              struct <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename Clock = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/chrono/steady_clock.html" target="_blank">std::<wbr/>chrono::<wbr/>steady_clock</a></span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1elapsed__timer.html">elapsed_timer</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
+              struct <a class="m-doc" href="structrll_1_1euler__angles.html">euler_angles</a>
             </dt>
             <dd></dd>
             <dt>
@@ -172,32 +190,22 @@
             </dt>
             <dd></dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = void</span></span>&gt;</div>
+              struct <a class="m-doc" href="structrll_1_1is__nlohmann__serializable.html">is_nlohmann_serializable</a>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               struct <a class="m-doc" href="structrll_1_1is__num.html">is_num</a>
             </dt>
             <dd>Type trait for checking if T is a number.</dd>
             <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename</span>, <span class="m-doc-template-param">typename</span>, <span class="m-doc-template-param">typename</span>, <span class="m-doc-template-param">typename = void</span></span>&gt;</div>
-              struct <a class="m-doc" href="structrll_1_1is__partially__serializable.html">is_partially_serializable</a>
+              class <a class="m-doc" href="classrll_1_1lockfile.html">lockfile</a>
             </dt>
             <dd></dd>
             <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename R</span></span>&gt;</div>
-              struct <a class="m-doc" href="structrll_1_1is__partially__serializable_3_01_t_00_01_f_00_01_r_00_01std_1_1void__t_3_01decltypec6429267b4f91198b8eee42d84ad8bb2.html">is_partially_serializable&lt;T, F, R, std::void_t&lt;decltype(partial_serializer&lt;T, F, R&gt;::serialize), decltype(partial_serializer&lt;T, F, R&gt;::deserialize)&gt;&gt;</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename</span>, <span class="m-doc-template-param">typename</span>, <span class="m-doc-template-param">typename = void</span></span>&gt;</div>
-              struct <a class="m-doc" href="structrll_1_1is__serializable.html">is_serializable</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename F</span></span>&gt;</div>
-              struct <a class="m-doc" href="structrll_1_1is__serializable_3_01_t_00_01_f_00_01std_1_1void__t_3_01decltype_07serializer_3_01_09b274941dde756e7684b74d76e188f0.html">is_serializable&lt;T, F, std::void_t&lt;decltype(serializer&lt;T, F&gt;::serialize), decltype(serializer&lt;T, F&gt;::deserialize)&gt;&gt;</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              class <a class="m-doc" href="classrll_1_1library.html">library</a>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1mutex__guard.html">mutex_guard</a>
             </dt>
             <dd></dd>
             <dt>
@@ -218,6 +226,26 @@
             </dt>
             <dd>A tag type to represent an empty optional.</dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T = void</span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1observable.html">observable</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;&gt;</div>
+              class <a class="m-doc" href="classrll_1_1observable_3_01void_01_4.html">observable&lt;void&gt;</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T = void</span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1observer.html">observer</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;&gt;</div>
+              class <a class="m-doc" href="classrll_1_1observer_3_01void_01_4.html">observer&lt;void&gt;</a>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               class <a class="m-doc" href="classrll_1_1observer__ptr.html">observer_ptr</a>
             </dt>
@@ -235,11 +263,6 @@
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename... Args</span></span>&gt;</div>
               struct <a class="m-doc" href="structrll_1_1overload__t.html">overload_t</a>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename R</span>, <span class="m-doc-template-param">typename C = char</span>, <span class="m-doc-template-param">typename = void</span></span>&gt;</div>
-              struct <a class="m-doc" href="structrll_1_1partial__serializer.html">partial_serializer</a>
             </dt>
             <dd></dd>
             <dt>
@@ -267,12 +290,37 @@
             </dt>
             <dd>Remove all cv qualifiers, references and pointers from a type.</dd>
             <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc" href="structrll_1_1is__serializable.html">is_<wbr/>serializable</a>&lt;T, F&gt;::value&gt;</span></span>&gt;</div>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1rwlock__read__guard.html">rwlock_read_guard</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1rwlock__write__guard.html">rwlock_write_guard</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc" href="#ad09650e04b5a183e11aa9359f0f5d61d">is_<wbr/>nlohmann_<wbr/>serializable_<wbr/>v</a>&lt;T&gt;&gt;</span></span>&gt;</div>
               class <a class="m-doc" href="classrll_1_1savefile.html">savefile</a>
             </dt>
             <dd></dd>
             <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename C = char</span>, <span class="m-doc-template-param">typename = void</span></span>&gt;</div>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T = void</span></span>&gt;</div>
+              class <a class="m-doc" href="classrll_1_1scoped__observer.html">scoped_observer</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Backend</span></span>&gt;</div>
+              struct <a class="m-doc" href="structrll_1_1serialization__traits.html">serialization_traits</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              struct <a class="m-doc" href="structrll_1_1serialization__traits_3_01_t_00_01nlohmann_1_1json_01_4.html">serialization_traits&lt;T, nlohmann::json&gt;</a>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename Backend</span></span>&gt;</div>
               struct <a class="m-doc" href="structrll_1_1serializer.html">serializer</a>
             </dt>
             <dd></dd>
@@ -318,30 +366,50 @@
           <h2><a href="#nested-concepts">Concepts</a></h2>
           <dl class="m-doc">
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Duration</span>, <span class="m-doc-template-param">typename TimePoint</span></span>&gt;</div>
+              concept <a class="m-doc" href="conceptrll_1_1timed__mutex.html">timed_mutex</a>
+            </dt>
+            <dd>Timed mutex concept.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              concept <a class="m-doc" href="conceptrll_1_1shared__mutex.html">shared_mutex</a>
+            </dt>
+            <dd>Shared mutex concept.</dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               concept <a class="m-doc" href="conceptrll_1_1enum__.html">enum_</a>
             </dt>
             <dd>Concept that is true if T is an enum type.</dd>
             <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Duration</span>, <span class="m-doc-template-param">typename TimePoint</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1timed__lockable.html">timed_lockable</a>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              concept <a class="m-doc" href="conceptrll_1_1c__ptr.html">c_ptr</a>
             </dt>
-            <dd>Timed lockable concept.</dd>
+            <dd>Raw pointer concept.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              concept <a class="m-doc" href="conceptrll_1_1lockable.html">lockable</a>
+            </dt>
+            <dd><a class="m-doc poxy-injected poxy-external poxy-cppreference poxy-named-requirement" href="https://en.cppreference.com/w/cpp/named_req/Lockable" target="_blank">Lockable</a> concept.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               concept <a class="m-doc" href="conceptrll_1_1ptr.html">ptr</a>
             </dt>
             <dd>Pointer concept.</dd>
             <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1standard__copyable__and__movable.html">standard_copyable_and_movable</a>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Duration</span>, <span class="m-doc-template-param">typename TimePoint</span></span>&gt;</div>
+              concept <a class="m-doc" href="conceptrll_1_1shared__timed__lockable.html">shared_timed_lockable</a>
             </dt>
-            <dd>Concept that is true if T is a standard copyable and movable type.</dd>
+            <dd>Shared timed lockable concept.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Duration</span>, <span class="m-doc-template-param">typename TimePoint</span></span>&gt;</div>
+              concept <a class="m-doc" href="conceptrll_1_1shared__timed__mutex.html">shared_timed_mutex</a>
+            </dt>
+            <dd>Shared timed mutex concept.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1lockable.html">lockable</a>
+              concept <a class="m-doc" href="conceptrll_1_1ptr__like.html">ptr_like</a>
             </dt>
-            <dd><a class="m-doc poxy-injected poxy-external poxy-cppreference poxy-named-requirement" href="https://en.cppreference.com/w/cpp/named_req/Lockable" target="_blank">Lockable</a> concept.</dd>
+            <dd>Concept that is true if T is a pointer or smart pointer.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               concept <a class="m-doc" href="conceptrll_1_1mutex.html">mutex</a>
@@ -353,10 +421,10 @@
             </dt>
             <dd>Smart pointer concept.</dd>
             <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Duration</span>, <span class="m-doc-template-param">typename TimePoint</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1timed__mutex.html">timed_mutex</a>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              concept <a class="m-doc" href="conceptrll_1_1basic__lockable.html">basic_lockable</a>
             </dt>
-            <dd>Timed mutex concept.</dd>
+            <dd>Basic lockable concept.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               concept <a class="m-doc" href="conceptrll_1_1num.html">num</a>
@@ -364,39 +432,19 @@
             <dd>Concept that is true if T is a number.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Duration</span>, <span class="m-doc-template-param">typename TimePoint</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1shared__timed__mutex.html">shared_timed_mutex</a>
+              concept <a class="m-doc" href="conceptrll_1_1timed__lockable.html">timed_lockable</a>
             </dt>
-            <dd>Shared timed mutex concept.</dd>
+            <dd>Timed lockable concept.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1basic__lockable.html">basic_lockable</a>
+              concept <a class="m-doc" href="conceptrll_1_1standard__copyable__and__movable.html">standard_copyable_and_movable</a>
             </dt>
-            <dd>Basic lockable concept.</dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename Duration</span>, <span class="m-doc-template-param">typename TimePoint</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1shared__timed__lockable.html">shared_timed_lockable</a>
-            </dt>
-            <dd>Shared timed lockable concept.</dd>
+            <dd>Concept that is true if T is a standard copyable and movable type.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               concept <a class="m-doc" href="conceptrll_1_1shared__lockable.html">shared_lockable</a>
             </dt>
             <dd>Shared lockable concept.</dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1ptr__like.html">ptr_like</a>
-            </dt>
-            <dd>Concept that is true if T is a pointer or smart pointer.</dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1c__ptr.html">c_ptr</a>
-            </dt>
-            <dd>Raw pointer concept.</dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              concept <a class="m-doc" href="conceptrll_1_1shared__mutex.html">shared_mutex</a>
-            </dt>
-            <dd>Shared mutex concept.</dd>
           </dl>
         </section>
         <section id="enum-members">
@@ -431,11 +479,6 @@
               <a class="m-doc-self" href="#d50d20c0ce1649d2700ae78d329c64fa5a5ce206467299a7d66c69a031e412db">none</a> = 3 }</span>
             </dt>
             <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">enum class <a class="m-doc" href="#a7c866bd44d6ce11970c4d7f41bf97348">saving_policy</a>: <a class="m-doc" href="#ad6735ac03f5b157541233eb3196ddd80">u8</a> { </span><span class="m-doc-wrap"><a class="m-doc" href="#a7c866bd44d6ce11970c4d7f41bf97348af47468435c3051a65ef52dbe8a7838b1">autosave</a>,
-              <a class="m-doc" href="#a7c866bd44d6ce11970c4d7f41bf97348ac9c45ac5595e1bb329ad8e26396d93c5">explicit_</a> }</span>
-            </dt>
-            <dd>Determines the policy used for autosaving configuration files.</dd>
             <dt id="790950486d2f69691e585ce49cac03b86661eb323dac7a72345a5b4ab27c501a">
               <span class="m-doc-wrap-bumper">enum class <a class="m-doc" href="#ae7665e1a7ebe58b4542b175bf601581f">velocity_unit</a>: char { </span><span class="m-doc-wrap"><a class="m-doc-self" href="#790950486d2f69691e585ce49cac03b86661eb323dac7a72345a5b4ab27c501a">kmph</a> = 0,
               <a class="m-doc-self" href="#790950486d2f69691e585ce49cac03b86661eb323dac7a72345a5b4ab27c501a">mps</a> = 1,
@@ -527,6 +570,10 @@
             </dt>
             <dd></dd>
             <dt>
+              using <a class="m-doc" href="#a72db313564cd99b00aabb187b2ea92fd">sid</a> = <a class="m-doc" href="#a0990f1edc722e4e33e6f52019fce4733">u64</a>
+            </dt>
+            <dd></dd>
+            <dt>
               using <a class="m-doc" href="#ae2609383ff7a92ce58e192c12088a48c">u16</a> = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/integer.html" target="_blank">std::<wbr/>uint16_t</a>
             </dt>
             <dd>16-bit unsigned integer</dd>
@@ -577,6 +624,44 @@
             </dt>
             <dd>Returns the absolute value of a number.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a270d395839042e0aa82e72d20929a33a">application_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a7d79c6cf4a934b73fbf79f34a2b1e2ec">application_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#abfaa27056ac7eeac2c8c69eb0e1454c1">application_dir_path</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a2fcb2444156d36ccbc4c81295c90cc84">application_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ae8b57182155ed1a4353b4361b613868e">application_file_path</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a9d73e38021e3aae772c0f9e9378e4c81">application_file_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a93c7308e11fa8a51060062eb503d9e80">application_local_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a54c9cd9d572f62e284f1c9d08d4252fd">application_local_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a3b664eeb777e744d28a934fbbfe7fb9d">approx_eq</a>(</span><span class="m-doc-wrap">T a,
               T b,
@@ -618,6 +703,13 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a4c43e3da670fb7410b026a2641d9fff6">byteswap_unchecked</a>(</span><span class="m-doc-wrap">T u) →  T <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Reverses the byte order of the value without checking for unique object representations.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a7d8972e53be690767b8007e39323beef">clamp</a>(</span><span class="m-doc-wrap">T value,
+              T min,
+              T max) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll_1_1comparators.html#a0a8697d7af6f831b4495c57d71550a34">compare</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; lhs,
               <a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; rhs,
@@ -668,6 +760,10 @@
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename C</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ae457d303844bbad6b2bc5f979757376e">ends_with</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>basic_string_view</a>&lt;C&gt; const&amp; input,
               C const* chp) →  bool <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a23eaa3ebba5d1430bb74b24075583a38">env</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> const&amp; str) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a></span>
             </dt>
             <dd></dd>
             <dt>
@@ -765,6 +861,10 @@
             </dt>
             <dd></dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#af28d99a3090e9f743dd4d6d0f22dd972">has_env</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> const&amp; str) →  bool</span>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_integral.html" target="_blank">std::<wbr/>is_integral_v</a>&lt;T&gt;&gt;</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a93fa168048d0515c94781c8fc2338990">has_single_bit</a>(</span><span class="m-doc-wrap">T x) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
@@ -828,6 +928,13 @@
             </dt>
             <dd>Constructs a lazy object from a given function object.</dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a42944c5600bb2d09710b388d9bd0af0c">lerp</a>(</span><span class="m-doc-wrap">T a,
+              T b,
+              T t) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll_1_1comparators.html#a61aea66adf9470ad6535d60366b5be9f">less</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; lhs,
               <a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; rhs,
               <a class="m-doc" href="namespacerll_1_1comparators.html#aa8f4e2069421aac7a4ddbbf7d5959023">comparators_<wbr/>option</a> option = comparators_option::include_prerelease) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
@@ -837,14 +944,6 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll_1_1comparators.html#a72f942fb2faa2c5f9723ddf48e8fccc2">less_equal</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; lhs,
               <a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; rhs,
               <a class="m-doc" href="namespacerll_1_1comparators.html#aa8f4e2069421aac7a4ddbbf7d5959023">comparators_<wbr/>option</a> option = comparators_option::include_prerelease) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#aff57a3a07ee40f65ff8bc6fb366ef213">logger</a>(</span><span class="m-doc-wrap">) →  spdlog::logger&amp;</span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a54d37fa736019ccd6fa758188e92a531">logger</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> const name) →  spdlog::logger&amp;</span>
             </dt>
             <dd></dd>
             <dt>
@@ -898,6 +997,13 @@
             </dt>
             <dd>Returns the minimum value among the provided arguments.</dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a9c3d35c06db4604dff64ef36844cd668">normalize</a>(</span><span class="m-doc-wrap">T value,
+              T min,
+              T max) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll_1_1comparators.html#a8ab74724dfa36244860698f6b746ee0e">not_equal_to</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; lhs,
               <a class="m-doc" href="structrll_1_1version.html">version</a> const&amp; rhs,
               <a class="m-doc" href="namespacerll_1_1comparators.html#aa8f4e2069421aac7a4ddbbf7d5959023">comparators_<wbr/>option</a> option = comparators_option::include_prerelease) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
@@ -907,6 +1013,11 @@
               <span class="m-doc-wrap-bumper">void <a class="m-doc" href="#aa4725f65eea24a7e7dab185e48279623">not_implemented</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1source__location.html">source_<wbr/>location</a> const&amp; location = <a class="m-doc" href="structrll_1_1source__location.html#a785af4a8fb7ad0dc1af8aee3889e59d8">source_location::<wbr/>current</a>())</span>
             </dt>
             <dd>Invokes the global contract violation handler (see <a class="m-doc" href="#a3ecbd5131e53fc49399c6c9531454c30">violation_<wbr/>handler</a>) with a broken invariant violation.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename To</span>, <span class="m-doc-template-param">typename From</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a37e740674f689f90cfa8a0d83dcc33ba">observer_cast</a>(</span><span class="m-doc-wrap">From&amp;&amp; from) →  <a class="m-doc" href="classrll_1_1observer__ptr.html">observer_<wbr/>ptr</a>&lt;To&gt;</span>
+            </dt>
+            <dd></dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a19b6b29c0b55bd54027a7299fbb4f749">ok</a>(</span><span class="m-doc-wrap">T&amp;&amp; t) →  expected&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/decay.html" target="_blank">std::<wbr/>decay_t</a>&lt;T&gt;, <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a>&gt;</span>
@@ -993,6 +1104,11 @@
             </dt>
             <dd>Literal operator for <code>void*</code>.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll_1_1literals.html#a9420a97c0f5cfdb447d9d06804592410">operator""_sid</a>(</span><span class="m-doc-wrap">char const* str,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/size_t.html" target="_blank">std::<wbr/>size_t</a> const size) →  <a class="m-doc" href="#a72db313564cd99b00aabb187b2ea92fd">sid</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Literal operator for the sid.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll_1_1literals.html#a231a19902dcace310701720ae27f6d87">operator""_u16</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="#ab0d2074a65c11665a924b42cf49675f1">ulonglong</a> const value) →  <a class="m-doc" href="#ae2609383ff7a92ce58e192c12088a48c">u16</a> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Literal operator for <a class="m-doc" href="#ae2609383ff7a92ce58e192c12088a48c">u16</a>.</dd>
@@ -1025,6 +1141,24 @@
             </dt>
             <dd></dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ad544cc8bc239258855ead89d51b8eb35">operator%</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;T&gt; const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#aeafb699e6df6407a3a929faeb3ebb7b6">operator%</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;T&gt; const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#aaf8bb920903f7b67d6905c53d307f231">operator%</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;T&gt; const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = typename <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic</a>&lt;T&gt;::value, T&gt;::type</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ac519d56925c691db9dbc22c70055e68b">operator&amp;</a>(</span><span class="m-doc-wrap">T lower,
               <a class="m-doc" href="classrll_1_1u128.html">u128</a> const&amp; value) →  <a class="m-doc" href="classrll_1_1u128.html">u128</a> <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
@@ -1037,9 +1171,45 @@
             </dt>
             <dd></dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a51e79e0340b7b7245f380266e43cfa41">operator*</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a6283fc89e6b5c7f6292a72f4b866c6b0">operator*</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#adf5f2b0a3b097e8f95768171ab0dcc4c">operator*</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = typename <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic</a>&lt;T&gt;::value, T&gt;::type</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a71fcdc817fe806b3ebf3c0cbfe62ae24">operator+</a>(</span><span class="m-doc-wrap">T lower,
               <a class="m-doc" href="classrll_1_1u128.html">u128</a> const&amp; value) →  <a class="m-doc" href="classrll_1_1u128.html">u128</a> <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a6bd3ba5ca37c9448cf18c1d849d24554">operator+</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a2708fb6be07188b1d879339010eb2693">operator+</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a825494acaa8d2117e485007f0e153e93">operator+</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd></dd>
             <dt>
@@ -1049,9 +1219,45 @@
             </dt>
             <dd></dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ad9c448960a23d7991fa4e397891c74e5">operator-</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#abaa3b7b0953256592f626057af0235b8">operator-</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ab67d5f1060e1acd282d25684ac5517bb">operator-</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = typename <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic</a>&lt;T&gt;::value, T&gt;::type</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a374efea9fd7a7a566e5fef06bb91ba9b">operator/</a>(</span><span class="m-doc-wrap">T lower,
               <a class="m-doc" href="classrll_1_1u128.html">u128</a> const&amp; value) →  <a class="m-doc" href="classrll_1_1u128.html">u128</a> <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#abbe6140b9c4e2d70c15e726a77674c48">operator/</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#af77c2cd40f62f0ec8439609d35a03e7d">operator/</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#adfee45152888c600768026876a2c3b39">operator/</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd></dd>
             <dt>
@@ -1472,6 +1678,14 @@
             </dt>
             <dd>Informs the compiler that the current location is unreachable.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a8edce0baf941ed2002e11b214e53049c">user_home_path</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ad092103b462d4b3c83e8e130c0bc171e">user_home_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#af1a5fbb6c566276e11ba1eb32e8185c6">valid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> str) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
@@ -1479,6 +1693,14 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a3ecbd5131e53fc49399c6c9531454c30">violation_handler</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc" href="#a15256aad57cade3792bb9278924d0d6f">contract_<wbr/>violation_<wbr/>handler</a>&amp;</span>
             </dt>
             <dd>Returns the current global contract violation handler.</dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a class="m-doc" href="#a4119c494b168bbe6d0e185952009d54f">yield</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">void <a class="m-doc" href="#a3bf1f0ff8f205fa806b96b3a19aa6f31">yield</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/size_t.html" target="_blank">std::<wbr/>size_t</a> count)</span>
+            </dt>
+            <dd>pause CPU for a specified number of iterations</dd>
           </dl>
         </section>
         <section id="var-members">
@@ -1489,6 +1711,16 @@
             </dt>
             <dd>Represents an empty optional.</dd>
             <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename...</span></span>&gt;</div>
+              auto <a class="m-doc" href="#a823cb2159cb35cfde631768ed4b6fdf6">always_false</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>A templated type that is always false.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename...</span></span>&gt;</div>
+              auto <a class="m-doc" href="#a9343d5d771f88258297e11fc35937636">always_true</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd>A templated type that is always true.</dd>
+            <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename... Args</span></span>&gt;</div>
               <a class="m-doc" href="structrll_1_1const__overload__t.html">const_<wbr/>overload_<wbr/>t</a>&lt;Args...&gt; <a class="m-doc" href="#a67ba25528160374ce1813eb37f2ab984">const_overload</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
@@ -1496,6 +1728,11 @@
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename... U</span></span>&gt;</div>
               bool <a class="m-doc" href="#a9cd34d1464238cb87ba225fd7ab5e967">is_any_of_v</a> <span class="m-label m-flat m-primary">constexpr</span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
+              bool <a class="m-doc" href="#ad09650e04b5a183e11aa9359f0f5d61d">is_nlohmann_serializable_v</a> <span class="m-label m-flat m-primary">constexpr</span>
             </dt>
             <dd></dd>
             <dt>
@@ -1590,30 +1827,6 @@
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="semver_8h.html">&lt;rll/global/semver.h&gt;</a></div>
             </h3>
             <p></p>
-          </div></section>
-          <section class="m-doc-details" id="a7c866bd44d6ce11970c4d7f41bf97348"><div>
-            <h3>
-              enum class <span class="m-doc-details-prefix">rll::<wbr/></span><a class="m-doc-self" href="#a7c866bd44d6ce11970c4d7f41bf97348">saving_policy</a>: <a class="m-doc" href="#ad6735ac03f5b157541233eb3196ddd80">u8</a>
-              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="config_8h.html">&lt;rll/config.h&gt;</a></div>
-            </h3>
-            <p>Determines the policy used for autosaving configuration files.</p>
-            <table class="m-table m-fullwidth m-flat m-doc">
-              <thead><tr><th style="width: 1%">Enumerators</th><th></th></tr></thead>
-              <tbody>
-                <tr>
-                  <td><a class="m-doc-self" href="#a7c866bd44d6ce11970c4d7f41bf97348af47468435c3051a65ef52dbe8a7838b1" id="a7c866bd44d6ce11970c4d7f41bf97348af47468435c3051a65ef52dbe8a7838b1">autosave</a></td>
-                  <td>
-                  <p>Saves configuration files automatically on closing.</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a class="m-doc-self" href="#a7c866bd44d6ce11970c4d7f41bf97348ac9c45ac5595e1bb329ad8e26396d93c5" id="a7c866bd44d6ce11970c4d7f41bf97348ac9c45ac5595e1bb329ad8e26396d93c5">explicit_</a></td>
-                  <td>
-                  <p>Saves configuration files only explicitly.</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
           </div></section>
           <section class="m-doc-details" id="ae7665e1a7ebe58b4542b175bf601581f"><div>
             <h3>
@@ -1813,6 +2026,13 @@
             </h3>
             <p></p>
           </div></section>
+          <section class="m-doc-details" id="a72db313564cd99b00aabb187b2ea92fd"><div>
+            <h3>
+              using <span class="m-doc-details-prefix">rll::<wbr/></span><a class="m-doc-self" href="#a72db313564cd99b00aabb187b2ea92fd">sid</a> = <a class="m-doc" href="#a0990f1edc722e4e33e6f52019fce4733">u64</a>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="sid_8h.html">&lt;rll/sid.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
           <section class="m-doc-details" id="ae2609383ff7a92ce58e192c12088a48c"><div>
             <h3>
               using <span class="m-doc-details-prefix">rll::<wbr/></span><a class="m-doc-self" href="#ae2609383ff7a92ce58e192c12088a48c">u16</a> = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/integer.html" target="_blank">std::<wbr/>uint16_t</a>
@@ -1922,6 +2142,68 @@
               </tfoot>
             </table>
 <p>This function simply negates the input if it is negative, and returns the input unchanged if it is non-negative. It is a <code>constexpr</code> version of <code><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/namespacestd.html#ac98caf5441189961a6d9c102a10d1faf" target="_blank">std::<wbr/>abs</a></code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="a270d395839042e0aa82e72d20929a33a"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a270d395839042e0aa82e72d20929a33a">application_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a7d79c6cf4a934b73fbf79f34a2b1e2ec"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a7d79c6cf4a934b73fbf79f34a2b1e2ec">application_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) <span class="m-label m-success">noexcept</span></span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="abfaa27056ac7eeac2c8c69eb0e1454c1"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#abfaa27056ac7eeac2c8c69eb0e1454c1">application_dir_path</a>(</span><span class="m-doc-wrap">)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a2fcb2444156d36ccbc4c81295c90cc84"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a2fcb2444156d36ccbc4c81295c90cc84">application_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) <span class="m-label m-success">noexcept</span></span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="ae8b57182155ed1a4353b4361b613868e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ae8b57182155ed1a4353b4361b613868e">application_file_path</a>(</span><span class="m-doc-wrap">)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a9d73e38021e3aae772c0f9e9378e4c81"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a9d73e38021e3aae772c0f9e9378e4c81">application_file_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) <span class="m-label m-success">noexcept</span></span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a93c7308e11fa8a51060062eb503d9e80"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a93c7308e11fa8a51060062eb503d9e80">application_local_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a54c9cd9d572f62e284f1c9d08d4252fd"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a54c9cd9d572f62e284f1c9d08d4252fd">application_local_data_dir_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_dir,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> app_name,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) <span class="m-label m-success">noexcept</span></span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
           </div></section>
           <section class="m-doc-details" id="a3b664eeb777e744d28a934fbbfe7fb9d"><div>
             <h3>
@@ -2184,6 +2466,18 @@
             </table>
 <aside class="m-note m-default"><h4>Version</h4><p>2.4.2</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a8fbaf929355163bc3ca9609ed5c8576d">byteswap</a></p></aside>
           </div></section>
+          <section class="m-doc-details" id="a7d8972e53be690767b8007e39323beef"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="math_8h.html">&lt;rll/math.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a7d8972e53be690767b8007e39323beef">clamp</a>(</span><span class="m-doc-wrap">T value,
+              T min,
+              T max) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
           <section class="m-doc-details" id="a132e3bda8756f762bbdff0e651cb9ccc"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a132e3bda8756f762bbdff0e651cb9ccc">default_contract_violation_handler</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1contract__violation.html">contract_<wbr/>violation</a> const&amp; violation)</span></span>
@@ -2298,6 +2592,13 @@
               </div>
               <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ae457d303844bbad6b2bc5f979757376e">ends_with</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>basic_string_view</a>&lt;C&gt; const&amp; input,
               C const* chp) <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a23eaa3ebba5d1430bb74b24075583a38"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a23eaa3ebba5d1430bb74b24075583a38">env</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> const&amp; str)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="env_8h.html">&lt;rll/env.h&gt;</a></div>
             </h3>
             <p></p>
           </div></section>
@@ -2504,6 +2805,13 @@
             <h3>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;<a class="m-doc" href="structrll_1_1version.html">version</a>&gt; <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aae28f414693a05244ba5682d857a387d">from_string_noexcept</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> str) <span class="m-label m-primary">constexpr</span> <span class="m-label m-success">noexcept</span></span></span>
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="semver_8h.html">&lt;rll/global/semver.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="af28d99a3090e9f743dd4d6d0f22dd972"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#af28d99a3090e9f743dd4d6d0f22dd972">has_env</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> const&amp; str)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="env_8h.html">&lt;rll/env.h&gt;</a></div>
             </h3>
             <p></p>
           </div></section>
@@ -2736,23 +3044,21 @@
               </tbody>
             </table>
           </div></section>
-          <section class="m-doc-details" id="aff57a3a07ee40f65ff8bc6fb366ef213"><div>
+          <section class="m-doc-details" id="a42944c5600bb2d09710b388d9bd0af0c"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">spdlog::logger&amp; <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aff57a3a07ee40f65ff8bc6fb366ef213">logger</a>(</span><span class="m-doc-wrap">)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="log_8h.html">&lt;rll/log.h&gt;</a></div>
-            </h3>
-            <p></p>
-          </div></section>
-          <section class="m-doc-details" id="a54d37fa736019ccd6fa758188e92a531"><div>
-            <h3>
-              <span class="m-doc-wrap-bumper">spdlog::logger&amp; <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a54d37fa736019ccd6fa758188e92a531">logger</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> const name)</span></span>
-              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="log_8h.html">&lt;rll/log.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="math_8h.html">&lt;rll/math.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a42944c5600bb2d09710b388d9bd0af0c">lerp</a>(</span><span class="m-doc-wrap">T a,
+              T b,
+              T t) <span class="m-label m-primary">constexpr</span></span></span>
             </h3>
             <p></p>
           </div></section>
           <section class="m-doc-details" id="ad5173e7623857d47497d630da58ae3dc"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="memory_2observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
               <div class="m-doc-template">
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;
               </div>
@@ -2977,6 +3283,18 @@
             </table>
 <p>This function compares multiple values and returns the smallest one. It uses a recursive approach to handle an arbitrary number of arguments.</p>
           </div></section>
+          <section class="m-doc-details" id="a9c3d35c06db4604dff64ef36844cd668"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="math_8h.html">&lt;rll/math.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">T <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a9c3d35c06db4604dff64ef36844cd668">normalize</a>(</span><span class="m-doc-wrap">T value,
+              T min,
+              T max) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
           <section class="m-doc-details" id="aa4725f65eea24a7e7dab185e48279623"><div>
             <h3>
               <span class="m-doc-wrap-bumper">void <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aa4725f65eea24a7e7dab185e48279623">not_implemented</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1source__location.html">source_<wbr/>location</a> const&amp; location = <a class="m-doc" href="structrll_1_1source__location.html#a785af4a8fb7ad0dc1af8aee3889e59d8">source_location::<wbr/>current</a>())</span></span>
@@ -2995,6 +3313,16 @@
               </tbody>
             </table>
 <p>Useful for marking a function as <em>unimplemented</em>.</p><aside class="m-note m-info"><h4>Note</h4><p>The expression is only evaluated in debug mode. In release mode this function is a no-op.</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a8a162989b8a9da4846f785610af1fd92">invariant</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a37e740674f689f90cfa8a0d83dcc33ba"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="adapter_8h.html">&lt;rll/traits/adapter.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename To</span>, <span class="m-doc-template-param">typename From</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"><a class="m-doc" href="classrll_1_1observer__ptr.html">observer_<wbr/>ptr</a>&lt;To&gt; <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a37e740674f689f90cfa8a0d83dcc33ba">observer_cast</a>(</span><span class="m-doc-wrap">From&amp;&amp; from)</span></span>
+            </h3>
+            <p></p>
           </div></section>
           <section class="m-doc-details" id="a19b6b29c0b55bd54027a7299fbb4f749"><div>
             <h3>
@@ -3128,7 +3456,7 @@
           </div></section>
           <section class="m-doc-details" id="a292db00f4861dfbeefad863b1bc597cd"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="memory_2observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
               <div class="m-doc-template">
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
               </div>
@@ -3177,6 +3505,39 @@
               </tfoot>
             </table>
 <p>Calculates the remainder of division of an integer by a <a class="m-doc" href="classrll_1_1u128.html">u128</a> value.</p>
+          </div></section>
+          <section class="m-doc-details" id="ad544cc8bc239258855ead89d51b8eb35"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim2_8h.html">&lt;rll/euclid/dim2.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ad544cc8bc239258855ead89d51b8eb35">operator%</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;T&gt; const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="aeafb699e6df6407a3a929faeb3ebb7b6"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim3_8h.html">&lt;rll/euclid/dim3.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aeafb699e6df6407a3a929faeb3ebb7b6">operator%</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;T&gt; const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="aaf8bb920903f7b67d6905c53d307f231"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim4_8h.html">&lt;rll/euclid/dim4.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aaf8bb920903f7b67d6905c53d307f231">operator%</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;T&gt; const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
           </div></section>
           <section class="m-doc-details" id="ac519d56925c691db9dbc22c70055e68b"><div>
             <h3>
@@ -3260,6 +3621,39 @@
             </table>
 <p>Performs multiplication between an integer and a <a class="m-doc" href="classrll_1_1u128.html">u128</a> value.</p>
           </div></section>
+          <section class="m-doc-details" id="a51e79e0340b7b7245f380266e43cfa41"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim2_8h.html">&lt;rll/euclid/dim2.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a51e79e0340b7b7245f380266e43cfa41">operator*</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a6283fc89e6b5c7f6292a72f4b866c6b0"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim3_8h.html">&lt;rll/euclid/dim3.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a6283fc89e6b5c7f6292a72f4b866c6b0">operator*</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="adf5f2b0a3b097e8f95768171ab0dcc4c"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim4_8h.html">&lt;rll/euclid/dim4.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#adf5f2b0a3b097e8f95768171ab0dcc4c">operator*</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
           <section class="m-doc-details" id="a71fcdc817fe806b3ebf3c0cbfe62ae24"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="u128_8h.html">&lt;rll/u128.h&gt;</a></div>
@@ -3300,6 +3694,39 @@
               </tfoot>
             </table>
 <p>Performs addition between an integer and a <a class="m-doc" href="classrll_1_1u128.html">u128</a> value.</p>
+          </div></section>
+          <section class="m-doc-details" id="a6bd3ba5ca37c9448cf18c1d849d24554"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim2_8h.html">&lt;rll/euclid/dim2.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a6bd3ba5ca37c9448cf18c1d849d24554">operator+</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a2708fb6be07188b1d879339010eb2693"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim3_8h.html">&lt;rll/euclid/dim3.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a2708fb6be07188b1d879339010eb2693">operator+</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="a825494acaa8d2117e485007f0e153e93"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim4_8h.html">&lt;rll/euclid/dim4.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a825494acaa8d2117e485007f0e153e93">operator+</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
           </div></section>
           <section class="m-doc-details" id="a53afd0290d86ebbdfcdcf3f0d14dc3a3"><div>
             <h3>
@@ -3342,6 +3769,39 @@
             </table>
 <p>Performs subtraction of a <a class="m-doc" href="classrll_1_1u128.html">u128</a> value from an integer.</p>
           </div></section>
+          <section class="m-doc-details" id="ad9c448960a23d7991fa4e397891c74e5"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim2_8h.html">&lt;rll/euclid/dim2.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ad9c448960a23d7991fa4e397891c74e5">operator-</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="abaa3b7b0953256592f626057af0235b8"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim3_8h.html">&lt;rll/euclid/dim3.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#abaa3b7b0953256592f626057af0235b8">operator-</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="ab67d5f1060e1acd282d25684ac5517bb"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim4_8h.html">&lt;rll/euclid/dim4.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ab67d5f1060e1acd282d25684ac5517bb">operator-</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
           <section class="m-doc-details" id="a374efea9fd7a7a566e5fef06bb91ba9b"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="u128_8h.html">&lt;rll/u128.h&gt;</a></div>
@@ -3382,6 +3842,39 @@
               </tfoot>
             </table>
 <p>Performs division of an integer by a <a class="m-doc" href="classrll_1_1u128.html">u128</a> value.</p>
+          </div></section>
+          <section class="m-doc-details" id="abbe6140b9c4e2d70c15e726a77674c48"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim2_8h.html">&lt;rll/euclid/dim2.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#abbe6140b9c4e2d70c15e726a77674c48">operator/</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim2.html">dim2</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="af77c2cd40f62f0ec8439609d35a03e7d"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim3_8h.html">&lt;rll/euclid/dim3.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#af77c2cd40f62f0ec8439609d35a03e7d">operator/</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim3.html">dim3</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="adfee45152888c600768026876a2c3b39"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="dim4_8h.html">&lt;rll/euclid/dim4.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;T&gt; and <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/is_arithmetic.html" target="_blank">std::<wbr/>is_arithmetic_v</a>&lt;U&gt;&gt;</span></span>&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#adfee45152888c600768026876a2c3b39">operator/</a>(</span><span class="m-doc-wrap">T const&amp; lhs,
+              <a class="m-doc" href="structrll_1_1dim4.html">dim4</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-primary">constexpr</span></span></span>
+            </h3>
+            <p></p>
           </div></section>
           <section class="m-doc-details" id="a2c48fb6a600c8d74e896f6ca478238c6"><div>
             <h3>
@@ -3489,7 +3982,7 @@
           </div></section>
           <section class="m-doc-details" id="a8fb77180382b9b81d3dfcbe862975bd3"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="memory_2observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
               <div class="m-doc-template">
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
               </div>
@@ -3626,7 +4119,7 @@
           </div></section>
           <section class="m-doc-details" id="ab3f607d4a0a3e67b0c9bd7003e8e2a83"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="memory_2observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
               <div class="m-doc-template">
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
               </div>
@@ -3757,7 +4250,7 @@
           </div></section>
           <section class="m-doc-details" id="a4b35da612cf42cf7fbc034f6a42fdfb8"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="memory_2observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
               <div class="m-doc-template">
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
               </div>
@@ -3872,7 +4365,7 @@
           </div></section>
           <section class="m-doc-details" id="a94dbd2132831b9c037da42f4558bb0fa"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="memory_2observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
               <div class="m-doc-template">
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
               </div>
@@ -3987,7 +4480,7 @@
           </div></section>
           <section class="m-doc-details" id="a669aa7532b39c1a3005be0bee9cded1f"><div>
             <h3>
-              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="memory_2observer__ptr_8h.html">&lt;rll/memory/observer_ptr.h&gt;</a></div>
               <div class="m-doc-template">
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;
               </div>
@@ -4590,6 +5083,20 @@
   <span class="p">}</span>
 <span class="p">}</span></pre><aside class="m-note m-danger"><h4>Warning</h4><p>Be sure to use this with care, as it can lead to undefined behavior.</p></aside><aside class="m-note m-default"><h4>See also</h4><p><a class="poxy-cppreference poxy-external" href="https://en.cppreference.com/w/cpp/utility/unreachable" target="_blank">https:/<wbr/>/<wbr/>en.cppreference.com/<wbr/>w/<wbr/>cpp/<wbr/>utility/<wbr/>unreachable</a></p></aside>
           </div></section>
+          <section class="m-doc-details" id="a8edce0baf941ed2002e11b214e53049c"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a8edce0baf941ed2002e11b214e53049c">user_home_path</a>(</span><span class="m-doc-wrap">)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="ad092103b462d4b3c83e8e130c0bc171e"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ad092103b462d4b3c83e8e130c0bc171e">user_home_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/error/error_code.html" target="_blank">std::<wbr/>error_code</a>&amp; ec) <span class="m-label m-success">noexcept</span></span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="paths_8h.html">&lt;rll/paths.h&gt;</a></div>
+            </h3>
+            <p></p>
+          </div></section>
           <section class="m-doc-details" id="af1a5fbb6c566276e11ba1eb32e8185c6"><div>
             <h3>
               <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#af1a5fbb6c566276e11ba1eb32e8185c6">valid</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> str) <span class="m-label m-primary">constexpr</span> <span class="m-label m-success">noexcept</span></span></span>
@@ -4613,6 +5120,31 @@
             </table>
 <aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a132e3bda8756f762bbdff0e651cb9ccc">default_<wbr/>contract_<wbr/>violation_<wbr/>handler</a></p><p><a class="m-doc" href="#a11bc7516c86518a712da9d66bea0a6d3">set_<wbr/>violation_<wbr/>handler</a></p></aside>
           </div></section>
+          <section class="m-doc-details" id="a4119c494b168bbe6d0e185952009d54f"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a4119c494b168bbe6d0e185952009d54f">yield</a>(</span><span class="m-doc-wrap">)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="pause_8h.html">&lt;rll/concurrency/pause.h&gt;</a></div>
+            </h3>
+<p>This function is used in spin-wait loops to hint the CPU that the current * thread is in a busy-wait state. * It helps reduce power consumption and improves performance on hyper-threaded processors * by preventing the CPU from consuming unnecessary cycles while waiting. * It is particularly useful in low-contention scenarios, where the thread * is likely to quickly acquire the lock or condition it's waiting for, * avoiding an expensive context switch. * On modern x86 processors, this instruction can be invoked using <code>__builtin_ia32_pause()</code> * in GCC/Clang or <code>_mm_pause()</code> in MSVC. In non-x86 architectures, alternative mechanisms such as yielding the CPU may be used instead.</p>
+          </div></section>
+          <section class="m-doc-details" id="a3bf1f0ff8f205fa806b96b3a19aa6f31"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper">void <span class="m-doc-details-prefix">rll::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a3bf1f0ff8f205fa806b96b3a19aa6f31">yield</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/size_t.html" target="_blank">std::<wbr/>size_t</a> count)</span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="pause_8h.html">&lt;rll/concurrency/pause.h&gt;</a></div>
+            </h3>
+            <p>pause CPU for a specified number of iterations</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">count</td>
+                  <td>Number of iterations</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></section>
         </section>
         <section>
           <h2>Variable documentation</h2>
@@ -4622,6 +5154,31 @@
               <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="optional_8h.html">&lt;rll/optional.h&gt;</a></div>
             </h3>
             <p>Represents an empty optional.</p>
+          </div></section>
+          <section class="m-doc-details" id="a823cb2159cb35cfde631768ed4b6fdf6"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="type__traits_8h.html">&lt;rll/type_traits.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename...</span></span>&gt;
+              </div>
+              auto <span class="m-doc-details-prefix">rll::<wbr/></span><a class="m-doc-self" href="#a823cb2159cb35cfde631768ed4b6fdf6">always_false</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+            <p>A templated type that is always false.</p>
+<p>Useful in the <code>if constexpr</code> contexts to avoid compilation errors with <code>static_assert</code>:</p><pre class="m-code"><span class="k">if</span> <span class="k">constexpr</span><span class="p">(</span><span class="nn">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="nc">T</span><span class="p">,</span> <span class="k">int</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span> <span class="nf">do_something</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="k">static_assert</span><span class="p">(</span><span class="nn">rll</span><span class="o">::</span><span class="n">always_false</span><span class="o">&lt;</span><span class="nc">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">"Expected T to be int"</span><span class="p">);</span>
+<span class="p">}</span></pre><aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a9343d5d771f88258297e11fc35937636">always_<wbr/>true</a></p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a9343d5d771f88258297e11fc35937636"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="type__traits_8h.html">&lt;rll/type_traits.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename...</span></span>&gt;
+              </div>
+              auto <span class="m-doc-details-prefix">rll::<wbr/></span><a class="m-doc-self" href="#a9343d5d771f88258297e11fc35937636">always_true</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+            <p>A templated type that is always true.</p>
+<aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a823cb2159cb35cfde631768ed4b6fdf6">always_<wbr/>false</a></p></aside>
           </div></section>
           <section class="m-doc-details" id="a67ba25528160374ce1813eb37f2ab984"><div>
             <h3>
@@ -4640,6 +5197,16 @@
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename... U</span></span>&gt;
               </div>
               bool <span class="m-doc-details-prefix">rll::<wbr/></span><a class="m-doc-self" href="#a9cd34d1464238cb87ba225fd7ab5e967">is_any_of_v</a> <span class="m-label m-primary">constexpr</span>
+            </h3>
+            <p></p>
+          </div></section>
+          <section class="m-doc-details" id="ad09650e04b5a183e11aa9359f0f5d61d"><div>
+            <h3>
+              <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="nlohmann_8h.html">&lt;rll/concepts/nlohmann.h&gt;</a></div>
+              <div class="m-doc-template">
+                template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;
+              </div>
+              bool <span class="m-doc-details-prefix">rll::<wbr/></span><a class="m-doc-self" href="#ad09650e04b5a183e11aa9359f0f5d61d">is_nlohmann_serializable_v</a> <span class="m-label m-primary">constexpr</span>
             </h3>
             <p></p>
           </div></section>

@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"/>
+  <title>rll/preprocessor.h file | Rolly Radar core library</title>
+  <link href="favicon.ico" rel="icon" type="image/vnd.microsoft.icon"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="#22272e" name="theme-color"/>
+  <link href="poxy/poxy.css" referrerpolicy="no-referrer" rel="stylesheet"/>
+  <script src="poxy/poxy.js"></script>
+  <script>initialize_theme("dark");</script>
+  <meta content="Rolly" name="twitter:title"/>
+  <meta content="Rolly" property="og:title"/>
+  <meta content="Rolly" itemprop="name"/>
+  <meta content="Dmitry Riazantsev &lt;riazantsev.dl@edu.spbstu.ru&gt;" name="author"/>
+  <meta content="Dmitry Riazantsev &lt;riazantsev.dl@edu.spbstu.ru&gt;" property="article:author"/>
+  <meta content="Radar core library" name="description"/>
+  <meta content="Radar core library" name="twitter:description"/>
+  <meta content="Radar core library" property="og:description"/>
+  <meta content="Radar core library" itemprop="description"/>
+  <meta content="telephone=no" name="format-detection"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+</head>
+<body class="poxy-has-toc">
+<header><nav id="navigation">
+  <div class="m-container">
+    <div class="m-row">
+      <a class="m-col-t-8 m-col-m-none m-left-m" href="index.html" id="m-navbar-brand"><svg class="poxy-injected-svg" fill="none" height="140" id="poxy-injected-svg-0" version="1.1" viewBox="0 0 140 140" width="140" xmlns="http://www.w3.org/2000/svg"><path d="M0 66C0 29.5492 29.5492 0 66 0H73.9111C110.362 0 139.911 29.5492 139.911 66V140H66C29.5492 140 0 110.451 0 74V66Z" fill="#416275"></path><path d="M103.153 112.504L107.377 111.48C108.742 111.48 109.425 112.163 109.425 113.528C109.34 115.747 108.188 117.709 105.969 119.416C103.836 121.208 101.404 122.104 98.673 122.104C95.9423 122.104 93.7663 120.781 92.145 118.136C89.841 114.296 87.665 107.427 85.617 97.528C84.6783 92.7493 83.569 88.824 82.289 85.752C79.985 86.52 77.553 86.904 74.993 86.904C72.433 86.904 70.1717 86.392 68.209 85.368C66.3317 84.2587 65.393 82.936 65.393 81.4C65.5637 77.4747 68.721 75.512 74.865 75.512C77.8517 75.512 81.0517 76.8347 84.465 79.48C89.7557 75.4693 92.401 69.88 92.401 62.712C92.401 58.4453 91.5903 54.6907 89.969 51.448C88.3477 48.12 86.2143 45.5173 83.569 43.64C78.3637 39.9707 72.561 38.136 66.161 38.136C65.9903 40.0133 65.6917 43 65.265 47.096C64.4117 55.6293 63.8997 62.2427 63.729 66.936L63.345 87.16C63.345 102.691 60.273 110.456 54.129 110.456C50.2037 110.456 48.241 108.792 48.241 105.464C48.241 104.611 48.7957 103.16 49.905 101.112C51.0997 99.064 51.953 96.7173 52.465 94.072C52.977 91.3413 53.5317 83.448 54.129 70.392C54.7263 57.2507 55.537 46.9253 56.561 39.416C52.0383 40.696 48.3263 42.6587 45.425 45.304C42.609 47.9493 41.201 51.064 41.201 54.648C41.201 56.696 40.7317 58.36 39.793 59.64C38.8543 60.8347 37.7023 61.432 36.337 61.432C33.8623 61.432 32.625 60.1093 32.625 57.464C32.625 51.4907 35.0143 46.584 39.793 42.744C44.657 38.8187 50.6303 36.0027 57.713 34.296C59.4197 28.5787 61.809 25.72 64.881 25.72C66.0757 25.72 66.673 27.0853 66.673 29.816C66.673 30.4133 66.5877 31.48 66.417 33.016C67.3557 32.8453 69.1477 32.76 71.793 32.76C74.4383 32.76 77.425 33.144 80.753 33.912C84.081 34.68 87.409 36.0027 90.737 37.88C94.1503 39.672 96.881 42.4453 98.929 46.2C100.977 49.8693 102.001 54.1787 102.001 59.128C102.001 64.0773 100.721 68.6853 98.161 72.952C95.601 77.2187 92.273 80.632 88.177 83.192C91.0783 86.776 93.3397 91.1707 94.961 96.376C96.6677 101.581 98.2463 105.549 99.697 108.28C101.148 111.096 102.3 112.504 103.153 112.504ZM70.641 79.864C70.641 80.5467 71.2383 81.144 72.433 81.656C73.6277 82.168 74.865 82.424 76.145 82.424C77.5103 82.424 78.7477 82.2107 79.857 81.784C78.1503 79.8213 76.1877 78.84 73.969 78.84C71.7503 78.84 70.641 79.1813 70.641 79.864Z" fill="#F6C67C"></path></svg>Rolly <span class="m-thin">Radar core library</span></a>
+      <div class="m-col-t-4 m-hide-m m-text-right m-nopadr">
+        <a class="m-doc-search-icon" href="#search" onclick="return showSearch()" title="Search"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+          <path d="m6 0c-3.31 0-6 2.69-6 6 0 3.31 2.69 6 6 6 1.49 0 2.85-0.541 3.89-1.44-0.0164 0.338 0.147 0.759 0.5 1.15l3.22 3.79c0.552 0.614 1.45 0.665 2 0.115 0.55-0.55 0.499-1.45-0.115-2l-3.79-3.22c-0.392-0.353-0.812-0.515-1.15-0.5 0.895-1.05 1.44-2.41 1.44-3.89 0-3.31-2.69-6-6-6zm0 1.56a4.44 4.44 0 0 1 4.44 4.44 4.44 4.44 0 0 1-4.44 4.44 4.44 4.44 0 0 1-4.44-4.44 4.44 4.44 0 0 1 4.44-4.44z" id="m-doc-search-icon-path"></path>
+        </svg></a>
+        <a href="#navigation" id="m-navbar-show" title="Show navigation"></a>
+        <a href="#" id="m-navbar-hide" title="Hide navigation"></a>
+      </div>
+      <div class="m-col-t-12 m-show-m m-col-m-none m-right-m" id="m-navbar-collapse">
+        <div class="m-row">
+          <ol class="m-col-t-6 m-col-m-none">
+            <li><a href="namespaces.html">Namespaces</a></li>
+            <li><a href="annotated.html">Classes</a></li>
+          </ol>
+          <ol class="m-col-t-6 m-col-m-none" start="3">
+            <li><a class="poxy-icon repo github poxy-external" href="https://github.com/whs31/rolly" target="_blank" title="View on GitHub"><svg id="poxy-icon-repo" version="1.1" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><path d="M25,1.23a24.37,24.37,0,0,0-7.7,47.5C18.51,49,19,48.2,19,47.56s0-2.12,0-4.15c-6.78,1.47-8.21-3.27-8.21-3.27C9.61,37.33,8,36.58,8,36.58c-2.21-1.51.17-1.48.17-1.48a5.12,5.12,0,0,1,3.73,2.51c2.17,3.72,5.7,2.65,7.09,2a5.25,5.25,0,0,1,1.55-3.26c-5.41-.61-11.1-2.7-11.1-12A9.41,9.41,0,0,1,12,17.79a8.75,8.75,0,0,1,.24-6.45s2-.66,6.7,2.49a23.1,23.1,0,0,1,12.2,0c4.66-3.15,6.7-2.49,6.7-2.49A8.75,8.75,0,0,1,38,17.79a9.41,9.41,0,0,1,2.51,6.54c0,9.36-5.7,11.42-11.13,12a5.83,5.83,0,0,1,1.65,4.51c0,3.26,0,5.89,0,6.69,0,.65.44,1.41,1.68,1.17A24.38,24.38,0,0,0,25,1.23Z" fill="currentColor"></path></svg></a></li>
+            <li><a class="poxy-icon theme" href="javascript:void(null);" id="poxy-theme-switch" onclick="toggle_theme(); return false;" role="button" title="Toggle dark and light themes"><svg id="poxy-theme-switch-img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="185.6708" cy="183.8122" fill="currentColor" r="65.625"></circle><path d="M185.6708,87.5622a13.1256,13.1256,0,0,0,13.125-13.125V52.5622a13.125,13.125,0,1,0-26.25,0v21.875A13.1257,13.1257,0,0,0,185.6708,87.5622Z" fill="currentColor"></path><path d="M99.051,115.7519a13.1236,13.1236,0,1,0,18.56-18.56L102.1442,81.726a13.1236,13.1236,0,0,0-18.5595,18.56Z" fill="currentColor"></path><path d="M89.4208,183.8122a13.1257,13.1257,0,0,0-13.125-13.125H54.4208a13.125,13.125,0,0,0,0,26.25h21.875A13.1256,13.1256,0,0,0,89.4208,183.8122Z" fill="currentColor"></path><path d="M99.051,251.8725,83.5847,267.3431a13.1236,13.1236,0,1,0,18.56,18.56l15.4663-15.4706a13.1236,13.1236,0,1,0-18.5595-18.56Z" fill="currentColor"></path><path d="M185.6708,280.0622a13.1258,13.1258,0,0,0-13.125,13.125v21.875a13.125,13.125,0,0,0,26.25,0v-21.875A13.1257,13.1257,0,0,0,185.6708,280.0622Z" fill="currentColor"></path><path d="M272.2907,251.8725a13.1236,13.1236,0,1,0-18.56,18.56l15.4663,15.4706a13.1236,13.1236,0,1,0,18.56-18.56Z" fill="currentColor"></path><path d="M330.0458,183.8122a13.1257,13.1257,0,0,0-13.125-13.125h-21.875a13.125,13.125,0,0,0,0,26.25h21.875A13.1256,13.1256,0,0,0,330.0458,183.8122Z" fill="currentColor"></path><path d="M263.0109,119.5971a13.0824,13.0824,0,0,0,9.28-3.8452l15.4663-15.4663a13.1236,13.1236,0,1,0-18.56-18.56L253.7312,97.1923a13.125,13.125,0,0,0,9.28,22.4048Z" fill="currentColor"></path><path d="M456.9379,401.6714a63.97,63.97,0,0,1-14.9963,7.2055c-19.6448,6.5283-41.8787,2.9566-58.1439-9.8523a68.9311,68.9311,0,0,1-10.835-10.8339c-12.8088-16.2663-16.3806-38.5-9.8523-58.1471a63.8444,63.8444,0,0,1,7.2077-14.9931,8.8036,8.8036,0,0,0-10.1172-13.3034,87.5188,87.5188,0,1,0,110.0372,110.04A8.8,8.8,0,0,0,456.9379,401.6714Z" fill="currentColor"></path></svg></a></li>
+            <li class="m-show-m"><a class="m-doc-search-icon" href="#search" onclick="return showSearch()" title="Search"><svg style="height: 0.9rem;" viewBox="0 0 16 16">
+              <use href="#m-doc-search-icon-path"></use>
+            </svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav></header>
+<main><article>
+  <div class="m-container m-container-inflatable">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        <h1>
+          <span class="m-breadcrumb"><a href="dir_8e810a59b98a4fd339bfb0f41bd9a82f.html">rll</a>/</span>preprocessor.h <span class="m-thin">file</span>
+        </h1>
+        <p></p>
+        <nav class="m-block m-default poxy-toc" id="poxy-toc">
+          <h3>Contents</h3>
+          <ul>
+            <li>
+              Reference
+              <ul>
+                <li><a href="#define-members">Defines</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <section id="define-members">
+          <h2><a href="#define-members">Defines</a></h2>
+          <dl class="m-doc">
+            <dt id="aa5eb300545311312d40d6eef4d2742c1">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa5eb300545311312d40d6eef4d2742c1">RLL_ALWAYS_INLINE</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a24023a56a94c6e228abd9c738a80d6d4">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a24023a56a94c6e228abd9c738a80d6d4">RLL_ARM_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="addcd0cda7596afe09c655de5e173ace2">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#addcd0cda7596afe09c655de5e173ace2">RLL_ARRAY_PARAM</a>(</span><span class="m-doc-wrap">name)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a2a0d35babde8863c71407bcec18eaeb9">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a2a0d35babde8863c71407bcec18eaeb9">RLL_ASSUME</a>(</span><span class="m-doc-wrap">expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a59107a7e8817e7825ff50ad8b228f069">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a59107a7e8817e7825ff50ad8b228f069">RLL_BEGIN_C_DECLS</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="ad3e71686d892fb57efc991db6b85de71">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ad3e71686d892fb57efc991db6b85de71">RLL_CLANG_HAS_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a4c34bcd93ed16a4602434d6a0d8544e0">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a4c34bcd93ed16a4602434d6a0d8544e0">RLL_CLANG_HAS_BUILTIN</a>(</span><span class="m-doc-wrap">builtin)</span>
+            </dt>
+            <dd></dd>
+            <dt id="afde0451355b2f2c004c4bb8052bfc7ab">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#afde0451355b2f2c004c4bb8052bfc7ab">RLL_CLANG_HAS_CPP_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a7226d4e219e805cadc15f947c613d3f0">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a7226d4e219e805cadc15f947c613d3f0">RLL_CLANG_HAS_DECLSPEC_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a8c1358dbf647be8d73b1d8a7b525598a">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a8c1358dbf647be8d73b1d8a7b525598a">RLL_CLANG_HAS_EXTENSION</a>(</span><span class="m-doc-wrap">extension)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ae9f84e69894ae6266a0a2038d93c6851">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ae9f84e69894ae6266a0a2038d93c6851">RLL_CLANG_HAS_FEATURE</a>(</span><span class="m-doc-wrap">feature)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aaca5adb70364c3fd653f689916853881">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aaca5adb70364c3fd653f689916853881">RLL_CLANG_HAS_WARNING</a>(</span><span class="m-doc-wrap">warning)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a1f98257892e669e06173b097d7dc0130">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a1f98257892e669e06173b097d7dc0130">RLL_COMPCERT_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a62dfd0415844e0496e5d5ebcb7600533">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a62dfd0415844e0496e5d5ebcb7600533">RLL_CONCAT</a>(</span><span class="m-doc-wrap">a,
+              b)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a4d3e8566eecf826d6a18688f89042060">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a4d3e8566eecf826d6a18688f89042060">RLL_CONCAT3</a>(</span><span class="m-doc-wrap">a,
+              b,
+              c)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a74126bfbe5684ccdffe8528cf2b205af">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a74126bfbe5684ccdffe8528cf2b205af">RLL_CONCAT3_EX</a>(</span><span class="m-doc-wrap">a,
+              b,
+              c)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aeb801c30fe9e3c59a7b97171fc222044">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aeb801c30fe9e3c59a7b97171fc222044">RLL_CONCAT_EX</a>(</span><span class="m-doc-wrap">a,
+              b)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a6dfe8fd3b5e01cb14c8e0eeb4d09c4c7">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a6dfe8fd3b5e01cb14c8e0eeb4d09c4c7">RLL_CONST</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a0464f0da6284d16327c45785d83c1d52">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a0464f0da6284d16327c45785d83c1d52">RLL_CONSTEXPR</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a6bc38b848df8f1730e55309c77c67a59">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a6bc38b848df8f1730e55309c77c67a59">RLL_CONST_CAST</a>(</span><span class="m-doc-wrap">T,
+              expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aff9934fe9f4d17f7dd8f10514f83cada">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aff9934fe9f4d17f7dd8f10514f83cada">RLL_CPP_CAST</a>(</span><span class="m-doc-wrap">T,
+              expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="af1909a69118659b4f461b2b2a3d9b919">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#af1909a69118659b4f461b2b2a3d9b919">RLL_CRAY_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a939518389d41a865224fec2e0d9c9a84">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a939518389d41a865224fec2e0d9c9a84">RLL_C_DECL</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a8eb0a2bf151178d56e1082ef6e683b29">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a8eb0a2bf151178d56e1082ef6e683b29">RLL_DEPRECATED</a>(</span><span class="m-doc-wrap">since)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ad6aeea9f11c37fcdca36983b84b87432">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ad6aeea9f11c37fcdca36983b84b87432">RLL_DEPRECATED_FOR</a>(</span><span class="m-doc-wrap">since,
+              replacement)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a54a12cfb4ac1da3563e2d92990a7d016">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a54a12cfb4ac1da3563e2d92990a7d016">RLL_DIAGNOSTIC_DISABLE_CAST_QUAL</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="af844f3c54a2de9e79c87969a43c9704b">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#af844f3c54a2de9e79c87969a43c9704b">RLL_DIAGNOSTIC_DISABLE_CPP98_COMPAT_WRAP_</a>(</span><span class="m-doc-wrap">x)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a9b21030c9ca4608d2aded67f4ffea552">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a9b21030c9ca4608d2aded67f4ffea552">RLL_DIAGNOSTIC_DISABLE_DEPRECATED</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a69029b61bdcb107e11a6ec3c776e600f">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a69029b61bdcb107e11a6ec3c776e600f">RLL_DIAGNOSTIC_DISABLE_UNKNOWN_CPP_ATTRIBUTES</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a45a55a00b98aebee80912b50cc9ab4c5">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a45a55a00b98aebee80912b50cc9ab4c5">RLL_DIAGNOSTIC_DISABLE_UNKNOWN_PRAGMAS</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a26108d82a282ced59218cde90c1a8657">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a26108d82a282ced59218cde90c1a8657">RLL_DIAGNOSTIC_DISABLE_UNUSED_FUNCTION</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="af9124df6b84dccc82990d31985bfacd5">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#af9124df6b84dccc82990d31985bfacd5">RLL_DIAGNOSTIC_POP</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="ac14b586371cfb4f0ca8b4a46a792e052">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ac14b586371cfb4f0ca8b4a46a792e052">RLL_DIAGNOSTIC_PUSH</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a60d2a530eff15a9d64bf5f0b804ff1ac">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a60d2a530eff15a9d64bf5f0b804ff1ac">RLL_DMC_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aade5304eeb8c28417b24878c50452e1a">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aade5304eeb8c28417b24878c50452e1a">RLL_EMPTY_BASES</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a7dabf9f905e4af11213abd10b0c6cb5c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a7dabf9f905e4af11213abd10b0c6cb5c">RLL_EMSCRIPTEN_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a0d348e168618888ce8c8ccc709e13794">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a0d348e168618888ce8c8ccc709e13794">RLL_END_C_DECLS</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="ae7603774796201b6faf74771433c4a23">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ae7603774796201b6faf74771433c4a23">RLL_FALL_THROUGH</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="ab3a2681973abfa7f224b67801a7020b8">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ab3a2681973abfa7f224b67801a7020b8">RLL_FLAGS</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="afad4ad5d3ce23a4ded865a81472acc48">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#afad4ad5d3ce23a4ded865a81472acc48">RLL_FLAGS_CAST</a>(</span><span class="m-doc-wrap">T,
+              expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ad002a7e976f0b2811ae989ad0f6a9c64">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ad002a7e976f0b2811ae989ad0f6a9c64">RLL_GCC_HAS_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aa1492dbd25f74dbedf0abbf2097bd9f5">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa1492dbd25f74dbedf0abbf2097bd9f5">RLL_GCC_HAS_BUILTIN</a>(</span><span class="m-doc-wrap">builtin,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a9f0c90acf13831848557b0c306462a07">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a9f0c90acf13831848557b0c306462a07">RLL_GCC_HAS_CPP_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ac50ab6fdd152e558094ad1a1b2a282d7">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ac50ab6fdd152e558094ad1a1b2a282d7">RLL_GCC_HAS_DECLSPEC_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aa97ee949cf853c74fd145f9df1aec56b">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa97ee949cf853c74fd145f9df1aec56b">RLL_GCC_HAS_EXTENSION</a>(</span><span class="m-doc-wrap">extension,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a34fa0f58b6e80fcaa5e769aa6879326c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a34fa0f58b6e80fcaa5e769aa6879326c">RLL_GCC_HAS_FEATURE</a>(</span><span class="m-doc-wrap">feature,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a17c835a9941ffdc4ea200d1534209105">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a17c835a9941ffdc4ea200d1534209105">RLL_GCC_HAS_WARNING</a>(</span><span class="m-doc-wrap">warning,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a3adb7c00ff0bf0d4ff232596fb90eabd">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a3adb7c00ff0bf0d4ff232596fb90eabd">RLL_GCC_NOT_CLANG_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aba236ce56827a0bd5eaa1db0cfbf187d">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aba236ce56827a0bd5eaa1db0cfbf187d">RLL_GCC_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aff1870093a17efdc66dd22d173eb6bcc">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aff1870093a17efdc66dd22d173eb6bcc">RLL_GNUC_HAS_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aff9ad702a0fff7078cc7b5d7f6226a87">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aff9ad702a0fff7078cc7b5d7f6226a87">RLL_GNUC_HAS_BUILTIN</a>(</span><span class="m-doc-wrap">builtin,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a8fc500980502dccf2dfc8202779c4ce8">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a8fc500980502dccf2dfc8202779c4ce8">RLL_GNUC_HAS_CPP_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a07235c068ba24bc0dc95a0576864a61a">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a07235c068ba24bc0dc95a0576864a61a">RLL_GNUC_HAS_DECLSPEC_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a11a8bed76956a22f71ae539c6fa002f2">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a11a8bed76956a22f71ae539c6fa002f2">RLL_GNUC_HAS_EXTENSION</a>(</span><span class="m-doc-wrap">extension,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aa3c947a418a733fd5294faedeba4a2a6">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa3c947a418a733fd5294faedeba4a2a6">RLL_GNUC_HAS_FEATURE</a>(</span><span class="m-doc-wrap">feature,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a32f9a484313dba4a82a9083b86387b80">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a32f9a484313dba4a82a9083b86387b80">RLL_GNUC_HAS_WARNING</a>(</span><span class="m-doc-wrap">warning,
+              major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a337bc996788362617f6a664b8720588f">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a337bc996788362617f6a664b8720588f">RLL_GNUC_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a5929e9db62ad07c16ae70c858f70d3fa">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a5929e9db62ad07c16ae70c858f70d3fa">RLL_HAS_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a3f93eb897fbe0e543555b84e76bc0c72">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a3f93eb897fbe0e543555b84e76bc0c72">RLL_HAS_BUILTIN</a>(</span><span class="m-doc-wrap">builtin)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a061e3667438300070b2391060b9d7362">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a061e3667438300070b2391060b9d7362">RLL_HAS_CPP_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a23feb5bd4a43dd77a38e69f788fd523c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a23feb5bd4a43dd77a38e69f788fd523c">RLL_HAS_CPP_ATTRIBUTE_NS</a>(</span><span class="m-doc-wrap">ns,
+              attribute)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a39d5d45d70987f09ea17a0fa4d00babe">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a39d5d45d70987f09ea17a0fa4d00babe">RLL_HAS_DECLSPEC_ATTRIBUTE</a>(</span><span class="m-doc-wrap">attribute)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a4699663f0ffff2f1ff225038072f4a7c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a4699663f0ffff2f1ff225038072f4a7c">RLL_HAS_EXTENSION</a>(</span><span class="m-doc-wrap">extension)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a83bea5b91ac3082f8ee5f9e9804556de">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a83bea5b91ac3082f8ee5f9e9804556de">RLL_HAS_FEATURE</a>(</span><span class="m-doc-wrap">feature)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aa2cbc1e9c6b3ca6dd8b64886fdc57cd3">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa2cbc1e9c6b3ca6dd8b64886fdc57cd3">RLL_HAS_WARNING</a>(</span><span class="m-doc-wrap">warning)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ac0945a337ead9513e35553088572df74">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ac0945a337ead9513e35553088572df74">RLL_IAR_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a9a8dae497e7a37551f0bbda7adc0e025">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a9a8dae497e7a37551f0bbda7adc0e025">RLL_IBM_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="abae695e5910e9cd4a9330c0c417cfd22">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#abae695e5910e9cd4a9330c0c417cfd22">RLL_IMPORT</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a3c459a0beecdb34e7f4a0c9812adcabf">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a3c459a0beecdb34e7f4a0c9812adcabf">RLL_INLINE</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="abf145de82fc0fa91d586de1ef0a1df19">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#abf145de82fc0fa91d586de1ef0a1df19">RLL_INTEL_CL_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a685ee323c3e6c443ff23fafb23b61c7c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a685ee323c3e6c443ff23fafb23b61c7c">RLL_INTEL_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aaf03f6b0ab61188a2acd99e5ccbc6b57">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aaf03f6b0ab61188a2acd99e5ccbc6b57">RLL_IS_CONSTANT</a>(</span><span class="m-doc-wrap">expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a1a339620fa8e3973152c319a888fb626">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a1a339620fa8e3973152c319a888fb626">RLL_LIKELY</a>(</span><span class="m-doc-wrap">expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a5019bf69f59cde28a80dc4f5fb40d108">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a5019bf69f59cde28a80dc4f5fb40d108">RLL_MALLOC</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a2461da2f49242a8b691ce521b540f945">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a2461da2f49242a8b691ce521b540f945">RLL_MCST_LCC_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aafd2bd96435ca458902f809fc0d319fe">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aafd2bd96435ca458902f809fc0d319fe">RLL_MESSAGE</a>(</span><span class="m-doc-wrap">msg)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a55c0bd4af286fc6f6cb83f43048c4645">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a55c0bd4af286fc6f6cb83f43048c4645">RLL_MSVC_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a56edf18c1dccacf4d1b2f81fb4bb5269">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a56edf18c1dccacf4d1b2f81fb4bb5269">RLL_NEVER_INLINE</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a8bab416f4eb15208f1f1c45393b16f4a">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a8bab416f4eb15208f1f1c45393b16f4a">RLL_NON_NULL</a>(</span><span class="m-doc-wrap">...)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ace591dc64cc7c5ff29e370e22bceb4ab">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ace591dc64cc7c5ff29e370e22bceb4ab">RLL_NO_ESCAPE</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a96f4992d162a79f33e6d54be40523409">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a96f4992d162a79f33e6d54be40523409">RLL_NO_RETURN</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="ac13eed9816ec76b67fe824dec98cdbf8">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ac13eed9816ec76b67fe824dec98cdbf8">RLL_NO_THROW</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a6e08e3eb78b8609b3b43b644c8882978">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a6e08e3eb78b8609b3b43b644c8882978">RLL_NULL</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a76117dfeaef11c9274dff8c6d3700641">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a76117dfeaef11c9274dff8c6d3700641">RLL_PELLES_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aab31ebbae17f4077653655bd8d902b1c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aab31ebbae17f4077653655bd8d902b1c">RLL_PGI_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a9888e2c1984ef3e119217b54d4b41b4f">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a9888e2c1984ef3e119217b54d4b41b4f">RLL_PRAGMA</a>(</span><span class="m-doc-wrap">value)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ae49d8245783fd3146da6237e56203a94">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ae49d8245783fd3146da6237e56203a94">RLL_PREDICT</a>(</span><span class="m-doc-wrap">expr,
+              expected,
+              probability)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ae21d42af080de669709c95d7c95e6688">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ae21d42af080de669709c95d7c95e6688">RLL_PREDICT_FALSE</a>(</span><span class="m-doc-wrap">expr,
+              probability)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aa7c921e766de9f09420e1ed0b8611499">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa7c921e766de9f09420e1ed0b8611499">RLL_PREDICT_TRUE</a>(</span><span class="m-doc-wrap">expr,
+              probability)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a2482789761f99c5c96d23fef525e77aa">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a2482789761f99c5c96d23fef525e77aa">RLL_PRINTF_FORMAT</a>(</span><span class="m-doc-wrap">string_idx,
+              first_to_check)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a439ae7acad268c60115664e2fcf08f74">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a439ae7acad268c60115664e2fcf08f74">RLL_PRIVATE</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a266816618b3cd6e1dcf70f43d84986a5">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a266816618b3cd6e1dcf70f43d84986a5">RLL_PUBLIC</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a2175fd49f2c1a987a346963b757a4d84">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a2175fd49f2c1a987a346963b757a4d84">RLL_PURE</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a69ae7eae11a20b1bff171f39c24b13a9">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a69ae7eae11a20b1bff171f39c24b13a9">RLL_REINTERPRET_CAST</a>(</span><span class="m-doc-wrap">T,
+              expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a6210ed4e3e4eebf399cbe5d6cd4a1d36">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a6210ed4e3e4eebf399cbe5d6cd4a1d36">RLL_REQUIRE</a>(</span><span class="m-doc-wrap">expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="adbde35fc6af941e06a1ad21b2a017db4">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#adbde35fc6af941e06a1ad21b2a017db4">RLL_REQUIRE_CONSTEXPR</a>(</span><span class="m-doc-wrap">expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a8a8b423215d288d1b340a7aa95ac3911">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a8a8b423215d288d1b340a7aa95ac3911">RLL_REQUIRE_MSG</a>(</span><span class="m-doc-wrap">expr,
+              msg)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a58f5c475fba9bf1b49194017c672eb46">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a58f5c475fba9bf1b49194017c672eb46">RLL_RESTRICT</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a8a7df7d60853bdc2458d56c779ddb4f5">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a8a7df7d60853bdc2458d56c779ddb4f5">RLL_RETURNS_NON_NULL</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a554b92baaaa48b1c785e8a369b816328">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a554b92baaaa48b1c785e8a369b816328">RLL_SENTINEL</a>(</span><span class="m-doc-wrap">position)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a5f1cd230c33fd80a269749570a6610ff">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a5f1cd230c33fd80a269749570a6610ff">RLL_STATIC_ASSERT</a>(</span><span class="m-doc-wrap">expr,
+              message)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a896ede43021babc2e1d62be53454c450">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a896ede43021babc2e1d62be53454c450">RLL_STATIC_CAST</a>(</span><span class="m-doc-wrap">T,
+              expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a05aef89ce369e284a1d621ae8ea242dd">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a05aef89ce369e284a1d621ae8ea242dd">RLL_STRINGIFY</a>(</span><span class="m-doc-wrap">x)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a0f6ff33fc3cb37a69b3c061924ba890d">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a0f6ff33fc3cb37a69b3c061924ba890d">RLL_STRINGIFY_EX</a>(</span><span class="m-doc-wrap">x)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a7ece0fd7754d6464fb2a4714238124ff">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a7ece0fd7754d6464fb2a4714238124ff">RLL_SUNPRO_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a66d62bfd58fb5e0df4442618c0251870">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a66d62bfd58fb5e0df4442618c0251870">RLL_TINYC_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aa7de88eded9f705296b9cc974d77af94">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa7de88eded9f705296b9cc974d77af94">RLL_TI_ARMCL_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ab78ea37d8b514a640624acee3dac142a">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ab78ea37d8b514a640624acee3dac142a">RLL_TI_CL2000_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ad14856c36be0f989f881ac14bb0b3f1c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ad14856c36be0f989f881ac14bb0b3f1c">RLL_TI_CL430_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a1791acc2332f193f0c46fa3e8d6ee089">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a1791acc2332f193f0c46fa3e8d6ee089">RLL_TI_CL6X_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a56c33618f2948e33263de7df4d259eb7">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a56c33618f2948e33263de7df4d259eb7">RLL_TI_CL7X_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="afbd8dc664e853b9980cbef08854b7f0a">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#afbd8dc664e853b9980cbef08854b7f0a">RLL_TI_CLPRU_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a519a2c0cf7965270b555858bee55eaf5">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a519a2c0cf7965270b555858bee55eaf5">RLL_TI_VERSION_CHECK</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              patch)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ab2a8b7a018071171ef24ba6b971e3e98">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ab2a8b7a018071171ef24ba6b971e3e98">RLL_UNAVAILABLE</a>(</span><span class="m-doc-wrap">available_since)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a25eed20ba81ae434898a44987235282a">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a25eed20ba81ae434898a44987235282a">RLL_UNLIKELY</a>(</span><span class="m-doc-wrap">expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a422fe14a0aeebad18a16b3173d4a9ba8">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a422fe14a0aeebad18a16b3173d4a9ba8">RLL_UNPREDICTABLE</a>(</span><span class="m-doc-wrap">expr)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ab11e2f6cf24605c35f2120d31582675c">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ab11e2f6cf24605c35f2120d31582675c">RLL_UNREACHABLE</a>(</span><span class="m-doc-wrap">)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a658d099bb8bee6dc6ef7a3cc24f942ac">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a658d099bb8bee6dc6ef7a3cc24f942ac">RLL_UNREACHABLE_RETURN</a>(</span><span class="m-doc-wrap">value)</span>
+            </dt>
+            <dd></dd>
+            <dt id="af51f721004208cb28527e46e8a3cffbb">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#af51f721004208cb28527e46e8a3cffbb">RLL_VERSION_DECODE_MAJOR</a>(</span><span class="m-doc-wrap">version)</span>
+            </dt>
+            <dd></dd>
+            <dt id="acb06dfd01b63661354bda568d7b8e9b5">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#acb06dfd01b63661354bda568d7b8e9b5">RLL_VERSION_DECODE_MINOR</a>(</span><span class="m-doc-wrap">version)</span>
+            </dt>
+            <dd></dd>
+            <dt id="a7b1d3d91168bf42d2c4e11526af1862e">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a7b1d3d91168bf42d2c4e11526af1862e">RLL_VERSION_DECODE_REVISION</a>(</span><span class="m-doc-wrap">version)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aa1723ec9a1adb0a4b5327f6f81227efe">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aa1723ec9a1adb0a4b5327f6f81227efe">RLL_VERSION_ENCODE</a>(</span><span class="m-doc-wrap">major,
+              minor,
+              revision)</span>
+            </dt>
+            <dd></dd>
+            <dt id="aca463561d3d1d77e6e27a894f041b00b">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#aca463561d3d1d77e6e27a894f041b00b">RLL_WARNING</a>(</span><span class="m-doc-wrap">msg)</span>
+            </dt>
+            <dd></dd>
+            <dt id="ac832f836b94aa8438e4b138e1ed721e7">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#ac832f836b94aa8438e4b138e1ed721e7">RLL_WARN_UNUSED_RESULT</a></span>
+            </dt>
+            <dd></dd>
+            <dt id="a6a1d39440eeb9096d1639d111df9ef9b">
+              <span class="m-doc-wrap-bumper">#define <a class="m-doc-self" href="#a6a1d39440eeb9096d1639d111df9ef9b">RLL_WARN_UNUSED_RESULT_MSG</a>(</span><span class="m-doc-wrap">msg)</span>
+            </dt>
+            <dd></dd>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</article></main>
+<div class="m-doc-search" id="search">
+  <a href="#!" onclick="return hideSearch()"></a>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-m-8 m-push-m-2">
+        <div class="m-doc-search-header m-text m-small">
+          <div><span class="m-label m-default">Tab</span> / <span class="m-label m-default">T</span> to search, <span class="m-label m-default">Esc</span> to close</div>
+          <div id="search-symbolcount">…</div>
+        </div>
+        <div class="m-doc-search-content">
+          <form>
+            <input autocomplete="off" autofocus="autofocus" disabled="disabled" id="search-input" name="q" placeholder="Loading …" spellcheck="false" type="search"/>
+          </form>
+          <noscript class="m-text m-danger m-text-center">Unlike everything else in the docs, the search functionality <em>requires</em> JavaScript.</noscript>
+          <div class="m-text m-dim m-text-center" id="search-help">
+            <p class="m-noindent">Search for symbols, directories, files, pages or
+            modules. You can omit any prefix from the symbol or file path; adding a
+            <code>:</code> or <code>/</code> suffix lists all members of given symbol or
+            directory.</p>
+            <p class="m-noindent">Use <span class="m-label m-dim">↓</span>
+            / <span class="m-label m-dim">↑</span> to navigate through the list,
+            <span class="m-label m-dim">Enter</span> to go.
+            <span class="m-label m-dim">Tab</span> autocompletes common prefix, you can
+            copy a link to the result using <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">L</span> while <span class="m-label m-dim">⌘</span>
+            <span class="m-label m-dim">M</span> produces a Markdown link.</p>
+          </div>
+          <div class="m-text m-warning m-text-center" id="search-notfound">Sorry, nothing was found.</div>
+          <ul id="search-results"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="search-v2.js"></script><script>install_mcss_search_shim();</script>
+<script async="async" src="searchdata-v2.js"></script>
+<footer><nav>
+  <div class="m-container">
+    <div class="m-row">
+      <div class="m-col-l-10 m-push-l-1">
+        
+<a class="poxy-external" href="https://github.com/whs31/rolly" target="_blank">GitHub</a>
+• <a class="poxy-external" href="https://github.com/whs31/rolly/issues" target="_blank">Report an issue</a>
+• <a class="poxy-external" href="https://github.com/whs31/rolly/blob/main/LICENSE" target="_blank">License</a>
+• <a download="" href="Rolly.tagfile.xml" target="_blank" type="text/xml">Doxygen tagfile</a>
+<br/><br/>
+Site generated using <a class="poxy-external" href="https://github.com/marzer/poxy/" target="_blank">Poxy</a>
+
+      </div>
+    </div>
+  </div>
+</nav></footer>
+
+
+</body></html>

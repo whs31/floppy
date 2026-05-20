@@ -18,7 +18,7 @@
   <meta content="Radar core library" property="og:description"/>
   <meta content="Radar core library" itemprop="description"/>
   <meta content="telephone=no" name="format-detection"/>
-  <meta content="Poxy v0.19.4" name="generator"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
 </head>
 <body class="poxy-has-toc">
@@ -98,6 +98,11 @@
             </dt>
             <dd>Literal operator for <code>void*</code>.</dd>
             <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a9420a97c0f5cfdb447d9d06804592410">operator""_sid</a>(</span><span class="m-doc-wrap">char const* str,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/size_t.html" target="_blank">std::<wbr/>size_t</a> const size) →  <a class="m-doc" href="namespacerll.html#a72db313564cd99b00aabb187b2ea92fd">sid</a> <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd>Literal operator for the sid.</dd>
+            <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a231a19902dcace310701720ae27f6d87">operator""_u16</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="namespacerll.html#ab0d2074a65c11665a924b42cf49675f1">ulonglong</a> const value) →  <a class="m-doc" href="namespacerll.html#ae2609383ff7a92ce58e192c12088a48c">u16</a> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Literal operator for <a class="m-doc" href="namespacerll.html#ae2609383ff7a92ce58e192c12088a48c">u16</a>.</dd>
@@ -169,6 +174,35 @@
             </h3>
             <p>Literal operator for <code>void*</code>.</p>
 <aside class="m-note m-info"><h4>Note</h4><p>This operator is not constexpr.</p></aside>
+          </div></section>
+          <section class="m-doc-details" id="a9420a97c0f5cfdb447d9d06804592410"><div>
+            <h3>
+              <span class="m-doc-wrap-bumper"><a class="m-doc" href="namespacerll.html#a72db313564cd99b00aabb187b2ea92fd">sid</a> <span class="m-doc-details-prefix">rll::<wbr/>literals::<wbr/></span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a9420a97c0f5cfdb447d9d06804592410">operator""_sid</a>(</span><span class="m-doc-wrap">char const* str,
+              <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/size_t.html" target="_blank">std::<wbr/>size_t</a> const size) <span class="m-label m-primary">constexpr</span></span></span>
+              <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="sid_8h.html">&lt;rll/sid.h&gt;</a></div>
+            </h3>
+            <p>Literal operator for the sid.</p>
+            <table class="m-table m-fullwidth m-flat">
+              <thead>
+                <tr><th colspan="2">Parameters</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="width: 1%">str</td>
+                  <td>String representation of the uuid.</td>
+                </tr>
+                <tr>
+                  <td>size</td>
+                  <td>Size of the string.</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Returns</th>
+                  <td>sid represented as u64.</td>
+                </tr>
+              </tfoot>
+            </table>
           </div></section>
           <section class="m-doc-details" id="a231a19902dcace310701720ae27f6d87"><div>
             <h3>

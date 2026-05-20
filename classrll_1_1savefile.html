@@ -18,7 +18,7 @@
   <meta content="Radar core library" property="og:description"/>
   <meta content="Radar core library" itemprop="description"/>
   <meta content="telephone=no" name="format-detection"/>
-  <meta content="Poxy v0.19.4" name="generator"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
 </head>
 <body class="poxy-has-toc">
@@ -57,7 +57,7 @@
       <div class="m-col-l-10 m-push-l-1">
         <h1>
           <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="savefile_8h.html">&lt;rll/savefile.h&gt;</a></div>
-          <div class="m-doc-template">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc" href="structrll_1_1is__serializable.html">is_<wbr/>serializable</a>&lt;T, F&gt;::value&gt;</span></span>&gt;</div>
+          <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;<a class="m-doc" href="namespacerll.html#ad09650e04b5a183e11aa9359f0f5d61d">is_<wbr/>nlohmann_<wbr/>serializable_<wbr/>v</a>&lt;T&gt;&gt;</span></span>&gt;</div>
           <span class="m-breadcrumb"><a href="namespacerll.html">rll</a>::<wbr/></span>savefile <span class="m-thin">class</span>
         </h1>
         <p></p>
@@ -121,28 +121,28 @@
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#a06f5d892132bb8409f385c1c0e4054a1">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-success">noexcept</span></span>
+              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#accf404671d59d684e7eb57f51b56c869">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-flat m-info">explicit</span>  <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Returns whether the savefile is valid or not.</dd>
-            <dt id="a451f5687856303f20dd8650825891310">
-              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a451f5687856303f20dd8650825891310">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> path) <span class="m-label m-flat m-info">explicit</span> </span>
+            <dt id="a7097b9969e0ad4205dd77d0817534c1c">
+              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a7097b9969e0ad4205dd77d0817534c1c">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> path) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd></dd>
-            <dt id="ae1fc97f18a477b69b5a6bd35f89bf993">
-              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ae1fc97f18a477b69b5a6bd35f89bf993">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> filename,
+            <dt id="a13ec1df22a9f322dfc8d2a4dd4475dcb">
+              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a13ec1df22a9f322dfc8d2a4dd4475dcb">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> const filename,
               <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp; folder) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd></dd>
-            <dt id="a188fdfe60f121166956d677afaff1f2f">
-              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a188fdfe60f121166956d677afaff1f2f">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a> const&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
+            <dt id="ac16cc641583b58260c5516227e809277">
+              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ac16cc641583b58260c5516227e809277">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a> const&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd></dd>
-            <dt id="a972cb41e50562ddd8562f5204328e55a">
-              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a972cb41e50562ddd8562f5204328e55a">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp;&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
+            <dt id="aff5699dffbd25120e5efbbac7a402d07">
+              <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aff5699dffbd25120e5efbbac7a402d07">savefile</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp;&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#a1f36c7f0d8a5ab243aad25bcb36fccec">~savefile</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">virtual</span> <span class="m-label m-flat m-success">noexcept</span></span>
+              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#adfed218d81262b840000fae8300453d4">~savefile</a>(</span><span class="m-doc-wrap">) <span class="m-label m-flat m-warning">virtual</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Closes the savefile.</dd>
           </dl>
@@ -150,44 +150,44 @@
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="a2a575101a49948994ab5ceb9509aeb44">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a2a575101a49948994ab5ceb9509aeb44">backing_path</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp;</span>
+            <dt id="a3b5143e5d9abd8b9df9f079885b3e23e">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a3b5143e5d9abd8b9df9f079885b3e23e">backing_path</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp;</span>
             </dt>
             <dd>Path to the savefile's backing file.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="classrll_1_1io_1_1filedevice.html#a7011f8cd512d96566291d255bd0675c1">exists</a>(</span><span class="m-doc-wrap">) const →  bool</span>
             </dt>
             <dd></dd>
-            <dt id="a7cbb520e49d736592df701dec803e569">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7cbb520e49d736592df701dec803e569">has_backup</a>(</span><span class="m-doc-wrap">) const →  bool <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="ada47e7d4c4c1ab83b5d42733bb61de56">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ada47e7d4c4c1ab83b5d42733bb61de56">has_backup</a>(</span><span class="m-doc-wrap">) const →  bool <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
-            <dt id="ac239e7b12245dd8cf3dee9dbfb5fd2d8">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ac239e7b12245dd8cf3dee9dbfb5fd2d8">invalidate</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="aa25b855714ae4a0ee2f84dc3c8333d2b">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#aa25b855714ae4a0ee2f84dc3c8333d2b">invalidate</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Swaps the current savefile with its backup.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="classrll_1_1io_1_1filedevice.html#a35d137f5cc9bffeedd11360095872a9a">is_regular_file</a>(</span><span class="m-doc-wrap">) const →  bool</span>
             </dt>
             <dd></dd>
-            <dt id="a58a3f8a440a9089eb721054f5edd0f7f">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a58a3f8a440a9089eb721054f5edd0f7f">load</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a012d735886dc73698090ebef9b062b84">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a012d735886dc73698090ebef9b062b84">load</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a4a81e1e47414ce01b467bf424107aea0">operator()</a>(</span><span class="m-doc-wrap">) const →  T const&amp;</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a354173faeda24df951891144d692871c">operator()</a>(</span><span class="m-doc-wrap">) const →  T const&amp;</span>
             </dt>
             <dd>Constant reference to the current values of the savefile.</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a635e7ea93e2132d07a4b334791d3b5e8">operator()</a>(</span><span class="m-doc-wrap">) →  T&amp;</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#aa4b2114c464a064dd646dc31464bb613">operator()</a>(</span><span class="m-doc-wrap">) →  T&amp;</span>
             </dt>
             <dd>Mutable reference to the current values of the savefile.</dd>
-            <dt id="a7d25d75c0f64c6f0c51684abcf040fe1">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7d25d75c0f64c6f0c51684abcf040fe1">operator=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a> const&amp;) →  <a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp; <span class="m-label m-flat m-info">defaulted</span></span>
+            <dt id="a6a98112fcedada16d89fc7653d52d73a">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a6a98112fcedada16d89fc7653d52d73a">operator=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a> const&amp;) →  <a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp; <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>Default copy assignment.</dd>
-            <dt id="a0d2103be22c1136f6ae73a85ed7d251c">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a0d2103be22c1136f6ae73a85ed7d251c">operator=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp;&amp;) →  <a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp; <span class="m-label m-flat m-info">defaulted</span></span>
+            <dt id="a5e084cc91561c6fc7a004704d479a931">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a5e084cc91561c6fc7a004704d479a931">operator=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp;&amp;) →  <a class="m-doc" href="classrll_1_1savefile.html">savefile</a>&amp; <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd>Default move assignment.</dd>
             <dt>
@@ -198,16 +198,16 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="classrll_1_1io_1_1filedevice.html#a6191895aa7c0514bbdedc22663955929">read</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a></span>
             </dt>
             <dd></dd>
-            <dt id="adf83868e6201a0991a7ddbaef39d1022">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#adf83868e6201a0991a7ddbaef39d1022">save</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a></span>
+            <dt id="a64ae5a17af66a8c0295eaf4b210d0b34">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a64ae5a17af66a8c0295eaf4b210d0b34">save</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a></span>
             </dt>
             <dd></dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="classrll_1_1io_1_1filedevice.html#a65c9cdc0c78811436a8f042ec0f95c5c">suffixed_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> const suffix) const →  <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a></span>
             </dt>
             <dd></dd>
-            <dt id="aacee02bb3f8fe5137c072312f2682a44">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#aacee02bb3f8fe5137c072312f2682a44">try_commit</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="ae0399c3c9bd16d50aeb1487b05cb6e3f">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ae0399c3c9bd16d50aeb1487b05cb6e3f">try_commit</a>(</span><span class="m-doc-wrap">) const →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Removes previous backup and replaces it with the current one.</dd>
             <dt>
@@ -218,16 +218,16 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="classrll_1_1io_1_1filedevice.html#a11d7c381e63746198b6c861950ae4c75">try_write</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> content) const →  <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
-            <dt id="aab2903cfab3dbc4acd7d4d172aad6232">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#aab2903cfab3dbc4acd7d4d172aad6232">valid</a>(</span><span class="m-doc-wrap">) const →  bool</span>
+            <dt id="a26d548646cedea2228f9eca01590763c">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a26d548646cedea2228f9eca01590763c">valid</a>(</span><span class="m-doc-wrap">) const →  bool</span>
             </dt>
             <dd>Returns whether savefile is valid or not.</dd>
-            <dt id="a78f7395631d588226f6566ea7b50d465">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a78f7395631d588226f6566ea7b50d465">values</a>(</span><span class="m-doc-wrap">) const →  T const&amp;</span>
+            <dt id="ab0bf07f8ad8e4ac8159cbdd5d46d6ab4">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ab0bf07f8ad8e4ac8159cbdd5d46d6ab4">values</a>(</span><span class="m-doc-wrap">) const →  T const&amp;</span>
             </dt>
             <dd>Constant reference to the current values of savefile.</dd>
-            <dt id="a7208710c3fbb88a02edf1e2770c9405c">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7208710c3fbb88a02edf1e2770c9405c">values_mut</a>(</span><span class="m-doc-wrap">) →  T&amp;</span>
+            <dt id="a4cb7f2a8a0e4cb1b20d1860e311f8a0d">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a4cb7f2a8a0e4cb1b20d1860e311f8a0d">values_mut</a>(</span><span class="m-doc-wrap">) →  T&amp;</span>
             </dt>
             <dd>Mutable reference to the current values of savefile.</dd>
             <dt>
@@ -242,7 +242,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper">static <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a4ef1516ee5fa402697077febc254461e">read_from</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp; path)</span></span>
             </h3>
@@ -252,7 +252,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper">static <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a>&gt; <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a1b06730a3c17168958c4281627cf928f">try_read_from</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp; path) <span class="m-label m-success">noexcept</span></span></span>
             </h3>
@@ -262,7 +262,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper">static <a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a9eda7ac0c34ec83953f51c16d16af8e0">try_write_to</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp; path,
               <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> content) <span class="m-label m-success">noexcept</span></span></span>
@@ -273,29 +273,29 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper">static void <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ab12e4daaa3e42ea772957d75b0c83205">write_to</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp; path,
               <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> content) <span class="m-label m-success">noexcept(…)</span></span></span>
             </h3>
             <p></p>
           </div></section>
-          <section class="m-doc-details" id="a06f5d892132bb8409f385c1c0e4054a1"><div>
+          <section class="m-doc-details" id="accf404671d59d684e7eb57f51b56c869"><div>
             <h3>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
-              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a06f5d892132bb8409f385c1c0e4054a1">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-info">explicit</span>  <span class="m-label m-success">noexcept</span></span></span>
+              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#accf404671d59d684e7eb57f51b56c869">operator bool</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-info">explicit</span>  <span class="m-label m-success">noexcept</span></span></span>
             </h3>
             <p>Returns whether the savefile is valid or not.</p>
-<aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#aab2903cfab3dbc4acd7d4d172aad6232">valid</a></p></aside>
+<aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a26d548646cedea2228f9eca01590763c">valid</a></p></aside>
           </div></section>
-          <section class="m-doc-details" id="a1f36c7f0d8a5ab243aad25bcb36fccec"><div>
+          <section class="m-doc-details" id="adfed218d81262b840000fae8300453d4"><div>
             <h3>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
-              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a1f36c7f0d8a5ab243aad25bcb36fccec">~savefile</a>(</span><span class="m-doc-wrap">) <span class="m-label m-warning">virtual</span> <span class="m-label m-success">noexcept</span></span></span>
+              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#adfed218d81262b840000fae8300453d4">~savefile</a>(</span><span class="m-doc-wrap">) <span class="m-label m-warning">virtual</span> <span class="m-label m-success">noexcept</span></span></span>
             </h3>
             <p>Closes the savefile.</p>
 <p>File will be saved automatically on closing.</p>
@@ -304,7 +304,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a7011f8cd512d96566291d255bd0675c1">exists</a>(</span><span class="m-doc-wrap">) const</span></span>
             </h3>
@@ -314,37 +314,37 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper">bool <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a35d137f5cc9bffeedd11360095872a9a">is_regular_file</a>(</span><span class="m-doc-wrap">) const</span></span>
             </h3>
             <p></p>
           </div></section>
-          <section class="m-doc-details" id="a4a81e1e47414ce01b467bf424107aea0"><div>
+          <section class="m-doc-details" id="a354173faeda24df951891144d692871c"><div>
             <h3>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
-              <span class="m-doc-wrap-bumper">T const&amp; <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a4a81e1e47414ce01b467bf424107aea0">operator()</a>(</span><span class="m-doc-wrap">) const</span></span>
+              <span class="m-doc-wrap-bumper">T const&amp; <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a354173faeda24df951891144d692871c">operator()</a>(</span><span class="m-doc-wrap">) const</span></span>
             </h3>
             <p>Constant reference to the current values of the savefile.</p>
-<aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a78f7395631d588226f6566ea7b50d465">values</a></p></aside>
+<aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#ab0bf07f8ad8e4ac8159cbdd5d46d6ab4">values</a></p></aside>
           </div></section>
-          <section class="m-doc-details" id="a635e7ea93e2132d07a4b334791d3b5e8"><div>
+          <section class="m-doc-details" id="aa4b2114c464a064dd646dc31464bb613"><div>
             <h3>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
-              <span class="m-doc-wrap-bumper">T&amp; <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a635e7ea93e2132d07a4b334791d3b5e8">operator()</a>(</span><span class="m-doc-wrap">)</span></span>
+              <span class="m-doc-wrap-bumper">T&amp; <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#aa4b2114c464a064dd646dc31464bb613">operator()</a>(</span><span class="m-doc-wrap">)</span></span>
             </h3>
             <p>Mutable reference to the current values of the savefile.</p>
-<aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a7208710c3fbb88a02edf1e2770c9405c">values_<wbr/>mut</a></p></aside>
+<aside class="m-note m-default"><h4>See also</h4><p><a class="m-doc" href="#a4cb7f2a8a0e4cb1b20d1860e311f8a0d">values_<wbr/>mut</a></p></aside>
           </div></section>
           <section class="m-doc-details" id="af11442a65ead0dd9e826bde916b132f3"><div>
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> const&amp; <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#af11442a65ead0dd9e826bde916b132f3">path</a>(</span><span class="m-doc-wrap">) const</span></span>
             </h3>
@@ -354,7 +354,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a6191895aa7c0514bbdedc22663955929">read</a>(</span><span class="m-doc-wrap">) const</span></span>
             </h3>
@@ -364,7 +364,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/filesystem/path.html" target="_blank">std::<wbr/>filesystem::<wbr/>path</a> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a65c9cdc0c78811436a8f042ec0f95c5c">suffixed_path</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> const suffix) const</span></span>
             </h3>
@@ -374,7 +374,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a>&lt;<a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string.html" target="_blank">std::<wbr/>string</a>&gt; <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a736cd984d5c093dab8c309b7e22d78ad">try_read</a>(</span><span class="m-doc-wrap">) const <span class="m-label m-success">noexcept</span></span></span>
             </h3>
@@ -384,7 +384,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="namespacerll.html#a180b6c7999980ef9862de8890b3cae6f">result</a> <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a11d7c381e63746198b6c861950ae4c75">try_write</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> content) const <span class="m-label m-success">noexcept</span></span></span>
             </h3>
@@ -394,7 +394,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               <span class="m-doc-wrap-bumper">void <span class="m-doc-details-prefix">rll::savefile::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ae1c065119e5d236784a84cccd17b8bdb">write</a>(</span><span class="m-doc-wrap"><a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/string/basic_string_view.html" target="_blank">std::<wbr/>string_view</a> content) const <span class="m-label m-success">noexcept(…)</span></span></span>
             </h3>
@@ -407,7 +407,7 @@
             <h3>
               <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="filedevice_8h.html">&lt;rll/io/filedevice.h&gt;</a></div>
               <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params m-doc-template-long"><span class="m-doc-template-param">typename F</span>, <span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _3</span></span>&gt;</span>
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename _2</span></span>&gt;</span>
               </div>
               static auto <span class="m-doc-details-prefix">rll::savefile::</span><a class="m-doc-self" href="#a33d0a980918c24622ccfeda453f91c10">write_permissions</a> <span class="m-label m-primary">constexpr</span>
             </h3>

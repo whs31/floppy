@@ -18,7 +18,7 @@
   <meta content="Radar core library" property="og:description"/>
   <meta content="Radar core library" itemprop="description"/>
   <meta content="telephone=no" name="format-detection"/>
-  <meta content="Poxy v0.19.4" name="generator"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
 </head>
 <body class="poxy-has-toc">
@@ -98,16 +98,8 @@
               <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ab066f55862387bf46ef0e34d3b981287">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="structrll_1_1nullopt__t.html">nullopt_<wbr/>t</a>) <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#a053b041ea270495ea6779430f7c885ed">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <span class="m-doc-wrap-bumper"><a class="m-doc" href="#ab66336fd8ca49d11d001755ba5875dde">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) <span class="m-label m-flat m-info">defaulted</span></span>
-            </dt>
-            <dd></dd>
             <dt id="a355722709bfb669c63f1b3749b58c4c3">
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class U = T</span>, <span class="m-doc-template-param">detail::enable_if_t&lt;! detail::is_optional&lt;detail::decay_t&lt;U&gt;&gt;<a class="m-doc" href="#abc179d235aab066360f65fbf473a1d0f">::<wbr/>value</a>&gt;* = nullptr</span></span>&gt;</div>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class U = T</span>, <span class="m-doc-template-param">detail::enable_if_t&lt;! detail::is_optional&lt;detail::decay_t&lt;U&gt;&gt;<a class="m-doc" href="#a46dd3d77d8dbebb434deb72d17f4fb5e">::<wbr/>value</a>&gt;* = nullptr</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a355722709bfb669c63f1b3749b58c4c3">optional</a>(</span><span class="m-doc-wrap">U&amp;&amp; u) <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Constructs the stored value with <code>u</code>.</dd>
@@ -127,12 +119,12 @@
           <dl class="m-doc">
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#ad256dec0ca157f66d7e56ee6a0a60138">and_then</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  auto</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a798c41f8fda0c10b1591e026680a7cbe">and_then</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  TL_OPTIONAL_11_CONSTEXPR auto</span>
             </dt>
             <dd></dd>
-            <dt id="a7acea33d0da2bc421a375e8c3719a709">
+            <dt id="a09e0406e4ef8cb465e3a28b1bae61489">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7acea33d0da2bc421a375e8c3719a709">and_then</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  auto</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a09e0406e4ef8cb465e3a28b1bae61489">and_then</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  TL_OPTIONAL_11_CONSTEXPR auto</span>
             </dt>
             <dd></dd>
             <dt id="a7554e79c54901c49c765126c8d604016">
@@ -150,32 +142,32 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a67e95f06e17d4a5e9b5cc2dd853e4c8f">conjunction</a>(</span><span class="m-doc-wrap">U&amp;&amp; u) const →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;typename <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/decay.html" target="_blank">std::<wbr/>decay</a>&lt;U&gt;::type&gt; <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Returns <code>u</code> if <code>*this</code> has a value, otherwise an empty optional.</dd>
-            <dt id="ad03bff29263211e962d9db6774c66634">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ad03bff29263211e962d9db6774c66634">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
+            <dt id="a165a1233ecf106bd2a362324786566b8">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a165a1233ecf106bd2a362324786566b8">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) &amp; →  TL_OPTIONAL_11_CONSTEXPR <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
             </dt>
             <dd>Returns <code>rhs</code> if <code>*this</code> is empty, otherwise the current value.</dd>
             <dt id="a9fae6ad917a22ee763d9905a0cea4913">
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a9fae6ad917a22ee763d9905a0cea4913">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) const &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd></dd>
-            <dt id="ae17362448076d3618af0c8653cf7f94e">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ae17362448076d3618af0c8653cf7f94e">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) &amp;&amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
+            <dt id="a28d5d0c8567956010c0739ea33379990">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a28d5d0c8567956010c0739ea33379990">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) &amp;&amp; →  TL_OPTIONAL_11_CONSTEXPR <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
             </dt>
             <dd></dd>
             <dt id="ab09c132f1dc0c266295d15995128ad41">
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ab09c132f1dc0c266295d15995128ad41">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) const &amp;&amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd></dd>
-            <dt id="a7fa3a0c0184f405214c9a60e22f1a574">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7fa3a0c0184f405214c9a60e22f1a574">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
+            <dt id="ab6bf4174864150c3d0a3a957dabd5d44">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ab6bf4174864150c3d0a3a957dabd5d44">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) &amp; →  TL_OPTIONAL_11_CONSTEXPR <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
             </dt>
             <dd></dd>
             <dt id="a5234a6503b5586ec10e70732001428f7">
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a5234a6503b5586ec10e70732001428f7">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) const &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a> <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd></dd>
-            <dt id="a5bd027b1c5b05c6572ab916ba2133f54">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a5bd027b1c5b05c6572ab916ba2133f54">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) &amp;&amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
+            <dt id="ae6602f834a3b17b54777ce00b3ad0e26">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ae6602f834a3b17b54777ce00b3ad0e26">disjunction</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) &amp;&amp; →  TL_OPTIONAL_11_CONSTEXPR <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
             </dt>
             <dd></dd>
             <dt id="a0412367fd1a3b3be6c17c4847025bb85">
@@ -183,7 +175,7 @@
             </dt>
             <dd></dd>
             <dt id="ad7270bf08207b58480a72e8a253b20da">
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class U = T</span>, <span class="m-doc-template-param">detail::enable_if_t&lt;! detail::is_optional&lt;detail::decay_t&lt;U&gt;&gt;<a class="m-doc" href="#abc179d235aab066360f65fbf473a1d0f">::<wbr/>value</a>&gt;* = nullptr</span></span>&gt;</div>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class U = T</span>, <span class="m-doc-template-param">detail::enable_if_t&lt;! detail::is_optional&lt;detail::decay_t&lt;U&gt;&gt;<a class="m-doc" href="#a46dd3d77d8dbebb434deb72d17f4fb5e">::<wbr/>value</a>&gt;* = nullptr</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ad7270bf08207b58480a72e8a253b20da">emplace</a>(</span><span class="m-doc-wrap">U&amp;&amp; u) →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp; <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Rebinds this optional to <code>u</code>.</dd>
@@ -191,14 +183,14 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a77f31fcef279cddc71da4bd7ce9af3bb">has_value</a>(</span><span class="m-doc-wrap">) const →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
-            <dt id="ab6e74ae7eed26cccc248c0edd4d7a6a3">
+            <dt id="aec93054187dfe3b721338b9920c4521d">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ab6e74ae7eed26cccc248c0edd4d7a6a3">map</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  auto</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#aec93054187dfe3b721338b9920c4521d">map</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  TL_OPTIONAL_11_CONSTEXPR auto</span>
             </dt>
             <dd>Carries out some operation on the stored object if there is one.</dd>
-            <dt id="a75d13aabc0809886ec448a5de013ae95">
+            <dt id="a1e4971c87db099c5820ac82625ad5130">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a75d13aabc0809886ec448a5de013ae95">map</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  auto</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a1e4971c87db099c5820ac82625ad5130">map</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  TL_OPTIONAL_11_CONSTEXPR auto</span>
             </dt>
             <dd></dd>
             <dt id="a55009df85a838503ea16238eacb9875f">
@@ -259,8 +251,8 @@
               U&amp;&amp; u) const &amp;&amp; →  detail::invoke_result_t&lt;U&gt;</span>
             </dt>
             <dd></dd>
-            <dt id="af418c75b1147ee036661b867f480c56e">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#af418c75b1147ee036661b867f480c56e">operator*</a>(</span><span class="m-doc-wrap">) →  T&amp; <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a60c33e86e51d2bbe59b729fa21fe84d9">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a60c33e86e51d2bbe59b729fa21fe84d9">operator*</a>(</span><span class="m-doc-wrap">) →  TL_OPTIONAL_11_CONSTEXPR T&amp; <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Returns the stored value.</dd>
             <dt id="ab42526fc820d5b120614edd8afeb273c">
@@ -271,8 +263,8 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a189e5b684f77cf300eea7ca55615bf81">operator-&gt;</a>(</span><span class="m-doc-wrap">) const →  T const* <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Returns a pointer to the stored value.</dd>
-            <dt id="a02d11408a22e33050d81b9c4d8ff7029">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a02d11408a22e33050d81b9c4d8ff7029">operator-&gt;</a>(</span><span class="m-doc-wrap">) →  T* <span class="m-label m-flat m-success">noexcept</span></span>
+            <dt id="a36c0b5ceeca6ca9c4f3c02130152f0d4">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a36c0b5ceeca6ca9c4f3c02130152f0d4">operator-&gt;</a>(</span><span class="m-doc-wrap">) →  TL_OPTIONAL_11_CONSTEXPR T* <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
             <dt>
@@ -284,7 +276,7 @@
             </dt>
             <dd></dd>
             <dt id="afee6714aa5a9bfb896abd2b0cf404cf4">
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class U = T</span>, <span class="m-doc-template-param">detail::enable_if_t&lt;! detail::is_optional&lt;detail::decay_t&lt;U&gt;&gt;<a class="m-doc" href="#abc179d235aab066360f65fbf473a1d0f">::<wbr/>value</a>&gt;* = nullptr</span></span>&gt;</div>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class U = T</span>, <span class="m-doc-template-param">detail::enable_if_t&lt;! detail::is_optional&lt;detail::decay_t&lt;U&gt;&gt;<a class="m-doc" href="#a46dd3d77d8dbebb434deb72d17f4fb5e">::<wbr/>value</a>&gt;* = nullptr</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#afee6714aa5a9bfb896abd2b0cf404cf4">operator=</a>(</span><span class="m-doc-wrap">U&amp;&amp; u) →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;</span>
             </dt>
             <dd>Rebinds this optional to <code>u</code>.</dd>
@@ -293,9 +285,17 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a8834d6c254dfa8dde19323d63da8b870">operator=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;U&gt; const&amp; rhs) →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp; <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd></dd>
-            <dt id="a441c8a19b72b66b9de1ba7f1a2fc76f5">
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#acf19da218d5deb7b862ba93e050a5164">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) →  TL_OPTIONAL_11_CONSTEXPR <span class="m-label m-flat m-info">defaulted</span> <span class="m-label m-flat m-success">noexcept</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="#a08c797c46df23af72db3ea4e5d858567">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) →  TL_OPTIONAL_11_CONSTEXPR <span class="m-label m-flat m-info">defaulted</span></span>
+            </dt>
+            <dd></dd>
+            <dt id="a7aa4bcf09ad343469f162980a352b874">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span>, <span class="m-doc-template-param">detail::enable_if_ret_void&lt;F&gt;* = nullptr</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a441c8a19b72b66b9de1ba7f1a2fc76f5">or_else</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;T&gt;</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7aa4bcf09ad343469f162980a352b874">or_else</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;T&gt; TL_OPTIONAL_11_CONSTEXPR</span>
             </dt>
             <dd>Calls <code>f</code> if the optional is empty.</dd>
             <dt id="ac2cc0d96e17ff92ec83a6261a6c01bd5">
@@ -303,9 +303,19 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ac2cc0d96e17ff92ec83a6261a6c01bd5">or_else</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;T&gt;</span>
             </dt>
             <dd></dd>
+            <dt id="a0122557f628c47076c07f4d7d4e90ded">
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span>, <span class="m-doc-template-param">detail::disable_if_ret_void&lt;F&gt;* = nullptr</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a0122557f628c47076c07f4d7d4e90ded">or_else</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;T&gt; TL_OPTIONAL_11_CONSTEXPR</span>
+            </dt>
+            <dd></dd>
             <dt id="a5debf11dbc80653352f59438221cd61e">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span>, <span class="m-doc-template-param">detail::enable_if_ret_void&lt;F&gt;* = nullptr</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a5debf11dbc80653352f59438221cd61e">or_else</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) const &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;T&gt;</span>
+            </dt>
+            <dd></dd>
+            <dt id="a15bd9c65f32109e24796a6834ffd019b">
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span>, <span class="m-doc-template-param">detail::disable_if_ret_void&lt;F&gt;* = nullptr</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a15bd9c65f32109e24796a6834ffd019b">or_else</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) const &amp; →  <a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;T&gt; TL_OPTIONAL_11_CONSTEXPR</span>
             </dt>
             <dd></dd>
             <dt id="ac4f786facef467c8c5a1a8582aea57b6">
@@ -325,14 +335,14 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a36e40b7618c07b099c8f2a181d1d8925">take</a>(</span><span class="m-doc-wrap">) →  <a class="m-doc" href="classrll_1_1optional.html">optional</a></span>
             </dt>
             <dd>Takes the value out of the optional, leaving it empty.</dd>
-            <dt id="ab3c2ed41ff925e855bbaa52b998f0848">
+            <dt id="a6b6a71d77c471ecd7fdf4e8857391c7c">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#ab3c2ed41ff925e855bbaa52b998f0848">transform</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  auto</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a6b6a71d77c471ecd7fdf4e8857391c7c">transform</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp; →  TL_OPTIONAL_11_CONSTEXPR auto</span>
             </dt>
             <dd>Carries out some operation on the stored object if there is one.</dd>
-            <dt id="a826de387ba03fa869f7dddb9dffe55a2">
+            <dt id="a215641d8634626d65efcbd994f6746fa">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a826de387ba03fa869f7dddb9dffe55a2">transform</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  auto</span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a215641d8634626d65efcbd994f6746fa">transform</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;&amp; →  TL_OPTIONAL_11_CONSTEXPR auto</span>
             </dt>
             <dd></dd>
             <dt id="ab035365f09f09a69f4becd654e2f61cd">
@@ -345,12 +355,12 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#aa4e3aeac37aabd43873b1949ef7f6ccb">transform</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) const &amp;&amp; →  auto <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd></dd>
-            <dt id="abc179d235aab066360f65fbf473a1d0f">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#abc179d235aab066360f65fbf473a1d0f">value</a>(</span><span class="m-doc-wrap">) →  T&amp;</span>
+            <dt id="a46dd3d77d8dbebb434deb72d17f4fb5e">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a46dd3d77d8dbebb434deb72d17f4fb5e">value</a>(</span><span class="m-doc-wrap">) →  TL_OPTIONAL_11_CONSTEXPR T&amp;</span>
             </dt>
             <dd>Returns the contained value if there is one, otherwise throws <a class="m-doc" href="classrll_1_1bad__optional__access.html">bad_<wbr/>optional_<wbr/>access</a>.</dd>
-            <dt id="a9f7e7d1ccd95a3cf6a26181aabb4ec7b">
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a9f7e7d1ccd95a3cf6a26181aabb4ec7b">value</a>(</span><span class="m-doc-wrap">) const →  const T&amp;</span>
+            <dt id="a7e7627377deeeaef70f7d19e7f9aa559">
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7e7627377deeeaef70f7d19e7f9aa559">value</a>(</span><span class="m-doc-wrap">) const →  TL_OPTIONAL_11_CONSTEXPR const T&amp;</span>
             </dt>
             <dd></dd>
             <dt id="af3aec5092e3d90f854eb205d0af57521">
@@ -358,41 +368,23 @@
               <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#af3aec5092e3d90f854eb205d0af57521">value_or</a>(</span><span class="m-doc-wrap">U&amp;&amp; u) const &amp; →  T <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>Returns the stored value if there is one, otherwise returns <code>u</code></dd>
-            <dt id="a214a83b949f684d01a040febfa05e109">
+            <dt id="a7603273687707722c3a3eba7ce1f214e">
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class U</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a214a83b949f684d01a040febfa05e109">value_or</a>(</span><span class="m-doc-wrap">U&amp;&amp; u) &amp;&amp; →  T <span class="m-label m-flat m-success">noexcept</span></span>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc-self" href="#a7603273687707722c3a3eba7ce1f214e">value_or</a>(</span><span class="m-doc-wrap">U&amp;&amp; u) &amp;&amp; →  TL_OPTIONAL_11_CONSTEXPR T <span class="m-label m-flat m-success">noexcept</span></span>
             </dt>
             <dd>\group value_or</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="a053b041ea270495ea6779430f7c885ed"><div>
-            <h3>
-              <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class T</span></span>&gt;</span>
-              </div>
-              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::optional::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a053b041ea270495ea6779430f7c885ed">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) <span class="m-label m-info">defaulted</span> <span class="m-label m-success">noexcept</span></span></span>
-            </h3>
-<p>Copy constructor</p><p>If <code>rhs</code> contains a value, the stored value is direct-initialized with it. Otherwise, the constructed optional is empty.</p>
-          </div></section>
-          <section class="m-doc-details" id="ab66336fd8ca49d11d001755ba5875dde"><div>
-            <h3>
-              <div class="m-doc-template">
-                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class T</span></span>&gt;</span>
-              </div>
-              <span class="m-doc-wrap-bumper"> <span class="m-doc-details-prefix">rll::optional::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ab66336fd8ca49d11d001755ba5875dde">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) <span class="m-label m-info">defaulted</span></span></span>
-            </h3>
-<p>Move constructor</p><p>If <code>rhs</code> contains a value, the stored value is direct-initialized with it. Otherwise, the constructed optional is empty.</p>
-          </div></section>
-          <section class="m-doc-details" id="ad256dec0ca157f66d7e56ee6a0a60138"><div>
+          <section class="m-doc-details" id="a798c41f8fda0c10b1591e026680a7cbe"><div>
             <h3>
               <div class="m-doc-template">
                 <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class T</span></span>&gt;</span>
                 <br/>
                 template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class F</span></span>&gt;
               </div>
-              <span class="m-doc-wrap-bumper">auto <span class="m-doc-details-prefix">rll::optional::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#ad256dec0ca157f66d7e56ee6a0a60138">and_then</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;</span></span>
+              <span class="m-doc-wrap-bumper">TL_OPTIONAL_11_CONSTEXPR auto <span class="m-doc-details-prefix">rll::optional::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a798c41f8fda0c10b1591e026680a7cbe">and_then</a>(</span><span class="m-doc-wrap">F&amp;&amp; f) &amp;</span></span>
             </h3>
 <p>Carries out some operation which returns an optional on the stored object if there is one.</p>
           </div></section>
@@ -436,6 +428,24 @@
               <span class="m-doc-wrap-bumper"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp; <span class="m-doc-details-prefix">rll::optional::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a8834d6c254dfa8dde19323d63da8b870">operator=</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&lt;U&gt; const&amp; rhs) <span class="m-label m-success">noexcept</span></span></span>
             </h3>
 <p>Converting copy assignment operator.</p><p>Rebinds this optional to the referee of <code>rhs</code> if there is one. Otherwise resets the stored value in <code>*this</code>.</p>
+          </div></section>
+          <section class="m-doc-details" id="acf19da218d5deb7b862ba93e050a5164"><div>
+            <h3>
+              <div class="m-doc-template">
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class T</span></span>&gt;</span>
+              </div>
+              <span class="m-doc-wrap-bumper">TL_OPTIONAL_11_CONSTEXPR <span class="m-doc-details-prefix">rll::optional::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#acf19da218d5deb7b862ba93e050a5164">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a> const&amp; rhs) <span class="m-label m-info">defaulted</span> <span class="m-label m-success">noexcept</span></span></span>
+            </h3>
+<p>Copy constructor</p><p>If <code>rhs</code> contains a value, the stored value is direct-initialized with it. Otherwise, the constructed optional is empty.</p>
+          </div></section>
+          <section class="m-doc-details" id="a08c797c46df23af72db3ea4e5d858567"><div>
+            <h3>
+              <div class="m-doc-template">
+                <span class="m-doc-template-parent">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">class T</span></span>&gt;</span>
+              </div>
+              <span class="m-doc-wrap-bumper">TL_OPTIONAL_11_CONSTEXPR <span class="m-doc-details-prefix">rll::optional::</span></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a class="m-doc-self" href="#a08c797c46df23af72db3ea4e5d858567">optional</a>(</span><span class="m-doc-wrap"><a class="m-doc" href="classrll_1_1optional.html">optional</a>&amp;&amp; rhs) <span class="m-label m-info">defaulted</span></span></span>
+            </h3>
+<p>Move constructor</p><p>If <code>rhs</code> contains a value, the stored value is direct-initialized with it. Otherwise, the constructed optional is empty.</p>
           </div></section>
         </section>
       </div>

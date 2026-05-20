@@ -18,7 +18,7 @@
   <meta content="Radar core library" property="og:description"/>
   <meta content="Radar core library" itemprop="description"/>
   <meta content="telephone=no" name="format-detection"/>
-  <meta content="Poxy v0.19.4" name="generator"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
 </head>
 <body class="poxy-has-toc">
@@ -56,7 +56,7 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="dir_745525cd4fc4efbd9885e3cf3588e3bb.html">rll</a>/</span>math.h <span class="m-thin">file</span>
+          <span class="m-breadcrumb"><a href="dir_8e810a59b98a4fd339bfb0f41bd9a82f.html">rll</a>/</span>math.h <span class="m-thin">file</span>
         </h1>
         <p></p>
         <nav class="m-block m-default poxy-toc" id="poxy-toc">
@@ -95,6 +95,13 @@
             <dd>Returns true if numbers are approximately equal within given epsilon.</dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a7d8972e53be690767b8007e39323beef">clamp</a>(</span><span class="m-doc-wrap">T value,
+              T min,
+              T max) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a3609f72bf9b34e19aa946b3818906083">div_euclid</a>(</span><span class="m-doc-wrap">T a,
               T b) →  T</span>
             </dt>
@@ -115,6 +122,13 @@
               T epsilon = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/numeric_limits.html" target="_blank">std::<wbr/>numeric_limits</a>&lt;T&gt;::epsilon()) →  bool <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Returns true if number is approximately zero within given epsilon.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a42944c5600bb2d09710b388d9bd0af0c">lerp</a>(</span><span class="m-doc-wrap">T a,
+              T b,
+              T t) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a74d83336c78fa897694e02f6a7ab23be">max</a>(</span><span class="m-doc-wrap">T&amp;&amp; v) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
@@ -139,6 +153,13 @@
               Args const&amp;... args) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
             </dt>
             <dd>Returns the minimum value among the provided arguments.</dd>
+            <dt>
+              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
+              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a9c3d35c06db4604dff64ef36844cd668">normalize</a>(</span><span class="m-doc-wrap">T value,
+              T min,
+              T max) →  T <span class="m-label m-flat m-primary">constexpr</span></span>
+            </dt>
+            <dd></dd>
             <dt>
               <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename = <a class="m-doc-external poxy-cppreference poxy-external" href="http://en.cppreference.com/w/cpp/types/enable_if.html" target="_blank">std::<wbr/>enable_if_t</a>&lt;is_num_v&lt;T&gt;&gt;</span></span>&gt;</div>
               <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a361c57dccc4d77581f9b1683da801ca8">rem_euclid</a>(</span><span class="m-doc-wrap">T a,

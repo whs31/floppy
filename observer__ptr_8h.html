@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="utf-8"/>
-  <title>rll/memory/observer_ptr.h file | Rolly Radar core library</title>
+  <title>rll/observer_ptr.h file | Rolly Radar core library</title>
   <link href="favicon.ico" rel="icon" type="image/vnd.microsoft.icon"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <meta content="#22272e" name="theme-color"/>
@@ -18,10 +18,10 @@
   <meta content="Radar core library" property="og:description"/>
   <meta content="Radar core library" itemprop="description"/>
   <meta content="telephone=no" name="format-detection"/>
-  <meta content="Poxy v0.19.4" name="generator"/>
+  <meta content="Poxy v0.20.1" name="generator"/>
   <meta content="strict-origin-when-cross-origin" name="referrer"/>
 </head>
-<body class="poxy-has-toc">
+<body>
 <header><nav id="navigation">
   <div class="m-container">
     <div class="m-row">
@@ -56,85 +56,9 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
-          <span class="m-breadcrumb"><a href="dir_745525cd4fc4efbd9885e3cf3588e3bb.html">rll</a>/</span><span class="m-breadcrumb"><a href="dir_407243c5c5dcfaf19c007fdfda5e6055.html">memory</a>/</span>observer_ptr.h <span class="m-thin">file</span>
+          <span class="m-breadcrumb"><a href="dir_8e810a59b98a4fd339bfb0f41bd9a82f.html">rll</a>/</span>observer_ptr.h <span class="m-thin">file</span>
         </h1>
         <p></p>
-        <nav class="m-block m-default poxy-toc" id="poxy-toc">
-          <h3>Contents</h3>
-          <ul>
-            <li>
-              Reference
-              <ul>
-                <li><a href="#namespaces">Namespaces</a></li>
-                <li><a href="#nested-classes">Classes</a></li>
-                <li><a href="#func-members">Functions</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
-        <section id="namespaces">
-          <h2><a href="#namespaces">Namespaces</a></h2>
-          <dl class="m-doc">
-            <dt>namespace <a class="m-doc" href="namespacerll.html">rll</a></dt>
-            <dd>Contract-programming related functions and classes.</dd>
-          </dl>
-        </section>
-        <section id="nested-classes">
-          <h2><a href="#nested-classes">Classes</a></h2>
-          <dl class="m-doc">
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              class <a class="m-doc" href="classrll_1_1observer__ptr.html">rll::observer_ptr</a>
-            </dt>
-            <dd>A smart pointer that holds a pointer to a value, but does not own it.</dd>
-          </dl>
-        </section>
-        <section id="func-members">
-          <h2><a href="#func-members">Functions</a></h2>
-          <dl class="m-doc">
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#ad5173e7623857d47497d630da58ae3dc">make_observer</a>(</span><span class="m-doc-wrap">T* ptr) →  observer_ptr&lt;T&gt; <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a292db00f4861dfbeefad863b1bc597cd">operator!=</a>(</span><span class="m-doc-wrap">observer_ptr&lt;T&gt; const&amp; lhs,
-              observer_ptr&lt;U&gt; const&amp; rhs) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a8fb77180382b9b81d3dfcbe862975bd3">operator&lt;</a>(</span><span class="m-doc-wrap">observer_ptr&lt;T&gt; const&amp; lhs,
-              observer_ptr&lt;U&gt; const&amp; rhs) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#ab3f607d4a0a3e67b0c9bd7003e8e2a83">operator&lt;=</a>(</span><span class="m-doc-wrap">observer_ptr&lt;T&gt; const&amp; lhs,
-              observer_ptr&lt;U&gt; const&amp; rhs) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a4b35da612cf42cf7fbc034f6a42fdfb8">operator==</a>(</span><span class="m-doc-wrap">observer_ptr&lt;T&gt; const&amp; lhs,
-              observer_ptr&lt;U&gt; const&amp; rhs) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a94dbd2132831b9c037da42f4558bb0fa">operator&gt;</a>(</span><span class="m-doc-wrap">observer_ptr&lt;T&gt; const&amp; lhs,
-              observer_ptr&lt;U&gt; const&amp; rhs) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-            <dt>
-              <div class="m-doc-template">template &lt;<span class="m-doc-template-params"><span class="m-doc-template-param">typename T</span>, <span class="m-doc-template-param">typename U</span></span>&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a class="m-doc" href="namespacerll.html#a669aa7532b39c1a3005be0bee9cded1f">operator&gt;=</a>(</span><span class="m-doc-wrap">observer_ptr&lt;T&gt; const&amp; lhs,
-              observer_ptr&lt;U&gt; const&amp; rhs) →  bool <span class="m-label m-flat m-primary">constexpr</span> <span class="m-label m-flat m-success">noexcept</span></span>
-            </dt>
-            <dd></dd>
-          </dl>
-        </section>
       </div>
     </div>
   </div>
